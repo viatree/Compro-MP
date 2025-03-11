@@ -3,7 +3,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffff;
   --primary: #1c9ad6;
   --lighter: #61c2ee;
   --darker: #1981b4;
@@ -24,7 +24,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -34,3 +34,4 @@ body {
   color: var(--foreground);
   font-family: 'Montserrat', sans-serif;
 }
+

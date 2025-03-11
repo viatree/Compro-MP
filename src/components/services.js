@@ -1,9 +1,9 @@
 const Services = () => {
     return (
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center text-blue-600">What We Offer</h2>
-        <p className="mt-4 text-center text-gray-700">
-          PT Mega Putra telah berkembang menjadi perusahaan produksi packaging kertas terkemuka.
+      <section className=" py-6 px-8 md:px-16 lg:px-24 xl:px-47">
+        <h1 className="mt-6 text-3xl font-black text-left text-[var(--color-primary)]">What We Offer</h1>
+        <p className="mt-6 text-left text-base text-[var(--color-text)]">
+        First established in 1997, PT Mega Putra has now developed into a leading offset printing and production company which focuses on Packaging. We have more than 15 years of experience in serving both local & international customers.
         </p>
         <div className="mt-10 grid md:grid-cols-4 gap-6">
           <div className="text-center">
