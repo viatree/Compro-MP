@@ -1,8 +1,15 @@
 @import "tailwindcss";
+@import "@fontsource/montserrat"; /* Menggunakan font Montserrat */
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1c9ad6;
+  --lighter: #61c2ee;
+  --darker: #1981b4;
+  --text: #041C28;
+
+
 }
 
 @theme inline {
@@ -10,6 +17,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-lighter: var(--lighter);
+  --color-darker: var(--darker);
+  --color-text: var(--text);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +33,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
