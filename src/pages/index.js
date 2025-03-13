@@ -61,16 +61,16 @@ export default function Home() {
   <h1 className="text-3xl font-bold text-center text-[var(--color-primary)]">How It Works</h1>
 
   {/* Progress Steps */}
-  {/* <div className="mt-8 flex flex-col items-center">
-    <div className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white flex justify-between items-center py-4 px-10 rounded-lg">
+  <div className="mt-8 flex flex-col items-center">
+    <div className="w-full bg-[var(--color-primary)] text-white flex justify-between items-center py-4 px-10">
       {["Inquiry", "Quotation", "Development", "Production", "Shipment"].map((step, index) => (
         <div key={index} className="flex items-center">
-          {index > 0 && <div className="w-6 h-6 border-t-4 border-l-4 border-white transform -ml-3"></div>}
+          {index > 0 && <div className="w-6 h-6  transform -ml-3"></div>}
           <span className="text-lg font-semibold">{step}</span>
         </div>
       ))}
     </div>
-  </div> */}
+  </div>
 
   {/* Content with Image */}
   <div className="mt-10 flex flex-col md:flex-row items-center">
