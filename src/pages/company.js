@@ -2,7 +2,7 @@ import SEO from "../components/seo";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-export default function Home() {
+export default function company() {
   return (
     <>
       <SEO
