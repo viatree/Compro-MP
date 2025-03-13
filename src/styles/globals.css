@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@fontsource/montserrat"; /* Menggunakan font Montserrat */
 
 :root {
   --background: #ffffff;
@@ -33,5 +32,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Montserrat', sans-serif;
+  
 }
-
