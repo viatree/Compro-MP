@@ -117,36 +117,40 @@ export default function Home() {
         alt="Printing Machine"
         className="w-full shadow-lg"
       />
-      <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
-        <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
-        <p className="text-sm mt-1">
-          First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
-        </p>
-        <a href="#" className="mt-2 inline-block text-white font-semibold">
-          Learn More →
-        </a>
-      </div>
+  <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
+    <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
+    <p className="text-sm mt-1">
+      First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
+    </p>
+    <div className="mt-2 flex justify-end">
+      <a href="#" className="inline-block text-white">
+        Learn More →
+      </a>
     </div>
+  </div>
+</div>
 
-    {/* Kartu Kedua */}
-    <div className="relative group">
-      <img
-        src="/images/pict7.png"
-        alt="Packaging Box"
-        className="w-full shadow-lg"
-      />
-      <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
-        <h2 className="text-lg font-semibold">
-          28 Year of dedication: journey of values and vision
-        </h2>
-        <p className="text-sm mt-1">
-          First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
-        </p>
-        <a href="#" className="mt-2 inline-block text-white font-semibold">
-          Learn More →
-        </a>
-      </div>
+  {/* Kartu Kedua */}
+<div className="relative group">
+  <img
+    src="/images/pict7.png"
+    alt="Packaging Box"
+    className="w-full shadow-lg"
+  />
+  <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
+    <h2 className="text-lg font-semibold">
+      28 Year of dedication: journey of values and vision
+    </h2>
+    <p className="text-sm mt-1">
+      First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
+    </p>
+    <div className="mt-2 flex justify-end">
+      <a href="#" className="inline-block text-white">
+        Learn More →
+      </a>
     </div>
+  </div>
+</div>
   </div>
 </section>
 
