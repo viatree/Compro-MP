@@ -14,12 +14,12 @@ const Hero = () => {
         </p>
 
         {/* Button dengan gambar */}
-        <a href="/solutions" className="relative mt-6 inline-block">
+        <Link href="/solutions" className="relative mt-6 inline-block">
           <img src="/images/button.png" alt="Explore More" className="w-[200px] h-auto" />
           <span className="absolute top-1/2 left-18 transform -translate-x-1/2 -translate-y-1/2 text-white font-semibold text-[18px] ml-">
             Explore More
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   );
