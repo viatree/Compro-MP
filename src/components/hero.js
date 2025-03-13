@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Hero = () => {
   return (
     <section className="relative w-full h-screen bg-[url('/images/banner.png')] bg-cover flex items-center mt-18">
