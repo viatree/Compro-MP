@@ -94,6 +94,62 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+<section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43">
+  {/* Judul Section */}
+  <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
+    Commitment to Quality and Standards
+  </h1>
+
+  {/* Logo Sertifikasi */}
+  <div className="mt-6 flex justify-end space-x-8">
+    <img src="/images/halal.png" alt="Halal Certification" className="h-32" />
+    <img src="/images/sgs.png" alt="SGS Certification" className="h-32" />
+    <img src="/images/fsc.png" alt="FSC Certification" className="h-32" />
+  </div>
+
+  {/* Konten dengan Dua Kartu */}
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Kartu Pertama */}
+    <div className="relative group">
+      <img
+        src="/images/pict7.png"
+        alt="Printing Machine"
+        className="w-full rounded-lg shadow-lg"
+      />
+      <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white p-6">
+        <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
+        <p className="text-sm mt-1">
+          First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
+        </p>
+        <a href="#" className="mt-2 inline-block text-white font-semibold">
+          Learn More →
+        </a>
+      </div>
+    </div>
+
+    {/* Kartu Kedua */}
+    <div className="relative group">
+      <img
+        src="/images/pict7.png"
+        alt="Packaging Box"
+        className="w-full rounded-lg shadow-lg"
+      />
+      <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white p-6">
+        <h2 className="text-lg font-semibold">
+          28 Year of dedication: journey of values and vision
+        </h2>
+        <p className="text-sm mt-1">
+          First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
+        </p>
+        <a href="#" className="mt-2 inline-block text-white font-semibold">
+          Learn More →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
       <Footer />
     </>
   );
