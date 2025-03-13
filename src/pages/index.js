@@ -115,9 +115,9 @@ export default function Home() {
       <img
         src="/images/pict7.png"
         alt="Printing Machine"
-        className="w-full rounded-lg shadow-lg"
+        className="w-full shadow-lg"
       />
-      <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white p-6">
+      <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
         <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
         <p className="text-sm mt-1">
           First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
@@ -133,9 +133,9 @@ export default function Home() {
       <img
         src="/images/pict7.png"
         alt="Packaging Box"
-        className="w-full rounded-lg shadow-lg"
+        className="w-full shadow-lg"
       />
-      <div className="absolute bottom-0 left-0 w-full bg-blue-500 text-white p-6">
+      <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
         <h2 className="text-lg font-semibold">
           28 Year of dedication: journey of values and vision
         </h2>
