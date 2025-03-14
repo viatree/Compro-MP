@@ -16,14 +16,20 @@ const Footer = () => {
           {/* Contact Us */}
           <div className="flex flex-col items-center md:items-start mx-18">
             <h3 className="text-md font-bold">CONTACT US</h3>
-            <p className="mt-4 text-xs flex items-center">📞 021-29662288</p>
-            <p className="mt-2 flex text-xs items-center">✉️ marketing@megaputra.com</p>
+            <div className="flex items-center mt-4">
+              <img src="/images/telp.png" alt="Telpon" className="w-4 h-4 mr-2" />
+              <p className="text-xs">021-29662288</p>
+            </div>
+            <div className="flex items-center mt-2">
+              <img src="/images/email.png" alt="Email" className="w-4 h-4 mr-2" />
+              <p className="text-xs">marketing@megaputra.com</p>
+            </div>
           </div>
 
           {/* Alamat */}
-          <div className="flex flex-col items-center md:items-start mx-12">
+          <div className="flex flex-col items-center md:items-start mx-20">
             <h3 className="text-md font-bold">ADDRESS</h3>
-            <p className="mt-4 text-xs">Jl. Raya Puspiptek No.18, RT.7/RW.2,<br></br>Kota Tangerang Selatan, Banten 15315</p>
+            <p className="mt-4 text-xs">Jl. Raya Puspiptek No.18, RT.7/RW.2,Kota Tangerang Selatan, Banten 15315</p>
           </div>
 
           {/* Quick Links */}
@@ -40,23 +46,23 @@ const Footer = () => {
         </div>
 
         {/* Garis pemisah */}
-         {/* Social Media di pojok kiri */}
-         <div className="flex space-x-6">
-            <FaFacebookF className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
-            <FaTwitter className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
-            <FaInstagram className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
-            <FaLinkedinIn className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
-            <FaYoutube className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
-          </div>
-          
+        {/* Social Media di pojok kiri */}
+        <div className="flex space-x-6">
+          <FaFacebookF className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
+          <FaTwitter className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
+          <FaInstagram className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
+          <FaLinkedinIn className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
+          <FaYoutube className="text-3xl cursor-pointer hover:text-[var(--color-lighter)]" />
+        </div>
+
         <div className="border-t-4 border-white mt-4 pt-6 flex flex-col md:flex-row justify-between items-center">
-         
+
           {/* Copyright di tengah atau kanan */}
           <p className="text-sm text-center font-light md:text-right mt-4 md:mt-0">
             Copyright © MegaPutra.
           </p>
           <p className="text-sm text-center md:text-left mt-4 md:mt-0">
-             All Rights Reserved.
+            All Rights Reserved.
           </p>
         </div>
       </div>
