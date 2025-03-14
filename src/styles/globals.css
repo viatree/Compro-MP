@@ -7,7 +7,7 @@
   --lighter: #61c2ee;
   --darker: #1981b4;
   --text: #041C28;
-
+  --text25: rgba(0, 13, 19, 0.25);
 }
 
 @theme inline {
@@ -19,6 +19,7 @@
   --color-lighter: var(--lighter);
   --color-darker: var(--darker);
   --color-text: var(--text);
+  --color-text25: var(--text25);
 }
 
 @media (prefers-color-scheme: dark) {

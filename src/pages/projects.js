@@ -20,12 +20,12 @@ export default function projects() {
         </p>
       </section>
       {/* Filter Tabs */}
-      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-32">
-        <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
-          Our Packaging Projects
-        </h1>
+      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43">
+        <p className=" text-left text-base text-[var(--color-text)]">
+        Lorem ipsum dolor sit amet cem ipsum dolor sit amet consectetur. Ut ut quis tristique donec volutpat in. Enim potenti nulla ac mistique donec volutpat in. Enim potenti nulla ac maamet consectetur. Ut ut quis tristiq Lorem ipsum dolor sit amet consectetur. Ut ut quis tristique donec volutpat in. Enim potenti nulla ac mistique donec volutpat in. Enim potenti nulla ac maamet consectetur..
+        </p>
 
-        <div className="mt-6 flex justify-between space-x-10 border-b-3 border-[var(--color-lighter)]">
+        <div className="mt-6 flex justify-between border-b-3 border-[var(--color-lighter)]">
           {["All Industries", "Pharmaceutical", "Food and Beverages", "Electronics", "Retail", "Asi Gloves"].map(
             (category, index) => (
               <button
@@ -41,7 +41,7 @@ export default function projects() {
         </div>
           
         {/* Grid Layout */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-316 h-auto">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-auto h-auto">
           {[
             "/images/p1.png",
             "/images/p2.png",
