@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/montserrat": "^5.2.5",
     "@next/font": "^14.2.15",
+    "framer-motion": "^12.5.0",
     "next": "15.2.1",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",

@@ -35,3 +35,36 @@ body {
   font-family: 'Montserrat', sans-serif;
   
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: #3f704d; /* Warna teks hijau */
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  position: absolute;
+}
