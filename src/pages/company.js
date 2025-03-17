@@ -138,7 +138,7 @@ export default function company() {
     </defs>
     <text>
       <textPath href="#textPath" startOffset="0%">
-        • SUSTAINABILITY • ECOLOGY • ARIDLANDS • SUSTAINABILITY • ECOLOGY • ARIDLANDS 
+        • SUSTAINABILITY • ECOLOGY • ARIDLANDS • SUSTAINABILITY • ECOLOGY • ARIDLANDS
       </textPath>
     </text>
   </svg>
