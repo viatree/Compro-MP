@@ -6,7 +6,7 @@ export default function projects() {
   return (
     <>
       <SEO
-        title="Mega Putra | Paper Packaging Solutions"
+        title="Mega Putra | Quality is Priority"
         description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging kertas dengan kualitas terbaik."
         keywords="packaging, printing, offset printing, box packaging, Mega Putra"
         image="/images/og-image.jpg"

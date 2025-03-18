@@ -64,7 +64,7 @@ export default function Timeline() {
           {timelineData.map((item, index) => (
             <motion.div
               key={index}
-              className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-6 rounded-lg shadow-lg transition-all duration-300 ${
+              className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-6 shadow-lg transition-all duration-300 ${
                 index === activeIndex ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
               }`}
               whileTap={{ scale: 1.05 }}
@@ -78,9 +78,9 @@ export default function Timeline() {
       </div>
 
       {/* Scrollbar */}
-      <div className="mt-4 ml-8 w-1/3 relative h-1 bg-gray-300 rounded">
+      <div className="mt-4 ml-8 w-1/3 relative h-1 bg-gray-300">
         <motion.div
-          className="absolute top-0 left-0 h-1 bg-blue-500 rounded"
+          className="absolute top-0 left-0 h-1 bg-blue-500 rounded "
           style={{ width: `${progress * 100}%` }}
         />
       </div>
