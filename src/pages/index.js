@@ -2,6 +2,7 @@ import SEO from "../components/seo";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 export default function Home() {
   return (
     <>
@@ -28,12 +29,12 @@ export default function Home() {
           </p>
 
           {/* Button dengan gambar */}
-          <Link href="/solutions" className="relative mt-6 inline-block">
-            <img src="/images/button.png" alt="Explore More" className="w-[200px] h-[50px]" />
-            <span className="absolute top-1/2 left-18 transform -translate-x-1/2 -translate-y-1/2 text-white font-semibold text-[18px] ">
-              Explore More
-            </span>
-          </Link>
+          <Link href="/solutions">
+      <button className="flex items-center bg-[var(--color-primary)] text-white font-semibold text-lg px-6 py-3  shadow-md hover:bg-[var(--color-darker)] transition duration-300 mt-4">
+        Explore More
+        <FiArrowRight className="ml-2 text-xl" />
+      </button>
+    </Link>
         </div>
       </section>
       <section className=" py-6 px-8 md:px-16 lg:px-24 xl:px-43">
@@ -108,51 +109,42 @@ export default function Home() {
           <img src="/images/fsc.png" alt="FSC Certification" className="h-32" />
         </div>
 
-        {/* Konten dengan Dua Kartu */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Kartu Pertama */}
-          <div className="relative group">
-            <img
-              src="/images/pict7.png"
-              alt="Printing Machine"
-              className="w-full shadow-lg"
-            />
-            <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
+      
+      {/* Konten dengan Dua Kartu */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Kartu Pertama */}
+        <Link href="/projects" className="relative group block">
+          <div className="relative group cursor-pointer">
+            <img src="/images/pict7.png" alt="Printing Machine" className="w-full shadow-lg transition duration-300 group-hover:brightness-75" />
+            <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6 transition duration-300 group-hover:bg-[var(--color-darker)]">
               <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
               <p className="text-sm mt-1">
                 First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
               </p>
               <div className="mt-2 flex justify-end">
-                <a href="#" className="inline-block text-white">
-                  Learn More →
-                </a>
+                <span className="inline-block text-white font-semibold">Learn More →</span>
               </div>
             </div>
           </div>
+        </Link>
 
-          {/* Kartu Kedua */}
-          <div className="relative group">
-            <img
-              src="/images/pict7.png"
-              alt="Packaging Box"
-              className="w-full shadow-lg"
-            />
-            <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6">
-              <h2 className="text-lg font-semibold">
-                28 Year of dedication: journey of values and vision
-              </h2>
+        {/* Kartu Kedua */}
+        <Link href="/company" className="relative group block">
+          <div className="relative group cursor-pointer">
+            <img src="/images/pict7.png" alt="Packaging Box" className="w-full shadow-lg transition duration-300 group-hover:brightness-75" />
+            <div className="absolute bottom-0 left-0 w-full bg-[var(--color-primary)] text-white p-6 transition duration-300 group-hover:bg-[var(--color-darker)]">
+              <h2 className="text-lg font-semibold">28 Years of Dedication: Journey of Values and Vision</h2>
               <p className="text-sm mt-1">
                 First established in 1997, PT Mega Putra has now developed into a leading offset printing company.
               </p>
               <div className="mt-2 flex justify-end">
-                <a href="#" className="inline-block text-white">
-                  Learn More →
-                </a>
+                <span className="inline-block text-white font-semibold">Learn More →</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Link>
+      </div>
+    </section>
 
       <Footer />
     </>
