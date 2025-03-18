@@ -2,6 +2,7 @@ import SEO from "../components/seo";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Timeline from "@/components/timeline";
+import Technology from "../components/technology";
 import Image from "next/image";
 export default function company() {
 
@@ -106,16 +107,8 @@ export default function company() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 -mt-14">
-        <h1 className="text-3xl font-bold text-[var(--color-primary)]">Our Technology</h1>
-        <p className="mt-4 text-[var(--color-text)] text-justify">We use advanced printing and packaging machines from Japan and Germany, ensuring precision, color accuracy, and high-quality results. With cutting-edge technology and strict quality control, we deliver efficient and reliable solutions that meet international standards
-        </p>
-        <div className="grid md:grid-cols-3 gap-6 mt-6 ">
-          <img src="/images/banner4.png" className=" shadow-lg" />
-          <img src="/images/banner3.png" className=" shadow-lg" />
-          <img src="/images/banner4.png" className=" shadow-lg" />
-        </div>
-      </section>
+      
+      <Technology/>
 
       {/* Sustainability Section */}
       <section className="bg-white py-6 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-center text-justify justify-between ">
