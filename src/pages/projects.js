@@ -17,7 +17,7 @@ export default function Projects() {
     { src: "/images/p1.png", category: "Pharmaceutical" },
     { src: "/images/p2.png", category: "Food and Beverages" },
     { src: "/images/p3.png", category: "Electronics" },
-    { src: "/images/p4.png", category: "Retail" },
+    { src: "/images/p4.png", category: "Asi Gloves" },
     { src: "/images/p3.png", category: "Electronics" },
     { src: "/images/p2.png", category: "Food and Beverages" },
     { src: "/images/p4.png", category: "Retail" },
