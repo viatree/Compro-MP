@@ -160,7 +160,6 @@ export default function Solutions() {
           <p className="mt-4 text-lg">{materials[selectedMaterials].description}</p>
         </div>
       </section>
-
       <Footer />
     </>
   );
