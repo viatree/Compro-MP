@@ -1,6 +1,7 @@
 import SEO from "../components/seo";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Progress from "../components/progress";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 export default function Home() {
@@ -58,50 +59,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative py-12 flex flex-col items-center">
-  <h1 className="text-3xl font-bold text-center text-[var(--color-primary)] mb-6">How It Works</h1>
 
-  {/* Container untuk gambar + teks di atasnya */}
-  <div className="relative w-full max-w-8xl">
-    {/* Background kiri dan kanan */}
-    <div className="absolute top-0 left-0 h-full w-1/4 bg-[#1574a5]"></div>
-    <div className="absolute top-0 right-0 h-full w-1/4 bg-[#29a0da]"></div>
+      <Progress/>
 
-    {/* Image */}
-    <img src="/images/cut.png" alt="Process Image" className="w-full shadow-lg relative z-10" />
 
-    {/* Overlay Text */}
-    <div className="absolute inset-0 flex justify-between items-center px-10 text-white font-bold text-2xl z-20">
-      <span className="pl-30">Inquiry</span>
-      <span className="pl-0">Quotation</span>
-      <span className="pr-30">Development</span>
-      <span className="pr-10">Production</span>
-      <span className="pr-10">Shipment</span>
-    </div>
-  </div>
-
-  {/* Content with Image */}
-  <div className="mt-10 flex flex-col md:flex-row items-center max-w-6xl w-full">
-    {/* Text Content */}
-    <div className="md:w-1/2 text-left text-gray-700">
-      <p className="text-base">
-        Lorem ipsum dolor sit amet consectetur. Ut ut quis tristique donec
-        volutpat in. Enim potenti nulla ac mauris at. Lorem ipsum dolor sit
-        amet consectetur. Ut ut quis tristique donec volutpat in. Enim
-        potenti nulla ac mauris at.
-      </p>
-      <p className="mt-4 text-base">
-        Lorem ipsum dolor sit amet consectetur. Ut ut quis tristique donec
-        volutpat in. Enim potenti nulla ac mauris at.
-      </p>
-    </div>
-
-    {/* Image */}
-    <div className="md:w-1/2 mt-6 md:mt-0">
-      <img src="/images/pict5.png" alt="Process Image" className="w-full shadow-lg" />
-    </div>
-  </div>
-</section>
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43">
         {/* Judul Section */}

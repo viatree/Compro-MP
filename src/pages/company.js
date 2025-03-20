@@ -124,8 +124,8 @@ export default function company() {
             We are ready to lead innovation in an industry that prioritizes sustainability, delivering eco-conscious solutions that align with the growing demand for responsible and sustainable packaging.
           </p>
         </div>
-        <div class="circle-container md:w-1/3 basis-1/4">
-          <svg viewBox="0 0 220 220" class="text-circle">
+        <div class="circle-container md:w-1/3 basis-1/4 ">
+          <svg viewBox="0 0 200 200" class="text-circle">
             <defs>
               <path id="textPath" d="M 110,10 A 100,100 0 1,1 109.9,10" />
             </defs>
