@@ -7,6 +7,7 @@
   --lighter: #61c2ee;
   --darker: #1981b4;
   --text: #041C28;
+  --card: rgba(97, 194, 238, 0.25);
   --text25: rgba(0, 13, 19, 0.25);
 }
 
@@ -20,6 +21,7 @@
   --color-darker: var(--darker);
   --color-text: var(--text);
   --color-text25: var(--text25);
+  --color-card: var(--card);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,7 +48,7 @@ body {
 
 .circle-container {
   position: relative;
-  width: 200px;
+  width: 200px; /* Ukuran lebih besar agar teks melingkar rapi */
   height: 200px;
   display: flex;
   align-items: center;
@@ -58,14 +60,18 @@ body {
   width: 100%;
   height: 100%;
   fill: #3f704d;
-  font-size: 16px;
+  font-size: 14px; /* Sesuaikan ukuran teks */
   font-weight: bold;
   text-transform: uppercase;
   z-index: 1;
+  margin-right: 90px;
+  letter-spacing: 2.5px;
 }
 
 .logo {
-  width: auto;
+  width: auto; /* Sesuaikan agar pas dengan lingkaran */
   height: auto;
   position: absolute;
+  margin-right: 90px;
 }
+

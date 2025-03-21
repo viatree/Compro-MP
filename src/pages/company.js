@@ -124,19 +124,20 @@ export default function company() {
             We are ready to lead innovation in an industry that prioritizes sustainability, delivering eco-conscious solutions that align with the growing demand for responsible and sustainable packaging.
           </p>
         </div>
-        <div class="circle-container md:w-1/3 basis-1/4 ">
-          <svg viewBox="0 0 200 200" class="text-circle">
-            <defs>
-              <path id="textPath" d="M 110,10 A 100,100 0 1,1 109.9,10" />
-            </defs>
-            <text>
-              <textPath href="#textPath" startOffset="0%">
-                • SUSTAINABILITY • ECOLOGY • ARIDLANDS • SUSTAINABILITY • ECOLOGY • ARIDLANDS
-              </textPath>
-            </text>
-          </svg>
-          <img src="images/sus.png" alt="Mega Putra Logo" class="logo" />
-        </div>
+        <div class="circle-container">
+  <svg viewBox="0 0 200 200" class="text-circle">
+    <defs>
+      <path id="textPath" d="M 100,10 A 90,90 0 1,1 99.9,10" />
+    </defs>
+    <text>
+      <textPath href="#textPath" startOffset="0%">
+      • SUSTAINABILITY • ECOLOGY • SUSTAINABILITY  • ECOLOGY
+      </textPath>
+    </text>
+  </svg>
+  <img src="images/sus.png" alt="Mega Putra Logo" class="logo"/>
+</div>
+
 
       </section>
 
