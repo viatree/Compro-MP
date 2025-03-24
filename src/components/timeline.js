@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const timelineData = [
   { year: "1997", text: "Mega Putra was founded with a vision to provide high-quality printing and packaging solutions." },
@@ -13,92 +13,70 @@ const timelineData = [
 ];
 
 export default function Timeline() {
-  const containerRef = useRef(null);
-  const controls = useAnimation();
+  const cardWidth = 350;
+  const spacing = 24;
+  const shiftDistance = cardWidth + spacing;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [viewportWidth, setViewportWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
-  );
-
-  const cardWidth = 350; // Width of each card
-  const containerPadding = 12; // Padding of the container
-  const extraPadding = 350; // Ensure last card is fully visible
+  const containerRef = useRef(null);
+  const [maxDrag, setMaxDrag] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => setViewportWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.offsetWidth;
+      const totalContentWidth = timelineData.length * shiftDistance;
+      setMaxDrag(Math.max(0, totalContentWidth - containerWidth));
+    }
   }, []);
 
-  const maxScroll = useMemo(() => (timelineData.length - 1) * cardWidth, []);
-  const adjustedMaxOffset = useMemo(
-    () => Math.max(0, maxScroll - (viewportWidth - cardWidth - containerPadding - extraPadding)),
-    [viewportWidth, maxScroll]
-  );
-
-  useEffect(() => {
-    const newX = Math.min(activeIndex * cardWidth, adjustedMaxOffset);
-    controls.start({ x: -newX, transition: { duration: 0.8, ease: "easeInOut" } });
-    setProgress((activeIndex + 1) / timelineData.length);
-  }, [activeIndex, controls, adjustedMaxOffset]);
-
   const handleDragEnd = (event, info) => {
-    const offset = info.offset.x;
-    const velocity = info.velocity.x;
-    const sensitivity = 100; // Adjust sensitivity for better interaction
+    const { offset, velocity } = info;
+    let newIndex = activeIndex;
 
-    if (Math.abs(offset) > sensitivity || Math.abs(velocity) > 300) {
-      const direction = offset + velocity > 0 ? -1 : 1;
-      setActiveIndex((prevIndex) =>
-        Math.max(0, Math.min(prevIndex + direction, timelineData.length - 1))
-      );
+    // Swipe ke kanan (kembali ke sebelumnya) jika belum di index 0
+    if ((offset.x > 100 || velocity.x > 2) && activeIndex > 0) {
+      newIndex = activeIndex - 1;
     }
-  };
+    // Swipe ke kiri (maju ke berikutnya) jika belum mencapai kartu terakhir
+    else if ((offset.x < -100 || velocity.x < -2) && activeIndex < timelineData.length - 1) {
+      newIndex = activeIndex + 1;
+    }
 
-  const handleWheelScroll = (event) => {
-    if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) return;
-    event.preventDefault();
-    const direction = event.deltaY > 0 ? 1 : -1;
-    setActiveIndex((prevIndex) =>
-      Math.max(0, Math.min(prevIndex + direction, timelineData.length - 1))
-    );
+    setActiveIndex(newIndex);
   };
 
   return (
-    <section className="relative w-full py-12 bg-white px-6 pl-43" onWheel={handleWheelScroll}>
+    <section className="relative w-full py-12 bg-white px-6 pl-43">
       {/* Timeline */}
-      <div className="overflow-hidden relative">
+      <div ref={containerRef} className="overflow-hidden relative w-full mx-auto">
         <motion.div
-          ref={containerRef}
           className="flex space-x-6 cursor-grab active:cursor-grabbing"
-          animate={controls}
           drag="x"
-          dragConstraints={{ left: -adjustedMaxOffset, right: 0 }}
+          dragConstraints={{ left: -maxDrag, right: 0 }} // Batas swipe
           dragElastic={0.1}
           onDragEnd={handleDragEnd}
+          animate={{ x: -activeIndex * shiftDistance }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {timelineData.map((item, index) => (
             <motion.div
-            key={index}
-            className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-6 transition-all duration-300 
-              ${index === activeIndex ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-card)] text-[var(--color-text)]"} 
-              hover:bg-[var(--color-darker)] hover:text-white`}
-            whileTap={{ scale: 1.05 }}
-            onClick={() => setActiveIndex(index)}
-          >
-            <h3 className="text-lg font-bold">{item.year}</h3>
-            <p>{item.text}</p>
+              key={index}
+              className={`min-w-[350px] p-6 shadow-md transition-all duration-300 
+                ${index === activeIndex ? "bg-[var(--color-primary)] text-white scale-105" : "bg-[var(--color-card)] text-[var(--color-text)]"} 
+                hover:bg-[var(--color-darker)] hover:text-white`}
+            >
+              <h3 className="text-lg font-bold">{item.year}</h3>
+              <p>{item.text}</p>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
       {/* Scrollbar */}
-      <div className="mt-4 w-1/3 relative h-1 bg-gray-300 ">
+      <div className="mt-4 w-1/3 relative h-1 bg-[var(--color-card)] pl-43">
         <motion.div
-          className="absolute top-0 left-0 h-1 bg-blue-500 "
-          style={{ width: `${progress * 100}%` }}
+          className="absolute top-0 left-0 h-1 bg-[var(--color-primary)]"
+          animate={{ width: `${((activeIndex + 1) / timelineData.length) * 100}%` }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         />
       </div>
     </section>

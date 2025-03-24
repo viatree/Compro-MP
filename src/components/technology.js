@@ -97,9 +97,9 @@ export default function ImageTimeline() {
       </div>
       
       {/* Scrollbar */}
-      <div className="mt-4 w-1/3 relative h-1 bg-gray-300">
+      <div className="mt-4 w-1/3 relative h-1 bg-[var(--color-card)]">
         <motion.div
-          className="absolute top-0 left-0 h-1 bg-blue-500"
+          className="absolute top-0 left-0 h-1 bg-[var(--color-primary)]"
           style={{ width: `${progress * 100}%` }}
         />
       </div>
