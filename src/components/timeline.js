@@ -80,15 +80,15 @@ export default function Timeline() {
         >
           {timelineData.map((item, index) => (
             <motion.div
-              key={index}
-              className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-6 transition-all duration-300 
+            key={index}
+            className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-6 transition-all duration-300 
               ${index === activeIndex ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-card)] text-[var(--color-text)]"} 
               hover:bg-[var(--color-darker)] hover:text-white`}
-              whileTap={{ scale: 1.05 }}
-              onClick={() => setActiveIndex(index)}
-            >
-              <h3 className="text-lg font-bold">{item.year}</h3>
-              <p>{item.text}</p>
+            whileTap={{ scale: 1.05 }}
+            onClick={() => setActiveIndex(index)}
+          >
+            <h3 className="text-lg font-bold">{item.year}</h3>
+            <p>{item.text}</p>
             </motion.div>
           ))}
         </motion.div>
