@@ -1,6 +1,4 @@
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
 export default function contact() {
   return (
@@ -12,8 +10,6 @@ export default function contact() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />      
-      <Navbar />
-      <Footer />
     </>
   );
 }

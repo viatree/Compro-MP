@@ -1,6 +1,4 @@
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 import Timeline from "@/components/timeline";
 import Technology from "../components/technology";
 import Image from "next/image";
@@ -15,8 +13,6 @@ export default function company() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-
-      <Navbar />
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
@@ -140,8 +136,6 @@ export default function company() {
 
 
       </section>
-
-      <Footer />
     </>
   );
 }

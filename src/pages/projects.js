@@ -1,7 +1,5 @@
 import { useState } from "react";
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
 export default function Projects() {
   const categories = [
@@ -44,8 +42,6 @@ export default function Projects() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-
-      <Navbar />
       <section className="relative bg-[url('/images/banner2.png')] bg-cover flex items-end mt-20 h-[200px] w-full max-w-screen overflow-hidden">
         <p className="w-full ml-27 mx-auto text-white px-6 py-6 pl-10 md:pl-20 z-10 text-[25px] font-semibold absolute bottom-0 max-w-screen overflow-hidden">
           Packaging Solutions for every industry
@@ -88,7 +84,6 @@ export default function Projects() {
           ))}
         </div>
       </section>
-      <Footer />
     </>
   );
 }

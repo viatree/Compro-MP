@@ -1,6 +1,5 @@
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+
 import Progress from "../components/progress";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
@@ -14,8 +13,6 @@ export default function Home() {
         image="/images/logo.png"
         url="https://megaputra.com"
       />
-
-      <Navbar />
       <section className="relative w-full h-screen bg-[url('/images/banner.png')] bg-cover flex items-center mt-20">
         {/* Overlay (opsional untuk efek lebih jelas) */}
         <div className="relative w-full max-w-[80%] mx-auto text-left text-white px-6 pl-10 md:pl-20 z-10">
@@ -61,8 +58,6 @@ export default function Home() {
       </section>
 
       <Progress/>
-
-
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43">
         {/* Judul Section */}
@@ -113,8 +108,6 @@ export default function Home() {
         </Link>
       </div>
     </section>
-
-      <Footer />
     </>
   );
 }

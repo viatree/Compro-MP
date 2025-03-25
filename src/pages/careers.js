@@ -1,6 +1,4 @@
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 import Jobs from "@/components/jobs";
 import Faq from "@/components/faq"
 
@@ -38,9 +36,7 @@ export default function Careers() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-      
-      <Navbar />
-      
+
       <section className="relative bg-[url('/images/banner5.png')] bg-cover flex items-end mt-20 h-[200px]">
         <h1 className="w-full ml-27 mx-auto text-white px-6 py-6 pl-10 md:pl-20 z-10 text-[32px] font-semibold absolute bottom-0">
           A Better Tomorrow Through Innovation and Collaboration
@@ -67,8 +63,6 @@ export default function Careers() {
       <Jobs/>
 
       <Faq/>
-      
-      <Footer />
     </>
   );
 }

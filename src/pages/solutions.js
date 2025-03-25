@@ -1,7 +1,5 @@
 import { useState } from "react";
 import SEO from "../components/seo";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
 export default function Solutions() {
   const [selectedFinish, setSelectedFinish] = useState("HOT STAMP");
@@ -86,8 +84,6 @@ export default function Solutions() {
         url="https://megaputra.com"
       />
 
-      <Navbar />
-
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
           Services we provide to help you achieve your goals.
@@ -160,8 +156,6 @@ export default function Solutions() {
           <p className="mt-4 text-lg">{materials[selectedMaterials].description}</p>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }
