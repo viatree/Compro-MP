@@ -6,13 +6,13 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("EN"); // Default bahasa Inggris
+  const [language, setLanguage] = useState("EN");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
 
-  // Fungsi untuk menentukan apakah link aktif
   const isActive = (path) =>
     router.pathname === path
-      ? "text-[var(--color-text)] font-bold"
+      ? "text-[var(--color-text)] font-semibold"
       : "text-[var(--color-primary)] hover:text-[var(--color-lighter)]";
 
   return (
@@ -31,11 +31,77 @@ const Navbar = () => {
 
         {/* Menu Links + Language Selector */}
         <div className="flex items-center space-x-8 mr-6">
-          <ul className="hidden md:flex space-x-8 text-[var(--color-primary)] font-medium">
+          <ul className="hidden md:flex space-x-8 text-[var(--color-primary)] font-medium relative">
             <li><Link href="/" className={isActive("/")}>Home</Link></li>
-            <li><Link href="/company" className={isActive("/company")}>Company</Link></li>
+
+{/* DROPDOWN - About Us */}
+<li
+  className="relative group"
+  onMouseEnter={() => setDropdownOpen(true)}
+  onMouseLeave={() => setDropdownOpen(false)}
+>
+  <span
+    className={`${isActive("/company")} cursor-pointer flex items-center gap-1`}
+  >
+    About Us
+    <svg
+      className="w-4 h-4 text-[var(--color-primary)] group-hover:rotate-180 transition-transform duration-300"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </span>
+
+  {dropdownOpen && (
+    <ul className="absolute top-full left-0 bg-white border-t-4 border-[var(--color-primary)] shadow-lg rounded-md w-50 z-50 text-[14px]">
+      <li>
+        <Link
+          href="/aboutCompany"
+          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
+        >
+          About Mega Putra
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/company/vision-mission"
+          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
+        >
+          Vision and Mission
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/company/our-capabilities"
+          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
+        >
+          Our Capabilities
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/company/values-responsibilities"
+          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
+        >
+          Corporate Values & Responsibilities
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/company/certifications"
+          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
+        >
+          Certifications
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
             <li><Link href="/solutions" className={isActive("/solutions")}>Solutions</Link></li>
-            <li><Link href="/projects" className={isActive("/projects")}>Projects</Link></li>
+            <li><Link href="/projects" className={isActive("/projects")}>Portofolio</Link></li>
             <li><Link href="/resources" className={isActive("/resources")}>Resources</Link></li>
             <li><Link href="/careers" className={isActive("/careers")}>Careers</Link></li>
             <li><Link href="/contact" className={isActive("/contact")}>Contact</Link></li>
@@ -66,4 +132,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
