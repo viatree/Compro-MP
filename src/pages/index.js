@@ -12,7 +12,7 @@ export default function Home() {
         image="/images/logo.png"
         url="https://megaputra.com"
       />
- <section className="relative w-full h-screen bg-cover bg-center bg-no-repeat items-center mt-20" style={{ backgroundImage: "url('/images/banner.png')" }}>
+ <section className="relative w-full h-screen bg-cover bg-center bg-no-repeat items-center mt-20" style={{ backgroundImage: "url('/images/7RV03148.jpg')" }}>
  
   {/* Konten utama */}
   <div className="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-6">
