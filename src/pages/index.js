@@ -12,19 +12,24 @@ export default function Home() {
         image="/images/logo.png"
         url="https://megaputra.com"
       />
- <section className="relative w-full h-screen bg-cover bg-center bg-no-repeat items-center mt-20" style={{ backgroundImage: "url('/images/7RV03148.jpg')" }}>
- 
+ <section
+  className="relative w-full h-screen bg-cover bg-center bg-no-repeat items-center mt-20"
+  style={{ backgroundImage: "url('/images/7RV03148.jpg')" }}
+>
+  {/* Overlay gelap */}
+  <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+
   {/* Konten utama */}
   <div className="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-6">
-    <h1 className="text-3xl md:text-4xl font-extrabold drop-shadow-lg leading-tight">
+    <h1 className="text-3xl md:text-4xl font-extrabold leading-tight drop-shadow-lg">
       PAPER PACKAGING SOLUTIONS<br />FOR EVERY INDUSTRY
     </h1>
 
-    <p className="mt-6 text-lg md:text-2xl font-medium">
+    <p className="mt-6 text-lg md:text-2xl font-bold drop-shadow-md">
       Customised Packaging. Trusted Solutions.
     </p>
 
-    <p className="mt-2 text-sm md:text-base font-light">
+    <p className="mt-2 text-sm md:text-base font-extrabold drop-shadow-md">
       ISO 9001 Certified • FSC® Certified • Halal Certified
     </p>
 
@@ -44,11 +49,7 @@ export default function Home() {
     Comprehensive Paper Packaging Solutions
   </h2>
   <p className="text-start text-justify text-[var(--color-text)] ">
-    Established in 1997, PT-Mega Putra has leading offset printing & a
-    lacquose pripackaging provider, offering comprehensive in-house services
-    from prepress and prototyping to printing and post-press finishing. We
-    have more than 28 years of experience in serving octai quality packaging,
-    high-quality packaging solutions for local and international brands.
+  With decades of hands-on experience, PT Mega Putra delivers seamless in-house packaging services—from design prototyping and colour development to high-precision printing and finishing. Our integrated approach ensures consistent quality and customised solutions that align with each brand’s unique requirements.
   </p>
 
   {/* Service Boxes */}

@@ -1,38 +1,83 @@
-import { useState } from "react";
-
-export default function Progress() {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleStepClick = (index) => {
-    setActiveIndex(index);
-  };
+export default function StepsFlow() {
+  const steps = [
+    {
+      title: "Sign up & load funds",
+      desc: "Verify your company and load funds to your Spendesk wallet from your existing bank account."
+    },
+    {
+      title: "Set your spending rules",
+      desc: "Define teams, approval workflows, spending policies, and card limits that work for you."
+    },
+    {
+      title: "Invite your team",
+      desc: "Employees can request funds, pay securely, and submit receipts in a snap with the Spendesk app."
+    },
+    {
+      title: "Manage spending",
+      desc: "Track and control every expense in real-time with automated reports and analytics."
+    },
+    {
+      title: "Get insights",
+      desc: "Use insights to make smarter financial decisions and improve your budget strategy."
+    }
+  ];
 
   return (
-    <section className="relative flex flex-col items-center w-full overflow-hidden">
-      <h1 className="text-3xl font-bold text-center text-[var(--color-primary)] mb-6">
-        How It Works
-      </h1>
+    <section className="bg-[#3b0b75] text-white py-16 px-4 md:px-16">
+      <h2 className="text-center text-3xl font-bold mb-12">Three steps to smarter spending</h2>
+      
+      <div className="relative flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className={`w-full md:w-[30%] text-center relative px-4`}
+            style={{
+              marginTop: index >= 3 ? '80px' : '0px'
+            }}
+          >
+            <div className="mx-auto w-14 h-14 flex items-center justify-center text-2xl font-bold bg-white text-[#3b0b75] rounded-full border-4 border-white mb-4">
+              {index + 1}
+            </div>
+            <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+            <p className="text-white/80 text-sm">{step.desc}</p>
 
-      <div className="relative w-full">
-        {/* Progress Bar Container */}
-        <div className="w-full bg-[#29a0da] h-26 flex items-center justify-between px-6 md:px-12 lg:px-16 xl:px-20 relative text-lg">
-          
-          {/* Progress Line (SVG) */}
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <image href="/images/line.png" x="10%" y="-100" width="65" height="300" />
-            <image href="/images/line.png" x="30%" y="-100" width="65" height="300" />
-            <image href="/images/line.png" x="50%" y="-100" width="65" height="300" />
-            <image href="/images/line.png" x="70%" y="-100" width="65" height="300" />
-            <image href="/images/line.png" x="90%" y="-100" width="65" height="300" />
-          </svg>
+            {/* Panah putus-putus */}
+            {index < 2 && (
+              <div className="absolute right-[-60px] top-6 hidden md:block">
+                <svg width="120" height="60">
+                  <path
+                    d="M0,30 Q60,-20 120,30"
+                    stroke="white"
+                    strokeDasharray="6,6"
+                    fill="transparent"
+                    markerEnd="url(#arrowhead)"
+                  />
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="white" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+            )}
 
-          {/* Progress Steps */}
-          <span className="text-white font-bold">Inquiry</span>
-          <span className="text-white font-bold">Quotation</span>
-          <span className="text-white font-bold">Development</span>
-          <span className="text-white font-bold">Production</span>
-          <span className="text-white font-bold">Shipment</span>
-        </div>
+           
+            {/* Panah ke kanan dari step 4 */}
+            {index === 3 && (
+              <div className="absolute right-[-60px] top-6 hidden md:block">
+                <svg width="120" height="60">
+                  <path
+                    d="M0,30 Q60,-20 120,30"
+                    stroke="white"
+                    strokeDasharray="6,6"
+                    fill="transparent"
+                    markerEnd="url(#arrowhead)"
+                  />
+                </svg>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
