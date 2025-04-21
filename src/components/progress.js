@@ -1,83 +1,75 @@
-export default function StepsFlow() {
+import { useState } from "react";
+
+export default function Progress() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const steps = [
-    {
-      title: "Sign up & load funds",
-      desc: "Verify your company and load funds to your Spendesk wallet from your existing bank account."
-    },
-    {
-      title: "Set your spending rules",
-      desc: "Define teams, approval workflows, spending policies, and card limits that work for you."
-    },
-    {
-      title: "Invite your team",
-      desc: "Employees can request funds, pay securely, and submit receipts in a snap with the Spendesk app."
-    },
-    {
-      title: "Manage spending",
-      desc: "Track and control every expense in real-time with automated reports and analytics."
-    },
-    {
-      title: "Get insights",
-      desc: "Use insights to make smarter financial decisions and improve your budget strategy."
-    }
+    "Inquiry",
+    "Quotation",
+    "Packaging Development",
+    "Production & Finishing",
+    "Shipment",
+  ];
+
+  const stepContents = [
+    "Share your packaging requirements with our team.",
+    "Receive a customised quotation based on your specifications.",
+    "Create samples and prototypes for approval (optional).",
+    "Complete in-house production from printing to final packaging.",
+    "On-time delivery to your location, ready for market launch.",
   ];
 
   return (
-    <section className="bg-[#3b0b75] text-white py-16 px-4 md:px-16">
-      <h2 className="text-center text-3xl font-bold mb-12">Three steps to smarter spending</h2>
-      
-      <div className="relative flex flex-wrap justify-center gap-12 max-w-5xl mx-auto">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className={`w-full md:w-[30%] text-center relative px-4`}
-            style={{
-              marginTop: index >= 3 ? '80px' : '0px'
-            }}
-          >
-            <div className="mx-auto w-14 h-14 flex items-center justify-center text-2xl font-bold bg-white text-[#3b0b75] rounded-full border-4 border-white mb-4">
-              {index + 1}
-            </div>
-            <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
-            <p className="text-white/80 text-sm">{step.desc}</p>
+    <section className="relative w-full py-6 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
+      {/* Heading */}
+      <div className="text-center mb-8">
+        <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+          HOW IT WORKS
+        </h1>
+      </div>
 
-            {/* Panah putus-putus */}
-            {index < 2 && (
-              <div className="absolute right-[-60px] top-6 hidden md:block">
-                <svg width="120" height="60">
-                  <path
-                    d="M0,30 Q60,-20 120,30"
-                    stroke="white"
-                    strokeDasharray="6,6"
-                    fill="transparent"
-                    markerEnd="url(#arrowhead)"
-                  />
-                  <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                      <polygon points="0 0, 10 3.5, 0 7" fill="white" />
-                    </marker>
-                  </defs>
-                </svg>
+      {/* Steps + Content */}
+      <div className="flex flex-col md:flex-row items-start gap-10">
+        {/* Step list */}
+        <div className="flex flex-col items-start md:w-1/4 space-y-6">
+          {steps.map((step, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <div
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`cursor-pointer flex items-center space-x-3 ${
+                  isActive
+                    ? "font-bold text-[var(--color-primary)]"
+                    : "text-[var(--color-text)]"
+                }`}
+              >
+                <div
+                  className={`w-6 h-6 rounded-full flex items-center justify-center border ${
+                    isActive
+                      ? "bg-[var(--color-primary)] text-white"
+                      : "bg-white"
+                  }`}
+                >
+                  {index + 1}
+                </div>
+                <span>{step}</span>
               </div>
-            )}
+            );
+          })}
+        </div>
 
-           
-            {/* Panah ke kanan dari step 4 */}
-            {index === 3 && (
-              <div className="absolute right-[-60px] top-6 hidden md:block">
-                <svg width="120" height="60">
-                  <path
-                    d="M0,30 Q60,-20 120,30"
-                    stroke="white"
-                    strokeDasharray="6,6"
-                    fill="transparent"
-                    markerEnd="url(#arrowhead)"
-                  />
-                </svg>
-              </div>
-            )}
+        {/* Dynamic Content Area */}
+        <div className="md:w-3/4">
+          <div className="p-6 border rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-2 text-[var(--color-primary)]">
+              {steps[activeIndex]}
+            </h2>
+            <p className="text-[var(--color-text)]">
+              {stepContents[activeIndex]}
+            </p>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
