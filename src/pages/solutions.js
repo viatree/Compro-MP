@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SEO from "../components/seo";
-
+import Image from "next/image";
+import ProductSection from "@/components/product";
 export default function Solutions() {
   const [selectedFinish, setSelectedFinish] = useState("HOT STAMP");
 
@@ -86,12 +87,10 @@ export default function Solutions() {
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
-          Services we provide to help you achieve your goals.
+        PACKAGING SOLUTIONS DESIGNED FOR YOUR BRAND’S SUCCESS
         </h1>
         <p className="mt-6 text-left text-base text-[var(--color-text)]">
-          Mega Putra provides high-quality packaging solutions with a strong focus on precision,
-          innovation, and professionalism. Every detail is carefully designed to ensure durability,
-          functionality, and aesthetics that meet the diverse needs of various industries.
+        Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.
         </p>
       </section>
       <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]">
@@ -156,6 +155,51 @@ export default function Solutions() {
           <p className="mt-4 text-lg">{materials[selectedMaterials].description}</p>
         </div>
       </section>
+<ProductSection/>
+   {/* Product List Section */}
+{/* <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
+  <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">Products</h2>
+  <p className="text-base text-[var(--color-text)] mb-8">
+    At Mega Putra, we offer high-quality paper-based products designed to meet the diverse needs of brands across industries. Our product range includes:
+  </p>
+
+  <div className="space-y-6">
+    <div>
+      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Folding Carton Boxes</h3>
+      <p className="text-[var(--color-text)]">
+        Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Hangtags</h3>
+      <p className="text-[var(--color-text)]">
+        Enhance product presentation and brand storytelling with customised hangtags.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Leaflets</h3>
+      <p className="text-[var(--color-text)]">
+        Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Promotional Items</h3>
+      <p className="text-[var(--color-text)]">
+      Specially designed paper-based promotional materials to support marketing and brand campaigns.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-[var(--color-primary)]">•	Labels</h3>
+      <p className="text-[var(--color-text)]">
+      High-quality labels for brand recognition, compliance, and product differentiation.
+      </p>
+    </div>
+  </div>
+</section> */}
+
+      
     </>
   );
 }
+
+

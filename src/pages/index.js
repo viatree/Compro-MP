@@ -132,7 +132,7 @@ export default function Home() {
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
               ISO 9001:2015
               <br></br>
-              Since 2010
+              <span className="text-[var(--color-text)]  font-semibold">Since 2010</span>  
             </p>
           </div>
 
@@ -142,7 +142,7 @@ export default function Home() {
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
               Certificate number: C151498
               <br></br>
-              Since 2019
+              <span className="text-[var(--color-text)]  font-semibold">Since 2019</span>  
             </p>
           </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
               ID36410020910631224
               <br></br>
-              Since 2024
+             <span className="text-[var(--color-text)]  font-semibold">Since 2024</span> 
             </p>
           </div>
         </div>
