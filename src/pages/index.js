@@ -143,77 +143,83 @@ export default function Home() {
           Commitment to Quality and Standards
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {/* Sertifikat */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {/* ISO 9001 */}
           <div className="flex flex-col items-center">
-            <Image src="/images/sgs.png" alt="ISO 9001" width={96} height={96} />
+            <img src="/images/sgs.png" alt="ISO 9001 Certification" className="h-24 mb-4" />
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
-              ISO 9001:2015<br /><span className="font-semibold">Since 2010</span>
+              ISO 9001:2015
+              <br></br>
+              <span className="text-[var(--color-text)]  font-semibold">Since 2010</span>  
             </p>
           </div>
 
+          {/* FSC */}
           <div className="flex flex-col items-center">
-            <Image src="/images/fsc.png" alt="FSC" width={96} height={96} />
+            <img src="/images/fsc.png" alt="FSC Certification" className="h-24 mb-4" />
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
-              Certificate number: C151498<br /><span className="font-semibold">Since 2019</span>
+              Certificate number: C151498
+              <br></br>
+              <span className="text-[var(--color-text)]  font-semibold">Since 2019</span>  
             </p>
           </div>
 
+          {/* Halal */}
           <div className="flex flex-col items-center">
-            <Image src="/images/halal.png" alt="Halal" width={96} height={96} />
+            <img src="/images/halal.png" alt="Halal Certification" className="h-24 mb-4" />
             <p className="text-sm mt-2 text-[var(--color-text)] max-w-xs">
-              ID36410020910631224<br /><span className="font-semibold">Since 2024</span>
+              ID36410020910631224
+              <br></br>
+             <span className="text-[var(--color-text)]  font-semibold">Since 2024</span> 
             </p>
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/solutions" className="block h-full">
-            <div className="relative flex flex-col h-full">
-              <Image
-                src="/images/pict7.png"
-                alt="Printing Machine"
-                width={600}
-                height={200}
-                className="w-full object-cover shadow-lg"
-              />
-              <div className="flex flex-col justify-between flex-grow bg-[var(--color-primary)] text-white p-6">
-                <div>
-                  <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
-                  <p className="text-sm mt-1">
-                    PT Mega Putra combines technical expertise, sustainable practices, and cutting-edge equipment to deliver trusted packaging solutions.
-                  </p>
-                </div>
-                <div className="mt-4 flex justify-end">
-                  <span className="inline-block text-white font-semibold">Explore Our Solutions →</span>
-                </div>
-              </div>
-            </div>
-          </Link>
+        {/* Kartu-kartu Bawah */}
+<div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* Kartu Pertama */}
+{/* Kartu Pertama */}
+<Link href="/solutions" className="block h-full">
+  <div className="relative flex flex-col h-full">
+    <img
+      src="/images/pict7.png"
+      alt="Printing Machine"
+      className="w-full h-[200px] object-cover shadow-lg"
+    />
+    <div className="flex flex-col justify-between flex-grow bg-[var(--color-primary)] text-white p-6">
+      <div>
+        <h2 className="text-lg font-semibold">Quality, Innovation, Efficiency</h2>
+        <p className="text-sm mt-1">
+          PT Mega Putra combines technical expertise, sustainable practices, and cutting-edge equipment to deliver trusted packaging solutions.
+        </p>
+      </div>
+      <div className="mt-4 flex justify-end">
+        <span className="inline-block text-white font-semibold">Explore Our Solutions →</span>
+      </div>
+    </div>
+  </div>
+</Link>
 
-          <Link href="/company" className="block h-full">
-            <div className="relative flex flex-col h-full">
-              <Image
-                src="/images/pict7.png"
-                alt="Packaging Box"
-                width={600}
-                height={200}
-                className="w-full object-cover shadow-lg"
-              />
-              <div className="flex flex-col justify-between flex-grow bg-[var(--color-primary)] text-white p-6">
-                <div>
-                  <h2 className="text-lg font-semibold">Over 28 Years of Printing & Packaging Expertise</h2>
-                  <p className="text-sm mt-1">
-                    Established in 1997, PT Mega Putra has built a long-standing reputation for delivering high-quality, innovative, and reliable packaging solutions across industries.
-                  </p>
-                </div>
-                <div className="mt-4 flex justify-end">
-                  <span className="inline-block text-white font-semibold">Learn About Mega Putra →</span>
-                </div>
-              </div>
-            </div>
-          </Link>
+
+  {/* Kartu Kedua */}
+  <Link href="/company" className="block h-full">
+    <div className="relative flex flex-col h-full">
+      <img src="/images/pict7.png" alt="Packaging Box" className="w-full shadow-lg w-full h-[200px] object-cover shadow-lg" />
+      <div className="flex flex-col justify-between flex-grow bg-[var(--color-primary)] text-white p-6">
+        <div>
+          <h2 className="text-lg font-semibold">Over 28 Years of Printing & Packaging Expertise</h2>
+          <p className="text-sm mt-1">
+            Established in 1997, PT Mega Putra has built a long-standing reputation for delivering high-quality, innovative, and reliable packaging solutions across industries.
+          </p>
         </div>
+        <div className="mt-4 flex justify-end">
+          <span className="inline-block text-white font-semibold">Learn About Mega Putra →</span>
+        </div>
+      </div>
+    </div>
+  </Link>
+</div>
       </section>
     </>
   );
