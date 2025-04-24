@@ -119,7 +119,7 @@ export default function Home() {
     <div className="text-center">
       <div className="relative w-full h-[250px] mx-auto shadow-lg">
         <Image
-          src="/images/7RV03244.jpg"
+          src="/images/7RV03354.jpg"
           alt="In-House Production"
           layout="fill"
           objectFit="cover"

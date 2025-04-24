@@ -1,4 +1,11 @@
 import { useState } from "react";
+import {
+  Briefcase,
+  DollarSign,
+  PackageOpen,
+  CheckCircle,
+  Truck,
+} from "lucide-react";
 
 export default function Progress() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -12,25 +19,44 @@ export default function Progress() {
   ];
 
   const stepContents = [
-    "Share your packaging requirements with our team.",
-    "Receive a customised quotation based on your specifications.",
-    "Create samples and prototypes for approval (optional).",
-    "Complete in-house production from printing to final packaging.",
-    "On-time delivery to your location, ready for market launch.",
+    {
+      description: "Share your packaging requirements with our team.",
+      icon: <Briefcase className="h-15 w-15 text-[var(--color-primary)] " />,
+    },
+    {
+      description:
+        "Receive a customised quotation based on your specifications.",
+      icon: <DollarSign className="h-15 w-15 text-[var(--color-primary)] " />,
+    },
+    {
+      description:
+        "Create samples and prototypes for approval (optional).",
+      icon: <PackageOpen className="h-15 w-15 text-[var(--color-primary)] " />,
+    },
+    {
+      description:
+        "Complete in-house production from printing to final packaging.",
+      icon: <CheckCircle className="h-15 w-15 text-[var(--color-primary)] " />,
+    },
+    {
+      description:
+        "On-time delivery to your location, ready for market launch.",
+      icon: <Truck className="h-15 w-15 text-[var(--color-primary)] " />,
+    },
   ];
 
   return (
     <section className="relative w-full py-6 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
-      <div className="text-center mb-8">
-        <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+      <div className="text-left mb-10">
+        <h1 className="text-3xl font-bold text-[var(--color-primary)]">
           HOW IT WORKS
         </h1>
       </div>
 
       {/* Steps + Content */}
       <div className="flex flex-col md:flex-row items-start gap-10">
-        {/* Step list */}
+        {/* Step list (kiri) */}
         <div className="flex flex-col items-start md:w-1/4 space-y-6">
           {steps.map((step, index) => {
             const isActive = activeIndex === index;
@@ -38,7 +64,7 @@ export default function Progress() {
               <div
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`cursor-pointer flex items-center space-x-3 ${
+                className={`cursor-pointer flex items-center space-x-3 transition-all duration-300 ${
                   isActive
                     ? "font-bold text-[var(--color-primary)]"
                     : "text-[var(--color-text)]"
@@ -59,14 +85,15 @@ export default function Progress() {
           })}
         </div>
 
-        {/* Dynamic Content Area */}
-        <div className="md:w-3/4">
-          <div className="p-6 border rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-2 text-[var(--color-primary)]">
+        {/* Dynamic Card Content (kanan) */}
+        <div className="md:w-3/6">
+          <div className="p-8 bg-white rounded-xl shadow-xl text-center flex flex-col items-center transition-all duration-300 ease-in-out border">
+            <div className="mb-4">{stepContents[activeIndex].icon}</div>
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-2">
               {steps[activeIndex]}
             </h2>
-            <p className="text-[var(--color-text)]">
-              {stepContents[activeIndex]}
+            <p className="text-gray-600 text-md max-w-md">
+              {stepContents[activeIndex].description}
             </p>
           </div>
         </div>
