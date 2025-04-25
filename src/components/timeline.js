@@ -4,12 +4,15 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const timelineData = [
-  { year: "1997", text: "Mega Putra was founded with a vision to provide high-quality printing and packaging solutions." },
-  { year: "2000", text: "Expanded production with advanced printing machinery." },
-  { year: "2003", text: "Upgraded ink facilities and color standards for higher precision and consistency." },
-  { year: "2014", text: "Opened a new manufacturing facility to meet growing demand." },
-  { year: "2019", text: "Earned recognition for quality and innovation in packaging solutions." },
-  { year: "2025", text: "Expanding to global markets with sustainable packaging." }
+  { year: "1997", text: "Mega Putra was founded as a printing brokerage company, focusing on connecting customers with printing solutions." },
+  { year: "2000", text: " Expanded production capacity with advanced offset printing technology to meet increasing client needs." },
+  { year: "2004", text: "Built the first manufacturing facility to support growing demand and control production quality directly." },
+  { year: "2008", text: " Established a second manufacturing facility to increase capacity and serve a broader range of industries." },
+  { year: "2010", text: "Achieved ISO 9001 certification for quality management systems." },
+  { year: "2014", text: "Relocated to a new, purpose-built facility at Jl. Puspiptek Raya No.18, consolidating two factories into one to enhance efficiency and advance capabilities in ink development, finishing, and UV printing." },
+  { year: "2014", text: "Earned FSC® certification, supporting responsible forestry and sustainable packaging." },
+  { year: "2025", text: "Achieved Halal certification, ensuring compliance with Indonesian Halal packaging standards." },
+  { year: "Today", text: "Serving leading brands across cosmetics, pharmaceuticals, FMCG, automotive, and food industries with complete in-house capabilities." }
 ];
 
 export default function Timeline() {
@@ -45,13 +48,19 @@ export default function Timeline() {
   };
 
   return (
-    <section className="relative w-full py-12 bg-white px-6 pl-43">
+    <section className="relative w-full bg-white px-6 pl-43">
+        <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
+        From Brokerage to Full-Service Packaging Solutions
+        </h1>
+        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)] ">
+        Key Milestones in Our Growth and Transformation
+        </h2>
       {/* Timeline */}
       <div ref={containerRef} className="overflow-hidden relative w-full mx-auto">
         <motion.div
           className="flex space-x-6 cursor-grab active:cursor-grabbing"
           drag="x"
-          dragConstraints={{ left: -maxDrag, right: 0 }} // Batas swipe
+          dragConstraints={{ left: -maxDrag, right: 0 }}
           dragElastic={0.1}
           onDragEnd={handleDragEnd}
           animate={{ x: -activeIndex * shiftDistance }}

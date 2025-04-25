@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Briefcase,
-  DollarSign,
+  Calculator,
   PackageOpen,
   CheckCircle,
   Truck,
@@ -26,7 +26,7 @@ export default function Progress() {
     {
       description:
         "Receive a customised quotation based on your specifications.",
-      icon: <DollarSign className="h-15 w-15 text-[var(--color-primary)] " />,
+      icon: <Calculator className="h-15 w-15 text-[var(--color-primary)] " />,
     },
     {
       description:
@@ -86,7 +86,7 @@ export default function Progress() {
         </div>
 
         {/* Dynamic Card Content (kanan) */}
-        <div className="md:w-3/6">
+        <div className="md:w-3/6 flex flex-col items-center -mt-4 pl-20">
           <div className="p-8 bg-white rounded-xl shadow-xl text-center flex flex-col items-center transition-all duration-300 ease-in-out border">
             <div className="mb-4">{stepContents[activeIndex].icon}</div>
             <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-2">

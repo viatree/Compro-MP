@@ -64,13 +64,13 @@ export default function ImageTimeline() {
   };
 
   return (
-    <section className="relative w-full py-12 bg-white px-6 pl-43" onWheel={handleWheelScroll}>
-      <h1 className="text-3xl font-bold text-[var(--color-primary)]">
-        Our Technology
-      </h1>
-      <p className="mt-4 text-[var(--color-text)] ">
+    <section className="relative w-full bg-white px-6 pl-43" onWheel={handleWheelScroll}>
+      <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+          Our Technology
+        </h1>
+        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
         We use advanced printing and packaging machines to ensure precision and quality.
-      </p>
+        </h2>
       <div className="overflow-hidden relative mt-6">
         <motion.div
           ref={containerRef}
