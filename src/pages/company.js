@@ -2,6 +2,8 @@ import SEO from "../components/seo";
 import Timeline from "@/components/timeline";
 import Technology from "../components/technology";
 import Image from "next/image";
+import {  Clock3, Target, Handshake, HandHeart } from "lucide-react";
+
 export default function company() {
 
   return (
@@ -175,40 +177,55 @@ export default function company() {
       </section>
 
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
-      <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-          Corporate Values & Ethics
-        </h1>
-        <h2 className="text-start text-justify text-[var(--color-text)]">
-          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col
-        -4 gap-8 text-center ">
-          {/* Care */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/icons/care-icon.svg" alt="Care Icon" className="w-12 h-12 mb-4" />
-            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Care</h3>
-            <p className="text-sm text-[var(--color-text)]">We foster a supportive and respectful work environment.</p>
-          </div>
-          {/* Efficiency */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/icons/efficiency-icon.svg" alt="Efficiency Icon" className="w-12 h-12 mb-4" />
-            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Efficiency</h3>
-            <p className="text-sm text-[var(--color-text)]">We optimize processes to save time and resources.</p>
-          </div>
-          {/* Accuracy */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/icons/accuracy-icon.svg" alt="Accuracy Icon" className="w-12 h-12 mb-4" />
-            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Accuracy</h3>
-            <p className="text-sm text-[var(--color-text)]">We ensure precision in all our products and services.</p>
-          </div>
-          {/* Collaboration */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/icons/collaboration-icon.svg" alt="Collaboration Icon" className="w-12 h-12 mb-4" />
-            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Collaboration</h3>
-            <p className="text-sm text-[var(--color-text)]">We work together with honesty and transparency.</p>
-          </div>
-        </div>
-      </section>
+  <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+    Corporate Values & Ethics
+  </h1>
+  <h2 className="text-start text-justify text-[var(--color-text)] mb-8">
+    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    {/* Care */}
+    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <HandHeart className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Peduli</h3>
+      <p className="text-xs text-gray-500 mb-2">Care</p>
+      <p className="text-sm text-[var(--color-text)] text-center">
+        We foster a supportive and respectful work environment.
+      </p>
+    </div>
+
+    {/* Efficiency */}
+    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <Clock3 className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Efisien</h3>
+      <p className="text-xs text-gray-500 mb-2">Efficiency</p>
+      <p className="text-sm text-[var(--color-text)] text-center">
+        We optimize processes to save time and resources.
+      </p>
+    </div>
+
+    {/* Accuracy */}
+    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <Target className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Akurat</h3>
+      <p className="text-xs text-gray-500 mb-2">Accuracy</p>
+      <p className="text-sm text-[var(--color-text)] text-center">
+        We ensure precision in all our products and services.
+      </p>
+    </div>
+
+    {/* Collaboration */}
+    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <Handshake className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Kerjasama</h3>
+      <p className="text-xs text-gray-500 mb-2">Collaboration</p>
+      <p className="text-sm text-[var(--color-text)] text-center">
+        We work together with honesty and transparency.
+      </p>
+    </div>
+  </div>
+</section>
 
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
         <h1 className="text-3xl font-bold text-[var(--color-primary)] text-left mb-4">
@@ -262,7 +279,7 @@ export default function company() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {/* ISO Certification */}
           <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/images/sgs.png" alt="ISO 9001:2015 Certification" className="w-16 h-16 mb-4" />
+            <img src="/images/sgs.png" alt="ISO 9001:2015 Certification" className="h-24 mb-4" />
             <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">ISO 9001:2015</h3>
             <p className="text-sm text-[var(--color-text)]">
               Certified for rigorous quality management systems and continuous operational improvement.
@@ -271,7 +288,7 @@ export default function company() {
 
           {/* FSC Certification */}
           <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/images/fsc.png" alt="FSC Certification" className="w-16 h-16 mb-4" />
+            <img src="/images/fsc.png" alt="FSC Certification" className="h-24 mb-4" />
             <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">FSC® Certification</h3>
             <p className="text-sm text-[var(--color-text)]">
               Supporting responsible forestry and sustainable material sourcing for eco-friendly packaging.
@@ -280,7 +297,7 @@ export default function company() {
 
           {/* Halal Certification */}
           <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-            <img src="/images/halal.png" alt="Indonesian Halal Certification" className="w-16 h-16 mb-4" />
+            <img src="/images/halal.png" alt="Indonesian Halal Certification" className=" h-24 mb-4" />
             <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Indonesian Halal Certification</h3>
             <p className="text-sm text-[var(--color-text)]">
               Compliance with Indonesian Halal standards for regulated packaging industries.
