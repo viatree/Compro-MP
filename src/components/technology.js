@@ -66,7 +66,7 @@ export default function ImageTimeline() {
   return (
     <section className="relative w-full bg-white px-6 pl-43" onWheel={handleWheelScroll}>
       <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-          Our Technology
+         Our Technology
         </h1>
         <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
         We use advanced printing and packaging machines to ensure precision and quality.

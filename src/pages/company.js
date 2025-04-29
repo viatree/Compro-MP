@@ -29,7 +29,7 @@ export default function company() {
         </p>
       </section>
 
-      <section className="relative bg-[url('/images/banner4.png')] bg-cover flex items-end h-[310px]">
+      <section className="re lative bg-[url('/images/banner4.png')] bg-cover flex items-end h-[310px]">
       </section>
 
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
@@ -54,8 +54,6 @@ export default function company() {
 
       <Timeline />
 
-      {/* Vision & Mission */}
-
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 flex  text-justify flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2 py-12 px-4" >
           <Image
@@ -68,7 +66,7 @@ export default function company() {
         </div>
         <div className="md:w-1/2 pb-16">
           <div>
-            <h1 className="text-3xl font-bold text-[var(--color-primary)] ] text-justify ">OUR VISION AND MISSION</h1>
+            <h1 className="text-3xl font-bold text-[var(--color-primary)] ] text-justify ">Our Vision and Mission</h1>
             <h2 className="my-4 text-2xl font-semibold text-left text-[var(--color-text)] ">
               Vision
             </h2>
@@ -92,20 +90,18 @@ export default function company() {
       </section>
 
       <Technology />
-
-      {/* Sustainability Section */}
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-          OUR CAPABILITIES
+          Our Capabilities
         </h1>
-        <h2 className="text-start text-justify text-[var(--color-text)]">
+        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
           Delivering Quality Through Integrated Capabilities
         </h2>
 
         {/* Service Boxes */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Item 1 */}
-          <div className="text-center">
+          <div className="text-left">
             <div className="relative w-full h-[250px] mx-auto shadow-lg">
               <Image
                 src="/images/7RV03391.jpg"
@@ -114,7 +110,7 @@ export default function company() {
                 objectFit="cover"
               />
             </div>
-            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] uppercase">
+            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] ">
               In-House Prepress & Prototyping
             </h3>
             <p className="mt-2 text-sm text-[var(--color-text)]">
@@ -123,7 +119,7 @@ export default function company() {
           </div>
 
           {/* Item 2 */}
-          <div className="text-center">
+          <div className="text-left">
             <div className="relative w-full h-[250px] mx-auto shadow-lg">
               <Image
                 src="/images/7RV03558.jpg"
@@ -132,7 +128,7 @@ export default function company() {
                 objectFit="cover"
               />
             </div>
-            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] uppercase">
+            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] ">
               Offset & UV Printing
             </h3>
             <p className="mt-2 text-sm text-[var(--color-text)]">
@@ -141,7 +137,7 @@ export default function company() {
           </div>
 
           {/* Item 3 */}
-          <div className="text-center">
+          <div className="text-left">
             <div className="relative w-full h-[250px] mx-auto shadow-lg">
               <Image
                 src="/images/7RV03872.jpg"
@@ -150,7 +146,7 @@ export default function company() {
                 objectFit="cover"
               />
             </div>
-            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] uppercase">
+            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] ">
               Finishing & Embellishments
             </h3>
             <p className="mt-2 text-sm text-[var(--color-text)]">
@@ -168,7 +164,7 @@ export default function company() {
                 objectFit="cover"
               />
             </div>
-            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] uppercase">
+            <h3 className="mt-4 text-md font-bold text-[var(--color-primary)] ">
               Quality Control
             </h3>
             <p className="mt-2 text-sm text-[var(--color-text)]">
@@ -178,41 +174,120 @@ export default function company() {
         </div>
       </section>
 
-      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 bg-[#f9f9f9]">
-  <h1 className="text-3xl font-bold text-[var(--color-primary)] text-center mb-4">
-    Corporate Values & Ethics
-  </h1>
-  <p className="text-center text-[var(--color-text)] max-w-3xl mx-auto mb-10">
-    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
-  </p>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-    {/* Care */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <img src="/icons/care-icon.svg" alt="Care Icon" className="w-12 h-12 mb-4" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Care</h3>
-      <p className="text-sm text-[var(--color-text)]">We foster a supportive and respectful work environment.</p>
-    </div>
-    {/* Efficiency */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <img src="/icons/efficiency-icon.svg" alt="Efficiency Icon" className="w-12 h-12 mb-4" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Efficiency</h3>
-      <p className="text-sm text-[var(--color-text)]">We optimize processes to save time and resources.</p>
-    </div>
-    {/* Accuracy */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <img src="/icons/accuracy-icon.svg" alt="Accuracy Icon" className="w-12 h-12 mb-4" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Accuracy</h3>
-      <p className="text-sm text-[var(--color-text)]">We ensure precision in all our products and services.</p>
-    </div>
-    {/* Collaboration */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <img src="/icons/collaboration-icon.svg" alt="Collaboration Icon" className="w-12 h-12 mb-4" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Collaboration</h3>
-      <p className="text-sm text-[var(--color-text)]">We work together with honesty and transparency.</p>
-    </div>
-  </div>
-</section>
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+          Corporate Values & Ethics
+        </h1>
+        <h2 className="text-start text-justify text-[var(--color-text)]">
+          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col
+        -4 gap-8 text-center ">
+          {/* Care */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/care-icon.svg" alt="Care Icon" className="w-12 h-12 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Care</h3>
+            <p className="text-sm text-[var(--color-text)]">We foster a supportive and respectful work environment.</p>
+          </div>
+          {/* Efficiency */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/efficiency-icon.svg" alt="Efficiency Icon" className="w-12 h-12 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Efficiency</h3>
+            <p className="text-sm text-[var(--color-text)]">We optimize processes to save time and resources.</p>
+          </div>
+          {/* Accuracy */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/accuracy-icon.svg" alt="Accuracy Icon" className="w-12 h-12 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Accuracy</h3>
+            <p className="text-sm text-[var(--color-text)]">We ensure precision in all our products and services.</p>
+          </div>
+          {/* Collaboration */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/collaboration-icon.svg" alt="Collaboration Icon" className="w-12 h-12 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Collaboration</h3>
+            <p className="text-sm text-[var(--color-text)]">We work together with honesty and transparency.</p>
+          </div>
+        </div>
+      </section>
 
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
+        <h1 className="text-3xl font-bold text-[var(--color-primary)] text-left mb-4">
+          Corporate Responsibilities
+        </h1>
+        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
+          Committed to Sustainability, Ethics, and Workplace Excellence.
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {/* Sustainability */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/sustainability-icon.svg" alt="Sustainability Icon" className="w-20 h-20 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Sustainability</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              FSC-certified paper, water-based coatings, waste reduction
+            </p>
+          </div>
+
+          {/* Ethical Business Practices */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/ethics-icon.svg" alt="Ethical Business Practices Icon" className="w-20 h-20 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Ethical Business Practices</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              Building trusted, transparent partnerships
+            </p>
+          </div>
+
+          {/* Workplace Safety & Well-being */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/icons/safety-icon.svg" alt="Workplace Safety Icon" className="w-20 h-20 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Workplace Safety & Well-being</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              Ensuring a safe, healthy environment with K3-certified personnel
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+        <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+          CERTIFICATIONS
+        </h1>
+        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
+          Recognized Standards of Quality, Sustainability, and Compliance.
+        </h2>
+        <p className="text-left text-base ] text-[var(--color-text)] my-4 ">
+          Mega Putra is proud to maintain recognized industry certifications that reflect our commitment to quality, sustainability, and ethical practices. We are certified under ISO 9001:2015, FSC®, and Indonesian Halal standards. Additionally, we have successfully completed the Disney International Labor Standards (ILS) audit, demonstrating our adherence to global ethical and operational standards.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {/* ISO Certification */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/images/sgs.png" alt="ISO 9001:2015 Certification" className="w-16 h-16 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">ISO 9001:2015</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              Certified for rigorous quality management systems and continuous operational improvement.
+            </p>
+          </div>
+
+          {/* FSC Certification */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/images/fsc.png" alt="FSC Certification" className="w-16 h-16 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">FSC® Certification</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              Supporting responsible forestry and sustainable material sourcing for eco-friendly packaging.
+            </p>
+          </div>
+
+          {/* Halal Certification */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <img src="/images/halal.png" alt="Indonesian Halal Certification" className="w-16 h-16 mb-4" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-2">Indonesian Halal Certification</h3>
+            <p className="text-sm text-[var(--color-text)]">
+              Compliance with Indonesian Halal standards for regulated packaging industries.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </>
   );
