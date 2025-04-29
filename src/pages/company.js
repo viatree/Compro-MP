@@ -18,7 +18,7 @@ export default function company() {
       {/* About Megaputra */}
       <section id="about" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-          ABOUT MEGA PUTRA
+         About Megaputra
         </h1>
         <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)] ">
           Delivering Trusted Paper Packaging Solutions Since 1997
@@ -267,7 +267,7 @@ export default function company() {
 
       <section id="certifications" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-          CERTIFICATIONS
+          Certification
         </h1>
         <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)]">
           Recognized Standards of Quality, Sustainability, and Compliance.
