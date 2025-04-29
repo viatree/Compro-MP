@@ -16,7 +16,7 @@ export default function company() {
         url="https://megaputra.com"
       />
       {/* About Megaputra */}
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
+      <section id="about" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
           ABOUT MEGA PUTRA
         </h1>
@@ -56,7 +56,7 @@ export default function company() {
 
       <Timeline />
 
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 flex  text-justify flex-col md:flex-row items-center gap-8">
+      <section id="vision" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 flex  text-justify flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2 py-12 px-4" >
           <Image
             src="/images/pict8.png"
@@ -92,7 +92,7 @@ export default function company() {
       </section>
 
       <Technology />
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="capabilities" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
           Our Capabilities
         </h1>
@@ -176,7 +176,7 @@ export default function company() {
         </div>
       </section>
 
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="values" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
   <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
     Corporate Values & Ethics
   </h1>
@@ -227,7 +227,7 @@ export default function company() {
   </div>
 </section>
 
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
+      <section  className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
         <h1 className="text-3xl font-bold text-[var(--color-primary)] text-left mb-4">
           Corporate Responsibilities
         </h1>
@@ -265,7 +265,7 @@ export default function company() {
         </div>
       </section>
 
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="certifications" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
           CERTIFICATIONS
         </h1>
@@ -305,6 +305,27 @@ export default function company() {
           </div>
         </div>
       </section>
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-center bg-gray-100">
+  <div className="max-w-3xl mx-auto">
+    <p className="text-lg md:text-xl text-[var(--color-text)] mb-6">
+      At Mega Putra, we are committed to delivering quality, precision, and innovative packaging solutions you can trust. Discover how our capabilities can help elevate your brand.
+    </p>
+    <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2">
+      Explore Our Solutions
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-4 h-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</section>
+
+
 
     </>
   );

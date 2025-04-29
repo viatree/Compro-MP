@@ -55,11 +55,12 @@ const Navbar = () => {
     </svg>
   </span>
 
-  {dropdownOpen && (
-    <ul className="absolute top-full left-0 bg-white border-t-4 border-[var(--color-primary)] shadow-lg rounded-md w-50 z-50 text-[14px]">
+  {/* Dropdown menu */}
+  <div className={`absolute left-0 top-full pt-2 z-50 ${dropdownOpen ? 'block' : 'hidden'}`}>
+    <ul className="bg-white border-t-4 border-[var(--color-primary)] shadow-lg rounded-md w-52 text-[14px]">
       <li>
         <Link
-          href="/company"
+          href="/company#about"
           className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
         >
           About Mega Putra
@@ -67,15 +68,15 @@ const Navbar = () => {
       </li>
       <li>
         <Link
-          href="/company/vision-mission"
+          href="/company#vision"
           className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
         >
-          Vision and Mission
+          Vision & Mission
         </Link>
       </li>
       <li>
         <Link
-          href="/company/our-capabilities"
+          href="/company#capabilities"
           className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
         >
           Our Capabilities
@@ -83,7 +84,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link
-          href="/company/values-responsibilities"
+          href="/company#values"
           className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
         >
           Corporate Values & Responsibilities
@@ -91,15 +92,16 @@ const Navbar = () => {
       </li>
       <li>
         <Link
-          href="/company/certifications"
+          href="/company#certifications"
           className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
         >
           Certifications
         </Link>
       </li>
     </ul>
-  )}
+  </div>
 </li>
+
             <li><Link href="/solutions" className={isActive("/solutions")}>Solutions</Link></li>
             <li><Link href="/projects" className={isActive("/projects")}>Portofolio</Link></li>
             <li><Link href="/resources" className={isActive("/resources")}>Resources</Link></li>
