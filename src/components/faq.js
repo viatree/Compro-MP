@@ -4,19 +4,19 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     question: "What is the recruitment process like?",
-    answer: "The recruitment process involves application, interview, assessment, final interview, and onboarding."
+    answer: "Our recruitment process involves five key steps: apply online, interview with HR or the hiring manager, complete an assessment test, attend a final interview, and receive an offer if selected. We aim to make the process transparent and supportive at every stage."
   },
   {
     question: "Do you offer internships?",
-    answer: "Yes, we offer internship programs for students and fresh graduates."
+    answer: "Yes, we welcome internship applications throughout the year. Internship opportunities are designed to provide hands-on experience and valuable insights into the printing and packaging industry."
   },
   {
-    question: "I didn’t get selected. Can I apply again in the future?",
-    answer: "Yes, you can apply again after a certain period based on the role's requirements."
+    question: "I didn't get selected. Can I apply again in the future?",
+    answer: "Absolutely. We encourage you to reapply for future openings that match your skills and career interests. Each application is evaluated independently based on the role’s requirements."
   },
   {
-    question: "What’s the work culture like?",
-    answer: "Our work culture promotes collaboration, innovation, and continuous learning."
+    question: "What's the work culture like?",
+    answer: "At Mega Putra, we foster a supportive environment where collaboration, continuous improvement, and respect are highly valued. We encourage professional growth and teamwork, creating a positive space where everyone is motivated to succeed."
   }
 ];
 

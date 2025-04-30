@@ -2,7 +2,7 @@ import SEO from "../components/seo";
 import Timeline from "@/components/timeline";
 import Technology from "../components/technology";
 import Image from "next/image";
-import {  Clock3, Target, Handshake, HandHeart } from "lucide-react";
+import { Clock3, Target, Handshake, HandHeart } from "lucide-react";
 
 export default function company() {
 
@@ -18,7 +18,7 @@ export default function company() {
       {/* About Megaputra */}
       <section id="about" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-         About Megaputra
+          About Megaputra
         </h1>
         <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)] ">
           Delivering Trusted Paper Packaging Solutions Since 1997
@@ -177,57 +177,57 @@ export default function company() {
       </section>
 
       <section id="values" className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
-  <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
-    Corporate Values & Ethics
-  </h1>
-  <h2 className="text-start text-justify text-[var(--color-text)] mb-8">
-    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
-  </h2>
+        <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+          Corporate Values & Ethics
+        </h1>
+        <h2 className="text-start text-justify text-[var(--color-text)] mb-8">
+          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)—these core values are the foundation of our company culture, shaping how we work and collaborate every day.
+        </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-    {/* Care */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <HandHeart className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Peduli</h3>
-      <p className="text-xs text-gray-500 mb-2">Care</p>
-      <p className="text-sm text-[var(--color-text)] text-center">
-        We foster a supportive and respectful work environment.
-      </p>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          {/* Care */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <HandHeart className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Peduli</h3>
+            <p className="text-xs text-gray-500 mb-2">Care</p>
+            <p className="text-sm text-[var(--color-text)] text-center">
+              We foster a supportive and respectful work environment.
+            </p>
+          </div>
 
-    {/* Efficiency */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <Clock3 className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Efisien</h3>
-      <p className="text-xs text-gray-500 mb-2">Efficiency</p>
-      <p className="text-sm text-[var(--color-text)] text-center">
-        We optimize processes to save time and resources.
-      </p>
-    </div>
+          {/* Efficiency */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <Clock3 className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Efisien</h3>
+            <p className="text-xs text-gray-500 mb-2">Efficient </p>
+            <p className="text-sm text-[var(--color-text)] text-center">
+              We optimize processes to save time and resources.
+            </p>
+          </div>
 
-    {/* Accuracy */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <Target className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Akurat</h3>
-      <p className="text-xs text-gray-500 mb-2">Accuracy</p>
-      <p className="text-sm text-[var(--color-text)] text-center">
-        We ensure precision in all our products and services.
-      </p>
-    </div>
+          {/* Accuracy */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <Target className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Akurat</h3>
+            <p className="text-xs text-gray-500 mb-2">Accurate </p>
+            <p className="text-sm text-[var(--color-text)] text-center">
+              We ensure precision in all our products and services.
+            </p>
+          </div>
 
-    {/* Collaboration */}
-    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-      <Handshake className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
-      <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Kerjasama</h3>
-      <p className="text-xs text-gray-500 mb-2">Collaboration</p>
-      <p className="text-sm text-[var(--color-text)] text-center">
-        We work together with honesty and transparency.
-      </p>
-    </div>
-  </div>
-</section>
+          {/* Collaboration */}
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <Handshake className="w-12 h-12 mb-4 text-[var(--color-primary)]" />
+            <h3 className="text-xl font-semibold text-[var(--color-primary)] mb-1">Kerjasama</h3>
+            <p className="text-xs text-gray-500 mb-2">Collaborate</p>
+            <p className="text-sm text-[var(--color-text)] text-center">
+              We work together with honesty and transparency.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section  className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 ">
         <h1 className="text-3xl font-bold text-[var(--color-primary)] text-left mb-4">
           Corporate Responsibilities
         </h1>
@@ -306,24 +306,24 @@ export default function company() {
         </div>
       </section>
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-center bg-gray-100">
-  <div className="max-w-3xl mx-auto">
-    <p className="text-lg md:text-xl text-[var(--color-text)] mb-6">
-      At Mega Putra, we are committed to delivering quality, precision, and innovative packaging solutions you can trust. Discover how our capabilities can help elevate your brand.
-    </p>
-    <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2">
-      Explore Our Solutions
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  </div>
-</section>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--color-text)] mb-6">
+            At Mega Putra, we are committed to delivering quality, precision, and innovative packaging solutions you can trust. Discover how our capabilities can help elevate your brand.
+          </p>
+          <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2">
+            Explore Our Solutions
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </section>
 
 
 

@@ -4,26 +4,25 @@ import SEO from "../components/seo";
 export default function Projects() {
   const categories = [
     "All Industries",
-    "Pharmaceutical",
-    "Food and Beverages",
-    "Electronics",
-    "Retail",
-    "Asi Gloves",
+    "Cosmetics and Personal Care",
+    "Pharmaceutical ",
+    "FMCG ",
+    "Miscellaneous ",
   ];
 
   const allProjects = [
-    { src: "/images/p1.png", category: "Pharmaceutical" },
-    { src: "/images/p2.png", category: "Food and Beverages" },
-    { src: "/images/p3.png", category: "Electronics" },
-    { src: "/images/p4.png", category: "Asi Gloves" },
-    { src: "/images/p3.png", category: "Electronics" },
-    { src: "/images/p2.png", category: "Food and Beverages" },
-    { src: "/images/p4.png", category: "Retail" },
-    { src: "/images/p1.png", category: "Pharmaceutical" },
-    { src: "/images/p2.png", category: "Food and Beverages" },
-    { src: "/images/p1.png", category: "Pharmaceutical" },
-    { src: "/images/p3.png", category: "Electronics" },
-    { src: "/images/p4.png", category: "Retail" },
+    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
+    { src: "/images/p2.png", category: "Pharmaceutical " },
+    { src: "/images/p3.png", category: "FMCG " },
+    { src: "/images/p4.png", category: "Miscellaneous " },
+    { src: "/images/p3.png", category: "FMCG " },
+    { src: "/images/p2.png", category: "Pharmaceutical " },
+    { src: "/images/p4.png", category: "Miscellaneous " },
+    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
+    { src: "/images/p2.png", category: "Pharmaceutical " },
+    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
+    { src: "/images/p3.png", category: "FMCG " },
+    { src: "/images/p4.png", category: "Miscellaneous " },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All Industries");
@@ -32,6 +31,19 @@ export default function Projects() {
     selectedCategory === "All Industries"
       ? allProjects
       : allProjects.filter((project) => project.category === selectedCategory);
+
+      const categoryDescriptions = {
+        "All Industries":
+          "Explore our complete range of packaging projects across industries",
+        "Cosmetics and Personal Care":
+          "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
+        "Pharmaceutical ":
+          "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
+        "FMCG ":
+          "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
+        "Miscellaneous ":
+          "Custom packaging solutions for specialised applications, including automotive and promotional items.",
+      };
 
   return (
     <>
@@ -48,12 +60,19 @@ export default function Projects() {
         </p>
       </section>
 
-      {/* Filter Tabs */}
-      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43">
-        <p className="text-left text-base text-[var(--color-text)]">
-          Lorem ipsum dolor sit amet cem ipsum dolor sit amet consectetur. Ut ut
-          quis tristique donec volutpat in...
-        </p>
+     
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <h1 className="text-3xl font-bold text-left my-2 text-[var(--color-primary)]">
+        Packaging Solutions for every industry
+        </h1>
+        <h2 className="text-start text-justify text-[var(--color-text)]">
+        With decades of experience in packaging, Mega Putra partners with leading brands across a wide range of industries. Our packaging solutions are designed to meet the functional, regulatory, and aesthetic needs of each market — ensuring brand consistency and high-quality execution.
+        </h2>
+         {/* Filter Tabs */}
+         <p className="text-left text-md font-semibold text-[var(--color-text)] mt-2">
+  {categoryDescriptions[selectedCategory]}
+</p>
+
 
         <div className="mt-6 flex justify-between border-b-3 border-[var(--color-lighter)]">
           {categories.map((category, index) => (

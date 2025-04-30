@@ -4,24 +4,24 @@ import Faq from "@/components/faq"
 
 const recruitmentSteps = [
   {
-    step: "1. Apply Job",
-    description: "Submit your CV, portfolio, and required documents through our online platform."
+    step: "1. Submit Application",
+    description: "Send us your CV, portfolio, and other required documents through our online platform."
   },
   {
-    step: "2. Interview",
-    description: "Have an initial conversation with HR or the hiring manager about your experience."
+    step: "2. Initial Interview",
+    description: "Have a conversation with HR or the hiring manager to discuss your background and experiences."
   },
   {
-    step: "3. Assessment Test",
-    description: "Complete tests to evaluate skills, logical thinking, and job suitability."
+    step: "3. Skills and Aptitude Assessment",
+    description: "Complete assessments designed to evaluate your skills, logical thinking, and job fit."
   },
   {
-    step: "4. Final Interview & Offer",
-    description: "Meet company leaders, discuss your expectations, and receive a job offer."
+    step: "4. Final Interview & Offer Discussion",
+    description: "Meet with company leaders, align expectations, and discuss your offer."
   },
   {
-    step: "5. Welcome Aboard",
-    description: "Join team, complete orientation, and start journey at Mega Putra!",
+    step: "5. Join the Mega Putra Team",
+    description: "Complete orientation and start your exciting journey with Mega Putra.",
     highlight: true
   }
 ];
@@ -38,16 +38,21 @@ export default function Careers() {
       />
 
       <section className="relative bg-[url('/images/banner5.png')] bg-cover flex items-end mt-20 h-[200px]">
-        <h1 className="w-full ml-27 mx-auto text-white px-6 py-6 pl-10 md:pl-20 z-10 text-[32px] font-semibold absolute bottom-0">
-          A Better Tomorrow Through Innovation and Collaboration
-        </h1>
       </section>
       
-      <section className="w-full mx-auto py-6 ml-25 md:pl-20">
-        <h2 className="text-[var(--color-primary)] text-[32px] font-semibold mt-4">
-          The recruitment process at Mega Putra
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+      Building Careers Through PEAK 
+      <br></br> Peduli(Care), Efesien(Efficient), Akurat(Accurate), Kerjasama(Collaborate) 
+        </h1>
+        <h2 className="text-start text-justify text-[var(--color-text)]">
+        At Mega Putra, we believe that strong careers are built on values. <br></br>
+        Join our team and experience a workplace dedicated to care, efficiency, accuracy, and collaboration.
         </h2>
-        <div className="w-full mx-auto py-8 pr-70 grid grid-cols-1 md:grid-cols-5 gap-8 ">
+        </section>
+        
+        <section className=" py-6 px-8 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 md:grid-cols-5 gap-8" >
+       
           {recruitmentSteps.map((step, index) => (
             <div 
               key={index} 
@@ -57,7 +62,7 @@ export default function Careers() {
               <p className="mt-2 text-md">{step.description}</p>
             </div>
           ))}
-        </div>
+
       </section>
 
       <Jobs/>

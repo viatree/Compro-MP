@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import Image from "next/image"
+import Link from "next/link"
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 
 const Footer = () => {
   return (
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

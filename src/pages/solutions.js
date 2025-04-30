@@ -87,10 +87,10 @@ export default function Solutions() {
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
-        PACKAGING SOLUTIONS DESIGNED FOR YOUR BRAND’S SUCCESS
+          Packaging Solutions designed For Your Brand's Success
         </h1>
         <p className="mt-6 text-left text-base text-[var(--color-text)]">
-        Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.
+          Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.
         </p>
       </section>
       <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]">
@@ -104,9 +104,8 @@ export default function Solutions() {
             {Object.keys(finishes).map((finish) => (
               <li
                 key={finish}
-                className={`cursor-pointer p-2 border-b-3   border-[var(--color-text25)] ${
-                  selectedFinish === finish ? "font-bold text-[var(--color-primary)]" : ""
-                }`}
+                className={`cursor-pointer p-2 border-b-3   border-[var(--color-text25)] ${selectedFinish === finish ? "font-bold text-[var(--color-primary)]" : ""
+                  }`}
                 onClick={() => setSelectedFinish(finish)}
               >
                 {finish}
@@ -126,17 +125,16 @@ export default function Solutions() {
         </div>
       </section>
 
-       {/* materials Options */}
-       <section className="flex gap-8 p-8 py-12 px-8 md:px-16 lg:px-24 xl:px-43" >
+      {/* materials Options */}
+      <section className="flex gap-8 p-8 py-12 px-8 md:px-16 lg:px-24 xl:px-43" >
         <div className="w-1/3  text-bold text-[var(--color-text)]">
           <h1 className="text-3xl font-bold mb-4 text-[var(--color-primary)]">Materials</h1>
           <ul>
             {Object.keys(materials).map((materials) => (
               <li
                 key={materials}
-                className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${
-                  selectedMaterials === materials ? "font-bold text-[var(--color-primary)]" : ""
-                }`}
+                className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedMaterials === materials ? "font-bold text-[var(--color-primary)]" : ""
+                  }`}
                 onClick={() => setSelectedMaterials(materials)}
               >
                 {materials}
@@ -155,51 +153,47 @@ export default function Solutions() {
           <p className="mt-4 text-lg">{materials[selectedMaterials].description}</p>
         </div>
       </section>
-<ProductSection/>
-   {/* Product List Section */}
-{/* <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
-  <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">Products</h2>
-  <p className="text-base text-[var(--color-text)] mb-8">
-    At Mega Putra, we offer high-quality paper-based products designed to meet the diverse needs of brands across industries. Our product range includes:
-  </p>
+      <ProductSection />
+      {/* Product List Section */}
+      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
+        <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">Products</h2>
+        <p className="text-base text-[var(--color-text)] mb-8">
+          At Mega Putra, we offer high-quality paper-based products designed to meet the diverse needs of brands across industries. Our product range includes:
+        </p>
 
-  <div className="space-y-6">
-    <div>
-      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Folding Carton Boxes</h3>
-      <p className="text-[var(--color-text)]">
-        Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Hangtags</h3>
-      <p className="text-[var(--color-text)]">
-        Enhance product presentation and brand storytelling with customised hangtags.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Leaflets</h3>
-      <p className="text-[var(--color-text)]">
-        Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Promotional Items</h3>
-      <p className="text-[var(--color-text)]">
-      Specially designed paper-based promotional materials to support marketing and brand campaigns.
-      </p>
-    </div>
-    <div>
-      <h3 className="text-xl font-semibold text-[var(--color-primary)]">•	Labels</h3>
-      <p className="text-[var(--color-text)]">
-      High-quality labels for brand recognition, compliance, and product differentiation.
-      </p>
-    </div>
-  </div>
-</section> */}
-
-      
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Folding Carton Boxes</h3>
+            <p className="text-[var(--color-text)]">
+              Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Hangtags</h3>
+            <p className="text-[var(--color-text)]">
+              Enhance product presentation and brand storytelling with customised hangtags.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Leaflets</h3>
+            <p className="text-[var(--color-text)]">
+              Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[var(--color-primary)]">• Promotional Items</h3>
+            <p className="text-[var(--color-text)]">
+              Specially designed paper-based promotional materials to support marketing and brand campaigns.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[var(--color-primary)]">•	Labels</h3>
+            <p className="text-[var(--color-text)]">
+              High-quality labels for brand recognition, compliance, and product differentiation.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
-
-
