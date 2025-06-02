@@ -1,8 +1,10 @@
 import "@/styles/globals.css";
 import { Montserrat } from "next/font/google";
+import whatsappButton from "@/components/whatsapp";
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 import WhatsappButton from "@/components/whatsapp";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -14,7 +16,7 @@ export default function App({ Component, pageProps }) {
   <>
   <Navbar />
   <Component {...pageProps} />
-  <WhatsappButton />
+  <WhatsappButton/>
   <Footer/>
   </>
 )

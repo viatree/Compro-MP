@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const isActive = (path) =>
     router.pathname === path
-      ? "text-[var(--color-text)] font-semibold"
+      ? "text-[var(--color-text)] font-medium"
       : "text-[var(--color-primary)] hover:text-[var(--color-lighter)]";
 
   return (
@@ -110,18 +110,18 @@ const Navbar = () => {
           </ul>
 
           {/* Language Selector */}
-          <div className="flex items-center bg-gray-100 p-1 rounded-sm">
+          <div className="flex items-center bg-gray-100 rounded-sm">
             <button
-              className={`px-2 py-1 rounded-md text-[14px] font-semibold ${
-                language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-black"
+              className={`px-2 py-1 rounded-md text-[14px] font-medium ${
+                language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"
               }`}
               onClick={() => setLanguage("ID")}
             >
               ID
             </button>
             <button
-              className={`px-2 py-1 rounded-md text-[14px] font-semibold ${
-                language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-black"
+              className={`px-2 rounded-md text-[14px] font-medium ${
+                language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"
               }`}
               onClick={() => setLanguage("EN")}
             >

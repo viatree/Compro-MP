@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "I didn't get selected. Can I apply again in the future?",
-    answer: "Absolutely. We encourage you to reapply for future openings that match your skills and career interests. Each application is evaluated independently based on the role’s requirements."
+    answer: "Absolutely. We encourage you to reapply for future openings that match your skills and career interests. Each application is evaluated independently based on the role's requirements."
   },
   {
     question: "What's the work culture like?",
@@ -32,7 +32,7 @@ export default function FAQ() {
       {/* FAQ Content */}
       <div className="w-full md:w-1/2">
         <h2 className="text-[var(--color-primary)] text-[34px] font-semibold mb-4 border-b-4 border-[var(--color-primary)] pb-2">
-          FAQ (Frequently Asked Questions)
+        Frequently Asked Questions (FAQS)
         </h2>
         <div className="w-full">
           {faqs.map((faq, index) => (
