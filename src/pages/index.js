@@ -63,7 +63,7 @@ export default function Home() {
           in-house packaging services—from design prototyping and colour
           development to high-precision printing and finishing. Our integrated
           approach ensures consistent quality and customised solutions that
-          align with each brand’s unique requirements.
+          align with each brand's unique requirements.
         </p>
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
