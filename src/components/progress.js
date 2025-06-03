@@ -46,10 +46,10 @@ export default function Progress() {
   ];
 
   return (
-    <section className="relative w-full px-8 py-6 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
+    <section className="relative w-full px-8 py-15 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
       <div className="text-left mb-10">
-        <h1 className="text-3xl font-medium text-[var(--color-primary)] tracking-wide">
+        <h1 className="text-[40px] font-medium text-[var(--color-primary)] tracking-wide">
           How It Works
         </h1>
       </div>
@@ -90,10 +90,10 @@ export default function Progress() {
           <div className="bg-[#E6F6FC] p-6 md:p-10 flex items-start gap-5 shadow-md">
             <div>{stepContents[activeIndex].icon}</div>
             <div>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">
+              <h2 className="text-[20px] font-reguler text-gray-900 mb-2 ">
                 {steps[activeIndex]}
               </h2>
-              <p className="text-[var(--color-text)] leading-relaxed text-sm md:text-base">
+              <p className="text-[var(--color-text)] leading-relaxed text-[16px] font-light md:text-base">
                 {stepContents[activeIndex].description}
               </p>
             </div>
