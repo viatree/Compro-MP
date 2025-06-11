@@ -49,10 +49,10 @@ export default function Timeline() {
 
   return (
     <section className="relative w-full bg-white px-6 pl-43">
-        <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
+        <h1 className="text-[40px] font-medium text-left text-[var(--color-primary)]">
         From Brokerage to Full-Service Packaging Solutions
         </h1>
-        <h2 className="my-4 text-2xl font-medium text-left text-[var(--color-text)] ">
+        <h2 className="my-4 text-[24px] font-light text-left text-[var(--color-text)] ">
         Key Milestones in Our Growth and Transformation
         </h2>
       {/* Timeline */}
@@ -70,11 +70,11 @@ export default function Timeline() {
             <motion.div
               key={index}
               className={`min-w-[350px] p-6 shadow-md transition-all duration-300 
-                ${index === activeIndex ? "bg-[var(--color-primary)] text-white scale-105" : "bg-[var(--color-card)] text-[var(--color-text)]"} 
+                ${index === activeIndex ? "bg-[var(--color-primary)] text-white scale-105 text-[16px]" : "bg-[var(--color-card)] text-[var(--color-text)] "} 
                 hover:bg-[var(--color-darker)] hover:text-white`}
             >
-              <h3 className="text-lg font-bold">{item.year}</h3>
-              <p>{item.text}</p>
+              <h3 className="text-[24px] font-bold">{item.year}</h3>
+              <p className="text-[14px] font-light">{item.text}</p>
             </motion.div>
           ))}
         </motion.div>

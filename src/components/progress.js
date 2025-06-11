@@ -67,7 +67,7 @@ export default function Progress() {
                 className={`cursor-pointer flex items-center space-x-3 transition-all duration-300 ${
                   isActive
                     ? "font-semibold text-[var(--color-primary)]"
-                    : "text-blue-500"
+                    : "text-[var(--color-primary)]"
                 }`}
               >
                 <div

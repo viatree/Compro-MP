@@ -43,7 +43,7 @@ export default function Home() {
             ISO 9001 Certified • FSC Certified • Halal Certified
           </p>
           <Link href="/solutions">
-            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-lg px-6 py-2 rounded-4xl cursor-pointer">
+            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-lg px-6 py-2  cursor-pointer rounded-md">
               Discover Our Solutions
             </button>
           </Link>
@@ -90,7 +90,7 @@ export default function Home() {
             },
           ].map(({ img, title, desc }, i) => (
             <div key={i} className="text-center">
-              <div className="relative w-full h-[250px] mx-auto shadow-lg">
+              <div className="relative w-full h-[250px] mx-auto">
                 <Image src={img} alt={title} layout="fill" objectFit="cover" />
               </div>
               <h4 className="mt-4 text-[20px] font-light text-[var(--color-primary)] ">
