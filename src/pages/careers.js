@@ -41,11 +41,11 @@ export default function Careers() {
       </section>
       
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
-      <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+      <h1 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
       Building Careers Through PEAK 
       <br></br> Peduli(Care), Efesien(Efficient), Akurat(Accurate), Kerjasama(Collaborate) 
         </h1>
-        <h2 className="text-start text-justify text-[var(--color-text)]">
+        <h2 className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
         At Mega Putra, we believe that strong careers are built on values. <br></br>
         Join our team and experience a workplace dedicated to care, efficiency, accuracy, and collaboration.
         </h2>
@@ -58,8 +58,8 @@ export default function Careers() {
               key={index} 
               className={`p-6 ${step.highlight ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-card)] text-[var(--color-text)]'}`}
             >
-              <h3 className="font-semibold">{step.step}</h3>
-              <p className="mt-2 text-md">{step.description}</p>
+              <h3 className="font-semibold text-[16px]">{step.step}</h3>
+              <p className="mt-2 font-light text-[14px]">{step.description}</p>
             </div>
           ))}
 

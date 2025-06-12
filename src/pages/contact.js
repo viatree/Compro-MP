@@ -20,7 +20,7 @@ export default function Contact() {
         />
         <div className="absolute top-0 left-0 w-full h-full  bg-opacity-50 flex items-center justify-center">
           <h1 className="text-white text-5xl font-bold">
-            Contact <span className="text-[var(--color-primary)]">Us</span>
+            Contact Us
           </h1>
         </div>
       </section>
@@ -28,29 +28,29 @@ export default function Contact() {
       {/* Contact Info and Form */}
       <section className="text-white py-12 px-6 md:px-16 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-3xl font-bold mb-4 text-[var(--color-text)]">Get in touch</h2>
-          <p className="mb-8 text-[var(--color-text)]">
+          <h2 className="text-[40px] font-medium  text-[var(--color-primary)]">Get in touch</h2>
+          <p className="my-2 text-[var(--color-text)] text-[24px]">
             Kami siap membantu Anda. Hubungi kami melalui informasi berikut atau kirim pesan langsung.
           </p>
 
-          <div className="mb-6 text-[var(--color-text)]">
-            <h3 className="text-lg font-semibold ">📞 Contact</h3>
+          <div className="my-6 text-[var(--color-text)]">
+            <h3 className="text-[16px] font-medium ">📞 Contact</h3>
             <p className="text-[var(--color-light)]">021-29662288</p>
           </div>
           <div className="mb-6 text-[var(--color-text)]">
-            <h3 className="text-lg font-semibold">📧 E-mail</h3>
+            <h3 className="text-[16px] font-medium">📧 E-mail</h3>
             <p className="text-[var(--color-light)]">marketing@megaputra.com</p>
           </div>
           <div className="mb-6 text-[var(--color-text)]">
-            <h3 className="text-lg font-semibold">📍 Our Address</h3>
-            <p className="text-[var(--color-light)]">
+            <h3 className="text-[16px] font-medium">📍 Our Address</h3>
+            <p className="text-[var(--color-light)] text-[14px]">
             Jl. Raya Puspiptek No.18, RT.7/RW.2, Kota Tangerang Selatan, Banten 15315
             </p>
           </div>
         </div>
 
-        <div className="bg-white text-black rounded-3xl shadow-xl p-10 text-[var(--color-text)]">
-          <h2 className="text-3xl font-bold mb-6">Contact <span className="text-[var(--color-primary)]">Us</span></h2>
+        <div className="bg-white text-[var(--color-text)] rounded-3xl shadow-xl p-6 text-[var(--color-text)]">
+          <h2 className="text-[40px] font-medium my-2">Contact <span className="text-[var(--color-primary)]">Us</span></h2>
           <form className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
               <input

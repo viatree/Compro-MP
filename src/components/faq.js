@@ -28,17 +28,17 @@ export default function FAQ() {
   };
 
   return (
-    <section className="w-full mx-auto py-10 px-6 md:px-20 flex flex-col md:flex-row ml-26 items-start">
+    <section className="w-full py-10 px-6 md:px-20 flex flex-col md:flex-row mx-22 items-start">
       {/* FAQ Content */}
       <div className="w-full md:w-1/2">
-        <h2 className="text-[var(--color-primary)] text-[34px] font-semibold mb-4 border-b-4 border-[var(--color-primary)] pb-2">
+        <h2 className="text-[var(--color-primary)] text-[40px] font-medium border-b-4 border-[var(--color-primary)] pb-2">
         Frequently Asked Questions (FAQS)
         </h2>
         <div className="w-full">
           {faqs.map((faq, index) => (
             <div key={index} className="border-b-3 border-[var(--color-text25)]">
               <button
-                className="w-full text-left flex justify-between items-center py-4 text-lg font-semibold focus:outline-none text-[var(--color-text)]"
+                className="w-full text-left flex justify-between items-center py-4 text-[16px] font-medium focus:outline-none text-[var(--color-text)]"
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
@@ -49,19 +49,19 @@ export default function FAQ() {
                 )}
               </button>
               {openIndex === index && (
-                <p className="text-md text-[var(--color-text)] pb-4">{faq.answer}</p>
+                <p className="text-[16px] font-light text-[var(--color-text)] pb-4">{faq.answer}</p>
               )}
             </div>
-          ))}
+          ))} 
         </div>
       </div>
 
       {/* Image Section */}
-      <div className="w-full md:w-1/2 mt-6 mr-52 md:mt-14 md:pl-10">
+      <div className="w-full md:w-1/2 mt-6 mr-52 md:mt-24 md:pl-10">
         <img
           src="/images/pict9.png"
           alt="Office Culture"
-          className="w-full shadow-md"
+          className="w-full "
         />
       </div>
     </section>

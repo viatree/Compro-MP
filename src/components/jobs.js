@@ -72,22 +72,22 @@ export default function Careers() {
   return (
     <>
       <section className="w-full mx-auto lg:px-44 md:pl-20">
-        <h1 className="my-2 text-3xl font-bold text-left text-[var(--color-primary)]">
+        <h1 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
           Current Jobs Openings
         </h1>
-        <h2 className="text-start text-justify text-[var(--color-text)]">
-          Join a team committed to continuous improvement and lasting success. See our current openings below.
+        <h2 className="text-start text-[24px] text-justify text-[var(--color-text)]">
+          Join a team committed to continuous improvement and lasting success.<br></br> See our current openings below.
         </h2>
         <div className="text-[var(--color-text)]">
           {jobOpenings.map((job, index) => (
             <div key={index} className="flex justify-between items-center py-4 border-b-2 border-[var(--color-text25)]">
               <div>
-                <h3 className="text-lg font-semibold my-4">{job.title}</h3>
+                <h3 className="text-lg font-medium my-4">{job.title}</h3>
                 <p className="text-md text-[var(--color-text)]">
-                  <span className="font-semibold">Category:</span> {job.category} |{" "}
-                  <span className="font-semibold">Min Education:</span> {job.education} |{" "}
-                  <span className="font-semibold">Work Experience:</span> {job.experience} |{" "}
-                  <span className="font-semibold">Location:</span> {job.location}
+                  <span className="font-medium">Category:</span> {job.category} |{" "}
+                  <span className="font-medium">Min Education:</span> {job.education} |{" "}
+                  <span className="font-medium">Work Experience:</span> {job.experience} |{" "}
+                  <span className="font-medium">Location:</span> {job.location}
                 </p>
               </div>
               <a href={job.applyLink} target="_blank" rel="noopener noreferrer">
