@@ -29,7 +29,7 @@ export default function Contact() {
       <section className="text-white py-12 px-6 md:px-16 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <h2 className="text-[40px] font-medium  text-[var(--color-primary)]">Get in touch</h2>
-          <p className="my-2 text-[var(--color-text)] text-[24px]">
+          <p className="my-2 text-[var(--color-text)] text-[20px]">
             Kami siap membantu Anda. Hubungi kami melalui informasi berikut atau kirim pesan langsung.
           </p>
 
