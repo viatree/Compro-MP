@@ -2,7 +2,7 @@ import SEO from "../components/seo";
 import Timeline from "@/components/timeline";
 import Technology from "../components/technology";
 import Image from "next/image";
-import { Clock3, Target, Handshake, HandHeart } from "lucide-react";
+import { Clock3, Target, Handshake, HandHeart,Leaf,HardHat } from "lucide-react";
 
 export default function Company() {
   return (
@@ -123,47 +123,56 @@ export default function Company() {
         </div>
       </section>
 
-      {/* Corporate Values */}
-      <section id="values" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">Corporate Values & Ethics</h2>
-        <h3 className="text-start text-justify text-[24px] font-light text-[var(--color-text)]">
-          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {[
-            { icon: <HandHeart />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
-            { icon: <Clock3 />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
-            { icon: <Target />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
-            { icon: <Handshake />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
-          ].map(({ icon, title, subtitle, desc }, i) => (
-            <div key={i} className=" p-6 flex flex-col items-center">
-              <div className="w-12 h-12 mb-4 text-[var(--color-primary)]">{icon}</div>
-              <h3 className="text-[20px] font-light text-[var(--color-primary)] mb-1">{title}</h3>
-              <p className="text-[16px] text-gray-500 mb-2">{subtitle}</p>
-              <p className="text-[14px] font-light text-[var(--color-text)] text-center">{desc}</p>
-            </div>
-          ))}
+    {/* Corporate Values */}
+<section id="values" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
+  <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">
+    Corporate Values & Ethics
+  </h2>
+  <h3 className="text-start text-justify text-[24px] font-light text-[var(--color-text)]">
+    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
+  </h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-8">
+    {[
+      { icon: <HandHeart size={50} />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
+      { icon: <Clock3 size={50} />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
+      { icon: <Target size={50} />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
+      { icon: <Handshake size={50} />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
+    ].map(({ icon, title, subtitle, desc }, i) => (
+      <div key={i} className="p-6 flex flex-col items-center text-center">
+        <div className="flex items-center justify-center w-16 h-16 mb-4 text-[var(--color-primary)]">
+          {icon}
         </div>
-      </section>
+        <h3 className="text-[20px] font-light text-[var(--color-primary)] mb-1">{title}</h3>
+        <p className="text-[16px] text-gray-500 mb-2">{subtitle}</p>
+        <p className="text-[14px] font-light text-[var(--color-text)]">{desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Corporate Responsibilities */}
-      <section className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[40px] font-medium text-[var(--color-primary)] text-left">Corporate Responsibilities</h2>
-        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">Committed to Sustainability, Ethics, and Workplace Excellence.</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {[
-            { icon: "sustainability-icon.svg", title: "Sustainability", text: "FSC-certified paper, water-based coatings, waste reduction" },
-            { icon: "ethics-icon.svg", title: "Ethical Business Practices", text: "Building trusted, transparent partnerships" },
-            { icon: "safety-icon.svg", title: "Workplace Safety", text: "Ensuring a safe, healthy environment with K3-certified personnel" }
-          ].map(({ icon, title, text }, i) => (
-            <div key={i} className="bg-white p-6 flex flex-col items-center">
-              <img src={`/icons/${icon}`} alt={`${title} Icon`} className="w-20 h-20 mb-4" />
-              <h3 className="text-[20px] font-medium text-[var(--color-primary)] mb-2">{title}</h3>
-              <p className="text-[16px] font-light text-[var(--color-text)]">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+     <section className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
+  <h2 className="my-4 text-[40px] font-medium text-[var(--color-primary)] text-left">
+    Corporate Responsibilities
+  </h2>
+  <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
+    Committed to Sustainability, Ethics, and Workplace Excellence.
+  </h3>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    {[
+      { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Sustainability", text: "FSC-certified paper, water-based coatings, waste reduction" },
+      { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Ethical Business Practices", text: "Building trusted, transparent partnerships" },
+      { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Workplace Safety", text: "Ensuring a safe, healthy environment with K3-certified personnel" }
+    ].map(({ icon, title, text }, i) => (
+      <div key={i} className="bg-white p-6 flex flex-col items-center">
+        <div className="mb-4 text-[var(--color-primary)]">{icon}</div>
+        <h3 className="text-[20px] font-medium text-[var(--color-primary)] mb-2">{title}</h3>
+        <p className="text-[16px] font-light text-[var(--color-text)]">{text}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Certifications */}
       <section id="certifications" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">

@@ -7,7 +7,6 @@ const imageData = [
   "/images/tech.png",
   "/images/tech2.png",
   "/images/tech3.png",
-  "/images/tech.png",
 ];
 
 export default function ImageTimeline() {
@@ -21,7 +20,7 @@ export default function ImageTimeline() {
 
   const cardWidth = 350;
   const containerPadding = 12;
-  const extraPadding = 1050;
+  const extraPadding = 800;
 
   useEffect(() => {
     const handleResize = () => setViewportWidth(window.innerWidth);
