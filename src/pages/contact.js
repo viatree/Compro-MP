@@ -28,9 +28,9 @@ export default function Contact() {
       {/* Contact Info and Form */}
       <section className="text-white py-12 px-6 md:px-16 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-[40px] font-medium  text-[var(--color-primary)]">Get in touch</h2>
+          <h2 className="text-[40px] font-medium  text-[var(--color-primary)]">Get In Touch</h2>
           <p className="my-2 text-[var(--color-text)] text-[20px]">
-            Kami siap membantu Anda. Hubungi kami melalui informasi berikut atau kirim pesan langsung.
+           For any inquiries related to Megaputra products & services, you can fill out form beside for your convenience.
           </p>
 
           <div className="my-6 text-[var(--color-text)]">
@@ -89,15 +89,17 @@ export default function Contact() {
       </section>
 
       <section className="w-full h-[400px]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.152169754838!2d106.715578!3d-6.244007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fb9dc1212f0f%3A0x3cbeb0c321d8c3b0!2sPT.%20Mega%20Putra!5e0!3m2!1sen!2sid!4v1689832476819!5m2!1sen!2sid"
-          width="100%"
-          height="100%"
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="border-0 w-full h-full"
-        ></iframe>
+       <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.741461673306!2d106.69134207509676!3d-6.347082893641534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a88a3defb5%3A0x533f3f634a45322f!2sPT.%20Mega%20Putra!5e0!3m2!1sen!2sid!4v1750066313085!5m2!1sen!2sid"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  className="w-full h-full"
+/>
+
       </section>
     </>
   );
