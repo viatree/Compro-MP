@@ -90,16 +90,24 @@ export default function Home() {
             },
           ].map(({ img, title, desc }, i) => (
             <div key={i} className="text-center">
-              <div className="relative w-full h-[250px] mx-auto">
-                <Image src={img} alt={title} layout="fill" objectFit="cover" />
+              <div className="relative w-full h-auto flex justify-center items-center mb-4">
+                <Image
+                  src={img}
+                  alt={title}
+                  width={300} // atur sesuai ukuran asli gambar
+                  height={100}
+                  objectFit="cover"
+                  className="w-full h-auto shadow-md"
+                />
               </div>
-              <h4 className="mt-4 text-[20px] font-light text-[var(--color-primary)] ">
+              <h4 className="mt-2 text-[20px] font-light text-[var(--color-primary)]">
                 {title}
               </h4>
               <p className="mt-2 text-[16px] text-[var(--color-text)] font-light">{desc}</p>
             </div>
           ))}
         </div>
+
       </section>
 
       <Progress />
@@ -139,42 +147,54 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Bottom Cards */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             {
+              image: "/images/7RV03608.jpg",
+              bgColor: "bg-[#E6F6FC]",
               title: "Quality, Innovation, Efficiency",
               desc: "PT Mega Putra combines technical expertise, sustainable practices, and cutting-edge equipment to deliver trusted packaging solutions.",
-              linkText: "Explore Our Solutions →",
+              linkText: "Explore Our Solutions",
             },
             {
+              image: "/images/7RV04057.jpg",
+              bgColor: "bg-[#27A9E1]",
+              textColor: "text-white",
               title: "Over 28 Years of Printing & Packaging Expertise",
               desc: "Established in 1997, PT Mega Putra has built a long-standing reputation for delivering high-quality, innovative, and reliable packaging solutions across industries.",
-              linkText: "Learn About Mega Putra →",
+              linkText: "Learn About Mega Putra",
             },
-          ].map(({ title, desc, linkText }, i) => (
+          ].map(({ image, title, desc, linkText }, i) => (
             <Link key={i} href="/solutions" className="block h-full group">
               <div className="relative flex flex-col h-full transition duration-300 hover:brightness-100">
                 <img
-                  src="/images/pict7.png"
+                  src={image}
                   alt={title}
-                  className="w-full h-[200px] object-cover shadow-lg"
+                  className="w-full h-[200px] "
                 />
-                <div className="flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300">
+                <div className={`flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300`}>
                   <div>
                     <h4 className="text-[20px] font-reguler">{title}</h4>
                     <p className="text-[16px] font-light mt-1">{desc}</p>
                   </div>
-                  <div className="mt-4 flex justify-end">
-                    <span className="inline-block font-light text-[16px] group-hover:underline">
-                      {linkText}
-                    </span>
+                  <div className="mt-4 flex justify-end ">
+                    <span className="inline-block font-light text-[16px] group-hover:underline">{linkText}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
+
       </section>
     </>
   );
