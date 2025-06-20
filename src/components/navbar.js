@@ -18,6 +18,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-[16px] fixed top-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center ml-4">
+        
         {/* Logo */}
         <div className="flex items-center">
           <Image
@@ -29,78 +30,49 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Menu Links + Language Selector */}
-        <div className="flex items-center space-x-8 mr-6">
-          <ul className="hidden md:flex space-x-8 text-[var(--color-primary)] font-medium relative">
+        {/* Desktop Menu + Language */}
+        <div className="hidden md:flex items-center space-x-8 mr-6">
+          <ul className="flex space-x-8 text-[var(--color-primary)] font-medium relative">
             <li><Link href="/" className={isActive("/")}>Home</Link></li>
 
-{/* DROPDOWN - About Us */}
-<li
-  className="relative group"
-  onMouseEnter={() => setDropdownOpen(true)}
-  onMouseLeave={() => setDropdownOpen(false)}
->
-  <span
-    className={`${isActive("/company")} cursor-pointer flex items-center gap-1`}
-  >
-    About Us
-    <svg
-      className="w-4 h-4 text-[var(--color-primary)] group-hover:rotate-180 transition-transform duration-300"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  </span>
+            {/* Dropdown - About Us */}
+            <li
+              className="relative group"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <span className={`${isActive("/company")} cursor-pointer flex items-center gap-1`}>
+                About Us
+                <svg className="w-4 h-4 text-[var(--color-primary)] group-hover:rotate-180 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
 
-  {/* Dropdown menu */}
-  <div className={`absolute left-0 top-full pt-2 z-50 ${dropdownOpen ? 'block' : 'hidden'}`}>
-    <ul className="bg-white border-t-4 border-[var(--color-primary)] shadow-lg rounded-md w-52 text-[14px]">
-      <li>
-        <Link
-          href="/company#about"
-          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
-        >
-          About Mega Putra
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/company#vision"
-          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
-        >
-          Vision & Mission
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/company#capabilities"
-          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
-        >
-          Our Capabilities
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/company#values"
-          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
-        >
-          Corporate Values & Responsibilities
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/company#certifications"
-          className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]"
-        >
-          Certifications
-        </Link>
-      </li>
-    </ul>
-  </div>
-</li>
+              <div className={`absolute left-0 top-full pt-2 z-50 ${dropdownOpen ? 'block' : 'hidden'}`}>
+                <ul className="bg-white border-t-4 border-[var(--color-primary)] shadow-lg rounded-md w-52 text-[14px]">
+                  <li>
+                    <Link href="/company#about" className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]">About Mega Putra</Link>
+                  </li>
+                  <li>
+                    <Link href="/company#vision" className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]">Vision & Mission</Link>
+                  </li>
+                  <li>
+                    <Link href="/company#capabilities" className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]">Our Capabilities</Link>
+                  </li>
+                  <li>
+                    <Link href="/company#values" className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]">Corporate Values & Responsibilities</Link>
+                  </li>
+                  <li>
+                    <Link href="/company#certifications" className="block px-4 py-3 hover:bg-[var(--color-text25)] text-[var(--color-primary)]">Certifications</Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
             <li><Link href="/solutions" className={isActive("/solutions")}>Solutions</Link></li>
             <li><Link href="/projects" className={isActive("/projects")}>Portofolio</Link></li>
@@ -109,29 +81,61 @@ const Navbar = () => {
             <li><Link href="/contact" className={isActive("/contact")}>Contact</Link></li>
           </ul>
 
-          {/* Language Selector */}
+          {/* Language Selector (desktop) */}
           <div className="flex items-center bg-gray-100 rounded-sm">
             <button
-              className={`px-2 py-1 rounded-md text-[14px] font-medium ${
-                language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"
-              }`}
+              className={`px-2 rounded-md text-[14px] font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
               onClick={() => setLanguage("ID")}
             >
               ID
             </button>
             <button
-              className={`px-2 rounded-md text-[14px] font-medium ${
-                language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"
-              }`}
+              className={`px-2 rounded-md text-[14px] font-medium ${language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
               onClick={() => setLanguage("EN")}
             >
               EN
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Toggle Button */}
+        <div className="md:hidden flex items-center">
+          <div className="flex items-center bg-gray-100 rounded-sm mr-4">
+            <button
+              className={`px-2 text-sm font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
+              onClick={() => setLanguage("ID")}
+            >
+              ID
+            </button>
+            <button
+              className={`px-2 text-sm font-medium ${language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
+              onClick={() => setLanguage("EN")}
+            >
+              EN
+            </button>
+          </div>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-[var(--color-primary)]">
+            {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 transition-all duration-300 bg-white shadow-md">
+          <ul className="flex flex-col gap-4 px-6 py-6 text-[var(--color-primary)] font-medium text-lg">
+            <li><Link href="/" onClick={() => setMenuOpen(false)}>HOME</Link></li>
+            <li><Link href="/company" onClick={() => setMenuOpen(false)}>ABOUT US</Link></li>
+            <li><Link href="/projects" onClick={() => setMenuOpen(false)}>PORTFOLIO</Link></li>
+            <li><Link href="/solutions" onClick={() => setMenuOpen(false)}>SOLUTIONS</Link></li>
+            <li><Link href="/resources" onClick={() => setMenuOpen(false)}>RESOURCES</Link></li>
+            <li><Link href="/careers" onClick={() => setMenuOpen(false)}>CAREERS</Link></li>
+            <li><Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link></li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
 
-export default Navbar
+export default Navbar;
