@@ -46,7 +46,7 @@ export default function Progress() {
   ];
 
   return (
-    <section className="relative w-full px-8 py-15 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
+    <section className="relative w-full px-8 py-10 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
       <div className="text-left mb-10">
         <h1 className="text-[40px] font-medium text-[var(--color-primary)] tracking-wide">
@@ -86,19 +86,19 @@ export default function Progress() {
         </div>
 
         {/* Dynamic Content (Right) */}
-        <div className="w-full md:w-2/3">
-          <div className="bg-[#E6F6FC] p-6 md:p-10 flex items-start gap-5 shadow-md">
-            <div>{stepContents[activeIndex].icon}</div>
-            <div>
-              <h2 className="text-[20px] font-reguler text-gray-900 mb-2 ">
-                {steps[activeIndex]}
-              </h2>
-              <p className="text-[var(--color-text)] leading-relaxed text-[16px] font-light md:text-base">
-                {stepContents[activeIndex].description}
-              </p>
-            </div>
-          </div>
-        </div>
+<div className="w-full md:w-2/3 mt-6 md:mt-0">
+  <div className="bg-[#E6F6FC] p-4 sm:p-6 md:p-8 flex items-start gap-4 sm:gap-5 shadow-md rounded">
+    <div className="shrink-0">{stepContents[activeIndex].icon}</div>
+    <div>
+      <h2 className="text-gray-900 font-medium mb-2 sm:text-[14px] md:text-[16px] lg:text-[20px]">
+        {steps[activeIndex]}
+      </h2>
+      <p className="text-[var(--color-text)] font-light leading-relaxed sm:text-[12px] md:text-[14px] lg:text-[16px]">
+        {stepContents[activeIndex].description}
+      </p>
+    </div>
+  </div>
+</div>
       </div>
     </section>
   );
