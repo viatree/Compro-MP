@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-primary)] text-white py-10 px-4 sm:px-6 md:px-10 lg:px-14">
+    <footer className="bg-[var(--color-primary)] text-white py-10 px-8 md:px-16 lg:px-24 xl:px-43">
       <div className="max-w-6xl mx-auto">
         {/* Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
