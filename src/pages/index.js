@@ -127,7 +127,7 @@ export default function Home() {
 
   {/* Certificates - Responsive Layout */}
 {/* Certificates - Responsive Layout */}
-<div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
+<div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
   {[
     {
       img: "/images/sgs.png",
@@ -147,7 +147,7 @@ export default function Home() {
   ].map(({ img, title, since }, i) => (
     <div key={i} className="flex flex-col items-center">
       <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-      <p className="text-[12px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+      <p className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
         <span className="font-medium block">{title}</span>
         <span className="font-light text-[var(--color-text)] block mt-1">
           {since}

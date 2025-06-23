@@ -81,7 +81,7 @@ const Footer = () => {
         <div className="border-t border-white w-full my-4"></div>
 
         {/* Bottom Info */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 text-xs">
+        <div className="flex flex-row sm:flex-row justify-between items-start sm:items-center gap-1 text-xs">
           <p>Copyright © MegaPutra</p>
           <p>All Rights Reserved</p>
         </div>
