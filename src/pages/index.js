@@ -56,13 +56,13 @@ export default function Home() {
 
       {/* What We Offer */}
       <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
+        <h2 className="my-2 text-[30px] sm:text-[40px] font-medium text-left text-[var(--color-primary)]">
           What We Offer
         </h2>
-        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
+        <h3 className="my-4 sm:text-[24px] text-[16px] font-light text-left text-[var(--color-text)]">
           Comprehensive Paper Packaging Solutions
         </h3>
-        <p className="text-justify text-[var(--color-text)] text-sm text-[16px] font-light">
+        <p className="text-justify text-[var(--color-text)] text-sm text-[12px] sm:text-[16px] font-light">
           With decades of hands-on experience, PT Mega Putra delivers seamless
           in-house packaging services—from design prototyping and colour
           development to high-precision printing and finishing. Our integrated
@@ -118,14 +118,13 @@ export default function Home() {
 
       <Progress />
 
-      {/* Certifications */}
+  
       <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
         {/* Heading */}
-        <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
+        <h2 className="text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
           Commitment to Quality and Standards
         </h2>
 
-        {/* Certificates - Responsive Layout */}
         {/* Certificates - Responsive Layout */}
         <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
           {[
@@ -147,8 +146,8 @@ export default function Home() {
           ].map(({ img, title, since }, i) => (
             <div key={i} className="flex flex-col items-center">
               <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-              <p className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
-                <span className="font-medium block">{title}</span>
+              <p className="text-[10px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+                <span className="font-medium block">{title}</span> 
                 <span className="font-light text-[var(--color-text)] block mt-1">
                   {since}
                 </span>
@@ -180,7 +179,7 @@ export default function Home() {
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-[200px] "
+                  className="w-full h-[150px] sm:h-[200px] md:h-[200px]"
                 />
                 <div className={`flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300`}>
                   <div>
