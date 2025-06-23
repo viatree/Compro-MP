@@ -20,15 +20,16 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center ml-4">
         
         {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src="/images/logo.png"
-            alt="Mega Putra Logo"
-            width={225}
-            height={40}
-            priority
-          />
-        </div>
+       <div className="w-40 md:w-[225px]">
+  <Image
+    src="/images/logo.png"
+    alt="Mega Putra Logo"
+    width={225}
+    height={40}
+    priority
+  />
+</div>
+
 
         {/* Desktop Menu + Language */}
         <div className="hidden md:flex items-center space-x-8 mr-6">

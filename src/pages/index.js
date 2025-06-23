@@ -16,42 +16,42 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-<section className="relative w-full h-[500px] sm:h-screen mt-20">
+      <section className="relative w-full h-[400px] sm:h-screen mt-16 sm:mt-20">
 
-  {/* Background Image */}
-  <div className="absolute inset-0 z-0">
-    <Image
-      src="/images/7RV03148.jpg"
-      alt="Hero Background"
-      layout="fill"
-      objectFit="cover"
-      quality={75}
-      priority
-    />
-    <div className="absolute inset-0 pointer-events-none"></div>
-  </div>
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/7RV03148.jpg"
+            alt="Hero Background"
+            layout="fill"
+            objectFit="cover"
+            quality={75}
+            priority
+          />
+          <div className="absolute inset-0 pointer-events-none"></div>
+        </div>
 
-  {/* Overlay Text Content */}
-  <div className="relative z-10 flex flex-col justify-center items-center text-center text-white h-full px-4 sm:px-6 md:px-12">
-    <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider">
-      Paper Packaging Solutions
-    </h1>
-    <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider mt-2 sm:mt-4">
-      For Every Industry
-    </h2>
-    <p className="mt-4 sm:mt-6 text-[clamp(0.9rem,2.5vw,1.25rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
-      Customised Packaging. Trusted Solutions.
-    </p>
-    <p className="mt-2 mb-4 text-[clamp(0.75rem,2vw,1rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
-      ISO 9001:2015&nbsp;&nbsp;•&nbsp;&nbsp;FSC Certified&nbsp;&nbsp;•&nbsp;&nbsp;Halal Certified
-    </p>
-    <Link href="/solutions">
-      <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded-md">
-        Discover Our Solutions
-      </button>
-    </Link>
-  </div>
-</section>
+        {/* Overlay Text Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center text-center text-white h-full px-4 sm:px-6 md:px-12">
+          <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider">
+            Paper Packaging Solutions
+          </h1>
+          <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider mt-2 sm:mt-4">
+            For Every Industry
+          </h2>
+          <p className="mt-4 sm:mt-6 text-[clamp(0.9rem,2.5vw,1.25rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
+            Customised Packaging. Trusted Solutions.
+          </p>
+          <p className="mt-2 mb-4 text-[clamp(0.75rem,2vw,1rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
+            ISO 9001:2015&nbsp;&nbsp;•&nbsp;&nbsp;FSC Certified&nbsp;&nbsp;•&nbsp;&nbsp;Halal Certified
+          </p>
+          <Link href="/solutions">
+            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded-md">
+              Discover Our Solutions
+            </button>
+          </Link>
+        </div>
+      </section>
 
 
       {/* What We Offer */}
@@ -70,48 +70,48 @@ export default function Home() {
           align with each brand&apos;s unique requirements.
         </p>
 
-   <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6">
-  {[
-    {
-      img: "/images/7RV03391.jpg",
-      title: "Packaging Development & Prototyping",
-      desc: "Sample creation with advanced flatbed cutting",
-    },
-    {
-      img: "/images/7RV03558.jpg",
-      title: "High-Quality Offset & UV Printing",
-      desc: "Versatile printing with in-line coating and embossing",
-    },
-    {
-      img: "/images/7RV03872.jpg",
-      title: "Customised Colour Development",
-      desc: "In-house colour lab for precise brand matching",
-    },
-    {
-      img: "/images/7RV03354.jpg",
-      title: "Comprehensive In-House Production",
-      desc: "End-to-end service for seamless project execution",
-    },
-  ].map(({ img, title, desc }, i) => (
-    <div key={i} className="text-center">
-      <div className="relative w-full flex justify-center items-center mb-2">
-        <Image
-          src={img}
-          alt={title}
-          width={300}
-          height={180}
-          className="w-full  object-cover shadow-md rounded"
-        />
-      </div>
-      <h4 className="mt-2 lg:text-[20px] sm:text-[14px] md:text-[16px] font-medium text-[var(--color-primary)]">
-        {title}
-      </h4>
-      <p className="mt-1 lg:text-[16px] sm:text-[12px] md:text-[14px] text-[var(--color-text)] font-light">
-        {desc}
-      </p>
-    </div>
-  ))}
-</div>
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6">
+          {[
+            {
+              img: "/images/7RV03391.jpg",
+              title: "Packaging Development & Prototyping",
+              desc: "Sample creation with advanced flatbed cutting",
+            },
+            {
+              img: "/images/7RV03558.jpg",
+              title: "High-Quality Offset & UV Printing",
+              desc: "Versatile printing with in-line coating and embossing",
+            },
+            {
+              img: "/images/7RV03872.jpg",
+              title: "Customised Colour Development",
+              desc: "In-house colour lab for precise brand matching",
+            },
+            {
+              img: "/images/7RV03354.jpg",
+              title: "Comprehensive In-House Production",
+              desc: "End-to-end service for seamless project execution",
+            },
+          ].map(({ img, title, desc }, i) => (
+            <div key={i} className="text-center">
+              <div className="relative w-full flex justify-center items-center mb-2">
+                <Image
+                  src={img}
+                  alt={title}
+                  width={300}
+                  height={180}
+                  className="w-full  object-cover shadow-md rounded"
+                />
+              </div>
+              <h4 className="mt-2 lg:text-[20px] sm:text-[14px] md:text-[16px] font-medium text-[var(--color-primary)]">
+                {title}
+              </h4>
+              <p className="mt-1 lg:text-[16px] sm:text-[12px] md:text-[14px] text-[var(--color-text)] font-light">
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
 
 
       </section>
@@ -119,43 +119,43 @@ export default function Home() {
       <Progress />
 
       {/* Certifications */}
-<section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
-  {/* Heading */}
-  <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
-    Commitment to Quality and Standards
-  </h2>
+      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+        {/* Heading */}
+        <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
+          Commitment to Quality and Standards
+        </h2>
 
-  {/* Certificates - Responsive Layout */}
-{/* Certificates - Responsive Layout */}
-<div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
-  {[
-    {
-      img: "/images/sgs.png",
-      title: "ISO 9001:2015",
-      since: "Since 2010",
-    },
-    {
-      img: "/images/fsc.png",
-      title: "Certificate number: C151498",
-      since: "Since 2019",
-    },
-    {
-      img: "/images/halal.png",
-      title: "ID36410020910631224",
-      since: "Since 2024",
-    },
-  ].map(({ img, title, since }, i) => (
-    <div key={i} className="flex flex-col items-center">
-      <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-      <p className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
-        <span className="font-medium block">{title}</span>
-        <span className="font-light text-[var(--color-text)] block mt-1">
-          {since}
-        </span>
-      </p>
-    </div>
-  ))}
-</div>
+        {/* Certificates - Responsive Layout */}
+        {/* Certificates - Responsive Layout */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
+          {[
+            {
+              img: "/images/sgs.png",
+              title: "ISO 9001:2015",
+              since: "Since 2010",
+            },
+            {
+              img: "/images/fsc.png",
+              title: "Certificate number: C151498",
+              since: "Since 2019",
+            },
+            {
+              img: "/images/halal.png",
+              title: "ID36410020910631224",
+              since: "Since 2024",
+            },
+          ].map(({ img, title, since }, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
+              <p className="text-[8px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+                <span className="font-medium block">{title}</span>
+                <span className="font-light text-[var(--color-text)] block mt-1">
+                  {since}
+                </span>
+              </p>
+            </div>
+          ))}
+        </div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
