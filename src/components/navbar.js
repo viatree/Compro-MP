@@ -101,20 +101,21 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle Button */}
         <div className="md:hidden flex items-center">
-          <div className="flex items-center bg-gray-100 rounded-sm mr-4">
-            <button
-              className={`px-2 text-sm font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
-              onClick={() => setLanguage("ID")}
-            >
-              ID
-            </button>
-            <button
-              className={`px-2 text-sm font-medium ${language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
-              onClick={() => setLanguage("EN")}
-            >
-              EN
-            </button>
-          </div>
+     <div className="flex items-center bg-gray-100 rounded-md overflow-hidden mr-4">
+  <button
+    className={`px-2 rounded-md text-[14px] font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
+    onClick={() => setLanguage("ID")}
+  >
+    ID
+  </button>
+  <button
+    className={`px-2 rounded-md text-[14px] font-medium ${language === "EN" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
+    onClick={() => setLanguage("EN")}
+  >
+    EN
+  </button>
+</div>
+
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-[var(--color-primary)]">
             {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
           </button>
