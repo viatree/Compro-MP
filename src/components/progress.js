@@ -49,7 +49,7 @@ export default function Progress() {
     <section className="relative w-full px-8 py-10 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
       <div className="text-left mb-10">
-        <h1 className="text-[40px] font-medium text-[var(--color-primary)] tracking-wide">
+        <h1 className="sm:text-[40px] text-[30px] font-medium text-[var(--color-primary)]">
           How It Works
         </h1>
       </div>

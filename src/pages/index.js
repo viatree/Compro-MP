@@ -70,7 +70,7 @@ export default function Home() {
           align with each brand&apos;s unique requirements.
         </p>
 
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 gap-x-2 md:grid-cols-4 sm:gap-x-4 gap-y-6">
           {[
             {
               img: "/images/7RV03391.jpg",
@@ -81,6 +81,7 @@ export default function Home() {
               img: "/images/7RV03558.jpg",
               title: "High-Quality Offset & UV Printing",
               desc: "Versatile printing with in-line coating and embossing",
+
             },
             {
               img: "/images/7RV03872.jpg",
@@ -94,19 +95,19 @@ export default function Home() {
             },
           ].map(({ img, title, desc }, i) => (
             <div key={i} className="text-center">
-              <div className="relative w-full flex justify-center items-center mb-2">
+              <div className="relative w-full flex justify-center items-center">
                 <Image
                   src={img}
                   alt={title}
                   width={300}
                   height={180}
-                  className="w-full  object-cover shadow-md rounded"
+                  className="w-full h-full "
                 />
               </div>
-              <h4 className="mt-2 lg:text-[20px] sm:text-[14px] md:text-[16px] font-medium text-[var(--color-primary)]">
+              <h4 className="mt-2 text-[14px] lg:text-[20px] sm:text-[14px] md:text-[16px] font-medium text-[var(--color-primary)]">
                 {title}
               </h4>
-              <p className="mt-1 lg:text-[16px] sm:text-[12px] md:text-[14px] text-[var(--color-text)] font-light">
+              <p className="mt-1 text-sm text-[12px] sm:text-[16px] lg:text-[16px] sm:text-[12px] md:text-[14px] text-[var(--color-text)] font-light">
                 {desc}
               </p>
             </div>
@@ -183,8 +184,8 @@ export default function Home() {
                 />
                 <div className={`flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300`}>
                   <div>
-                    <h4 className="text-[20px] font-reguler">{title}</h4>
-                    <p className="text-[16px] font-light mt-1">{desc}</p>
+                    <h4 className="text-[16px] sm:text-[20px] font-reguler">{title}</h4>
+                    <p className="text-[12px] sm:text-[16px] font-light mt-1">{desc}</p>
                   </div>
                   <div className="mt-4 flex justify-end ">
                     <span className="inline-block font-light text-[16px] group-hover:underline">{linkText}</span>
