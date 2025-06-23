@@ -52,8 +52,8 @@ export default function Contact() {
       {/* Contact Info and Form */}
       <section className="text-white py-12 px-6 md:px-16 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-[40px] font-medium  text-[var(--color-primary)]">Get In Touch</h2>
-          <p className="my-2 text-[var(--color-text)] text-[20px]">
+          <h2 className="text-[30px] sm:text-[40px] font-medium text-[var(--color-primary)]">Get In Touch</h2>
+          <p className="my-2 text-[var(--color-text)] sm:text-[20px]">
             For any inquiries related to Megaputra products & services, you can fill out form beside for your convenience.
           </p>
 
