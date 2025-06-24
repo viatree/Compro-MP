@@ -94,15 +94,16 @@ export default function Contact() {
             <input
               type="email"
               name="user_email"
-              pltaceholder="Enter your e-mail"
-              required
+              placeholder="Enter your email"
               className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              required
             />
             <input
               type="tel"
               name="user_phone"
               placeholder="Enter your phone no."
               className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              required
             />
             <input
               type="text"

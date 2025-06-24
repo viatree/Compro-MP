@@ -147,57 +147,61 @@ export default function Company() {
               <div className="relative w-full h-[250px] mx-auto">
                 <Image src={src} alt={title} layout="fill" objectFit="cover" />
               </div>
-              <h4 className="mt-4 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-light text-[var(--color-primary)]">{title}</h4>
+              <h4 className="mt-4 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-medium text-[var(--color-primary)]">{title}</h4>
               <p className="mt-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] ">{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="values" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-          Corporate Values & Ethics
-        </h2>
-        <h3 className="text-start text-justify text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-[var(--color-text)]">
-          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
-        </h3>
+  <section id="values" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+  <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+    Corporate Values & Ethics
+  </h2>
+  <h3 className="text-start text-justify text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-[var(--color-text)]">
+    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
+  </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 text-justify">
-          {[
-            { icon: <HandHeart size={50} />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
-            { icon: <Clock3 size={50} />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
-            { icon: <Target size={50} />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
-            { icon: <Handshake size={50} />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
-          ].map(({ icon, title, subtitle, desc }, i) => (
-            <div key={i} className="p-6 flex flex-col items-center text-center">
-              <div className="flex items-center justify-center w-16 h-16 mb-4 text-[var(--color-primary)]">
-                {icon}
-              </div>
-              <h3 className="text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px]
-font-light text-[var(--color-primary)] mb-1">{title}</h3>
-              <p className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-gray-500 mb-2">{subtitle}</p>
-              <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{desc}</p>
-            </div>
-          ))}
+  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 text-justify">
+    {[
+      { icon: <HandHeart size={40} />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
+      { icon: <Clock3 size={40} />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
+      { icon: <Target size={40} />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
+      { icon: <Handshake size={40} />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
+    ].map(({ icon, title, subtitle, desc }, i) => (
+      <div key={i} className="p-3 flex flex-col items-center text-center">
+        <div className="flex items-center justify-center w-12 h-12 mb-2 text-[var(--color-primary)]">
+          {icon}
         </div>
-      </section>
-
+        <h3 className="text-[16px] md:text-[18px] lg:text-[20px] font-medium text-[var(--color-primary)] mb-1">
+          {title}
+        </h3>
+        <p className="text-[13px] md:text-[15px] text-gray-500 mb-1">
+          {subtitle}
+        </p>
+        <p className="text-[12px] md:text-[14px] lg:text-[15px] font-light text-[var(--color-text)]">
+          {desc}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Corporate Responsibilities */}
       <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[40px] font-medium text-[var(--color-primary)] text-left">
+        <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)] text-left">
           Corporate Responsibilities
         </h2>
-        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
+        <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
           Committed to Sustainability, Ethics, and Workplace Excellence.
         </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6 text-center">
+        <div className="grid grid-cols-3 gap-6 text-center">
           {[
             { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Sustainability", text: "FSC-certified paper, water-based coatings, waste reduction" },
             { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Ethical Business Practices", text: "Building trusted, transparent partnerships" },
             { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Workplace Safety", text: "Ensuring a safe, healthy environment with K3-certified personnel" }
           ].map(({ icon, title, text }, i) => (
-            <div key={i} className="bg-white p-6 flex flex-col items-center">
+            <div key={i} className="bg-white lg:p-6 md:p-4 flex flex-col items-center">
               <div className="mb-4 text-[var(--color-primary)]">{icon}</div>
               <h3 className="text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-medium text-[var(--color-primary)] mb-2">{title}</h3>
               <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{text}</p>
@@ -210,35 +214,35 @@ font-light text-[var(--color-primary)] mb-1">{title}</h3>
 
       {/* Certifications */}
       <section id="certifications" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">Certification</h2>
-        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
+        <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">Certification</h2>
+        <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
           Recognized Standards of Quality, Sustainability, and Compliance.
         </h3>
-        <p className="text-left text-[16px] text-[var(--color-text)] my-4">
+        <p className="text-left text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] my-4">
           Mega Putra is certified under ISO 9001:2015, FSC®, and Indonesian Halal standards. We also passed the Disney ILS audit.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-3 md:grid-cols-3 text-center">
           {[
             { img: "/images/sgs.png", title: "ISO 9001:2015", desc: "Certified for quality management and improvement." },
             { img: "/images/fsc.png", title: "FSC® Certification", desc: "Supporting sustainable forestry and eco-packaging." },
             { img: "/images/halal.png", title: "Halal Certification", desc: "Compliant with Halal packaging standards." }
           ].map(({ img, title, desc }, i) => (
-            <div key={i} className="bg-white rounded-xl p-6 flex flex-col items-center">
-              <img src={img} alt={title} className="h-24 mb-4" />
-              <h3 className="text-[20px] font-medium text-[var(--color-primary)]">{title}</h3>
-              <p className="text-[16px]cfont-light text-[var(--color-text)]">{desc}</p>
+            <div key={i} className="bg-white flex flex-col items-center ">
+              <img src={img} alt={title} className="h-24 mb-4"/>
+              <h3 className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-medium text-[var(--color-primary)]">{title}</h3>
+              <p className="text-[10px] sm:text-[10px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-center bg-gray-100">
+      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-center bg-[#E6F6FC]">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[20px] md:text-[20px] text-[var(--color-text)] py-6 px-8 md:px-4 lg:px-4 -xl:px-40">
+          <p className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-[var(--color-text)] py-6 px-8 md:px-4 lg:px-4">
             At Mega Putra, we are committed to delivering quality, precision, and innovative packaging solutions you can trust. Discover how our capabilities can help elevate your brand.
           </p>
-          <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2 text-lg">
+          <button className="bg-[var(--color-primary)] text-white font-medium lg:px-6 md:px-4 sm:px-2 px-2 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px]">
             Explore Our Solutions
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

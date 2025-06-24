@@ -104,7 +104,7 @@ export default function Home() {
                   className="w-full h-full "
                 />
               </div>
-              <h4 className="mt-2 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px]
+              <h4 className="mt-2 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px]
  font-medium text-[var(--color-primary)]">
                 {title}
               </h4>
