@@ -48,11 +48,12 @@ export default function Timeline() {
   };
 
   return (
-    <section className="relative w-full bg-white px-6 pl-43">
-        <h1 className="text-[40px] font-medium text-left text-[var(--color-primary)]">
+    <section className="relative w-full bg-white text-justify pl-8 md:pl-16 lg:pl-24 xl:pl-43">
+        <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
         From Brokerage to Full-Service Packaging Solutions
         </h1>
-        <h2 className="my-4 text-[24px] font-light text-left text-[var(--color-text)] ">
+        <h2 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] 
+ font-light text-left text-[var(--color-text)] pr-8 ">
         Key Milestones in Our Growth and Transformation
         </h2>
       {/* Timeline */}

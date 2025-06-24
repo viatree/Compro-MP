@@ -49,7 +49,7 @@ export default function Progress() {
     <section className="relative w-full px-8 py-10 px-8 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
       <div className="text-left mb-10">
-        <h1 className="sm:text-[40px] text-[30px] font-medium text-[var(--color-primary)]">
+        <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
           How It Works
         </h1>
       </div>
@@ -90,10 +90,10 @@ export default function Progress() {
   <div className="bg-[#E6F6FC] p-4 sm:p-6 md:p-8 flex items-start gap-4 sm:gap-5 shadow-md rounded">
     <div className="shrink-0">{stepContents[activeIndex].icon}</div>
     <div>
-      <h2 className="text-gray-900 font-medium mb-2 sm:text-[14px] md:text-[16px] lg:text-[20px]">
+      <h2 className="text-gray-900 font-medium mb-2 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px]">
         {steps[activeIndex]}
       </h2>
-      <p className="text-[var(--color-text)] font-light leading-relaxed sm:text-[12px] md:text-[14px] lg:text-[16px]">
+      <p className="text-[var(--color-text)] font-light leading-relaxed text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px]">
         {stepContents[activeIndex].description}
       </p>
     </div>

@@ -63,11 +63,11 @@ export default function ImageTimeline() {
   };
 
   return (
-    <section className="relative w-full bg-white px-6 pl-43" onWheel={handleWheelScroll}>
-      <h1 className=" text-[40px] font-medium text-left text-[var(--color-primary)]">
+    <section className="relative w-full bg-white px-6 pl-8 md:pl-16 lg:pl-24 xl:pl-43" onWheel={handleWheelScroll}>
+      <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
          Our Technology
         </h1>
-        <h2 className="my-2 text-[24px] font-light text-left text-[var(--color-text)]">
+        <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
         We use advanced printing and packaging machines to ensure precision and quality.
         </h2>
       <div className="overflow-hidden relative mt-6">

@@ -56,13 +56,13 @@ export default function Home() {
 
       {/* What We Offer */}
       <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-2 text-[30px] sm:text-[40px] font-medium text-left text-[var(--color-primary)]">
+        <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           What We Offer
         </h2>
-        <h3 className="my-4 sm:text-[24px] text-[16px] font-light text-left text-[var(--color-text)]">
+        <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
           Comprehensive Paper Packaging Solutions
         </h3>
-        <p className="text-justify text-[var(--color-text)] text-sm text-[12px] sm:text-[16px] font-light">
+        <p className="text-justify text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light">
           With decades of hands-on experience, PT Mega Putra delivers seamless
           in-house packaging services—from design prototyping and colour
           development to high-precision printing and finishing. Our integrated
@@ -104,10 +104,11 @@ export default function Home() {
                   className="w-full h-full "
                 />
               </div>
-              <h4 className="mt-2 text-[14px] lg:text-[20px] sm:text-[14px] md:text-[16px] font-medium text-[var(--color-primary)]">
+              <h4 className="mt-2 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px]
+ font-medium text-[var(--color-primary)]">
                 {title}
               </h4>
-              <p className="mt-1 text-sm text-[12px] sm:text-[16px] lg:text-[16px] sm:text-[12px] md:text-[14px] text-[var(--color-text)] font-light">
+              <p className="mt-1 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">
                 {desc}
               </p>
             </div>
@@ -119,10 +120,10 @@ export default function Home() {
 
       <Progress />
 
-  
+
       <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
         {/* Heading */}
-        <h2 className="text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
+        <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
           Commitment to Quality and Standards
         </h2>
 
@@ -147,8 +148,8 @@ export default function Home() {
           ].map(({ img, title, since }, i) => (
             <div key={i} className="flex flex-col items-center">
               <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-              <p className="text-[10px] sm:text-[12px] md:text-[16px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
-                <span className="font-medium block">{title}</span> 
+              <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+                <span className="font-medium block">{title}</span>
                 <span className="font-light text-[var(--color-text)] block mt-1">
                   {since}
                 </span>
@@ -184,8 +185,8 @@ export default function Home() {
                 />
                 <div className={`flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300`}>
                   <div>
-                    <h4 className="text-[16px] sm:text-[20px] font-reguler">{title}</h4>
-                    <p className="text-[12px] sm:text-[16px] font-light mt-1">{desc}</p>
+                    <h4 className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-reguler">{title}</h4>
+                    <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light mt-1">{desc}</p>
                   </div>
                   <div className="mt-4 flex justify-end ">
                     <span className="inline-block font-light text-[16px] group-hover:underline">{linkText}</span>

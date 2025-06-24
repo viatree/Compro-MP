@@ -2,7 +2,7 @@ import SEO from "../components/seo";
 import Timeline from "@/components/timeline";
 import Technology from "../components/technology";
 import Image from "next/image";
-import { Clock3, Target, Handshake, HandHeart,Leaf,HardHat } from "lucide-react";
+import { Clock3, Target, Handshake, HandHeart, Leaf, HardHat } from "lucide-react";
 
 export default function Company() {
   return (
@@ -16,62 +16,93 @@ export default function Company() {
       />
 
       {/* About Section */}
-      <section id="about" className="mt-30 my-12 px-8 md:px-16 lg:px-24 xl:px-43 ">
-         {/* <h2 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
-          What We Offer
-        </h2> */}
-        <h1 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">About Megaputra</h1>
-        <h2 className="my-2 text-[24px] font-light text-left text-[var(--color-text)]">Delivering Trusted Paper Packaging Solutions Since 1997</h2>
-        <p className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
+      <section id="about" className="mt-30 my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+        <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">About Megaputra</h1>
+        <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">Delivering Trusted Paper Packaging Solutions Since 1997</h2>
+        <p className="text-justify text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">
           Established in 1997, PT Mega Putra has grown into a leading offset printing and packaging solutions provider.
           With over 28 years of experience, we serve both local and international customers across diverse industries including cosmetics, pharmaceuticals, FMCG, automotive, and food.
-        
+
           Our commitment to <b>quality</b>, <b>innovation</b>, and <b>efficiency</b> ensures we deliver customised solutions that help brands elevate their packaging standards.
         </p>
       </section>
 
       {/* Banner */}
-      <section className="my-12 relative bg-[url('/images/banner4.png')] bg-cover flex items-end h-[310px]"></section>
-
+      <section className="
+  relative 
+  bg-[url('/images/banner4.png')] 
+  bg-cover 
+  bg-center 
+  sm:bg-center 
+  md:bg-top 
+  lg:bg-center 
+  flex 
+  items-end 
+  h-[150px]     // default mobile
+  sm:h-[240px]  // tablet
+  md:h-[280px]  // small desktop
+  lg:h-[310px]  // original desktop
+  px-4 sm:px-8 md:px-12
+">
+      </section>
       {/* The Story */}
-      <section className="my-12 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
+      <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
         <div className="w-full">
-          <h2 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">The Story Behind Mega Putra</h2>
-          <p className="text-left text-[16px] font-light  text-[var(--color-text)]">
+          <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">The Story Behind Mega Putra</h2>
+          <p className="text-justify text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light  text-[var(--color-text)]">
             Mega Putra was built on the principles of knowledge, determination, effort, and honesty—values that continue to shape who we are today.
-            
+
             From the very beginning, quality has been our priority. Today, these founding principles are reflected in our corporate culture: <b>Peduli</b> (Care), <b>Efisien</b> (Efficient), <b>Akurat</b> (Accurate), and <b>Kerjasama</b> (Collaborate)—collectively known as PEAK.
             <br /><br />
             Mega Putra strives to be a trusted partner for employees, suppliers, and customers alike. We are committed to fostering an environment that encourages continuous improvement for our employees, building strong, transparent relationships with suppliers, and delivering high-quality products with exceptional service to our customers.
-          
+
             Through these commitments, Mega Putra continues to set new standards of excellence and integrity in the printing and packaging industry.
           </p>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="my-12">
+      <section className="my-10">
         <Timeline />
       </section>
 
       {/* Vision and Mission */}
       <section id="vision" className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-1/2">
+        {/* Gambar untuk md ke atas */}
+        <div className="hidden md:block md:w-1/2">
           <Image
             src="/images/pict8.png"
             alt="Employee working in a printing company"
             width={500}
             height={400}
+            className="h-[300px] lg:h-[400px] w-full object-cover-top"
           />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-[40px] font-medium text-[var(--color-primary)]">Our Vision and Mission</h2>
-          <h3 className="my-4 text-[24px] font-bold text-left text-[var(--color-text)]">Vision</h3>
-          <p className="mb-4 text-[var(--color-text)] font-light">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
+            Our Vision and Mission
+          </h2>
+
+          {/* Gambar untuk mobile*/}
+          <div className="block md:hidden my-4">
+            <Image
+              src="/images/pict8.png"
+              alt="Employee working in a printing company"
+              width={400}
+              height={200}
+              className="h-[300px] w-[450px] fill mx-auto object-cover-top"
+            />
+          </div>
+          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+            Vision
+          </h3>
+          <p className="mb-4 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">
             To lead growth and innovation within the packaging industry by delivering sustainable, high-quality solutions that inspire trust and drive industry progress.
           </p>
-          <h3 className="my-4 text-[24px] font-bold text-left text-[var(--color-text)]">Mission</h3>
-          <ul className="list-decimal list-inside text-[var(--color-text)] font-light space-y-2">
+          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+            Mission
+          </h3>
+          <ul className="list-decimal list-inside text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light space-y-2">
             <li>Uphold and advance the highest standards of product quality and customer service.</li>
             <li>Apply PEAK values in all aspects of our operations.</li>
             <li>Encourage learning, growth, and continuous improvement.</li>
@@ -81,15 +112,15 @@ export default function Company() {
       </section>
 
       {/* Technology Section */}
-      <section className="my-12">
+      <section className="my-10">
         <Technology />
       </section>
 
       {/* Capabilities */}
-      <section id="capabilities" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">Our Capabilities</h2>
-        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">Delivering Quality Through Integrated Capabilities</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <section id="capabilities" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+        <h2 className="my-4  text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">Our Capabilities</h2>
+        <h3 className="my-4  text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">Delivering Quality Through Integrated Capabilities</h3>
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 gap-x-2 md:grid-cols-4 sm:gap-x-4 gap-y-6">
           {[
             {
               src: "/images/7RV03391.jpg",
@@ -116,66 +147,69 @@ export default function Company() {
               <div className="relative w-full h-[250px] mx-auto">
                 <Image src={src} alt={title} layout="fill" objectFit="cover" />
               </div>
-              <h4 className="mt-4 text-[20px] font-light text-[var(--color-primary)]">{title}</h4>
-              <p className="mt-2 text-[16px] font-light text-[var(--color-text)] ">{text}</p>
+              <h4 className="mt-4 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] font-light text-[var(--color-primary)]">{title}</h4>
+              <p className="mt-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] ">{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-    {/* Corporate Values */}
-<section id="values" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
-  <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">
-    Corporate Values & Ethics
-  </h2>
-  <h3 className="text-start text-justify text-[24px] font-light text-[var(--color-text)]">
-    Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
-  </h3>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-8">
-    {[
-      { icon: <HandHeart size={50} />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
-      { icon: <Clock3 size={50} />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
-      { icon: <Target size={50} />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
-      { icon: <Handshake size={50} />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
-    ].map(({ icon, title, subtitle, desc }, i) => (
-      <div key={i} className="p-6 flex flex-col items-center text-center">
-        <div className="flex items-center justify-center w-16 h-16 mb-4 text-[var(--color-primary)]">
-          {icon}
+      <section id="values" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+        <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+          Corporate Values & Ethics
+        </h2>
+        <h3 className="text-start text-justify text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-[var(--color-text)]">
+          Guided by PEAK Values: Peduli (Care), Efisien (Efficiency), Akurat (Accuracy), and Kerjasama (Collaboration)
+        </h3>
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 text-justify">
+          {[
+            { icon: <HandHeart size={50} />, title: "Peduli", subtitle: "Care", desc: "We foster a supportive and respectful work environment." },
+            { icon: <Clock3 size={50} />, title: "Efisien", subtitle: "Efficient", desc: "We optimize processes to save time and resources." },
+            { icon: <Target size={50} />, title: "Akurat", subtitle: "Accurate", desc: "We ensure precision in all our products and services." },
+            { icon: <Handshake size={50} />, title: "Kerjasama", subtitle: "Collaborate", desc: "We work together with honesty and transparency." }
+          ].map(({ icon, title, subtitle, desc }, i) => (
+            <div key={i} className="p-6 flex flex-col items-center text-center">
+              <div className="flex items-center justify-center w-16 h-16 mb-4 text-[var(--color-primary)]">
+                {icon}
+              </div>
+              <h3 className="text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px]
+font-light text-[var(--color-primary)] mb-1">{title}</h3>
+              <p className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-gray-500 mb-2">{subtitle}</p>
+              <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{desc}</p>
+            </div>
+          ))}
         </div>
-        <h3 className="text-[20px] font-light text-[var(--color-primary)] mb-1">{title}</h3>
-        <p className="text-[16px] text-gray-500 mb-2">{subtitle}</p>
-        <p className="text-[14px] font-light text-[var(--color-text)]">{desc}</p>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
+
 
       {/* Corporate Responsibilities */}
-     <section className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
-  <h2 className="my-4 text-[40px] font-medium text-[var(--color-primary)] text-left">
-    Corporate Responsibilities
-  </h2>
-  <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
-    Committed to Sustainability, Ethics, and Workplace Excellence.
-  </h3>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-    {[
-      { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Sustainability", text: "FSC-certified paper, water-based coatings, waste reduction" },
-      { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Ethical Business Practices", text: "Building trusted, transparent partnerships" },
-      { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Workplace Safety", text: "Ensuring a safe, healthy environment with K3-certified personnel" }
-    ].map(({ icon, title, text }, i) => (
-      <div key={i} className="bg-white p-6 flex flex-col items-center">
-        <div className="mb-4 text-[var(--color-primary)]">{icon}</div>
-        <h3 className="text-[20px] font-medium text-[var(--color-primary)] mb-2">{title}</h3>
-        <p className="text-[16px] font-light text-[var(--color-text)]">{text}</p>
-      </div>
-    ))}
-  </div>
-</section>
+      <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+        <h2 className="my-4 text-[40px] font-medium text-[var(--color-primary)] text-left">
+          Corporate Responsibilities
+        </h2>
+        <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
+          Committed to Sustainability, Ethics, and Workplace Excellence.
+        </h3>
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-6 text-center">
+          {[
+            { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Sustainability", text: "FSC-certified paper, water-based coatings, waste reduction" },
+            { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Ethical Business Practices", text: "Building trusted, transparent partnerships" },
+            { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Workplace Safety", text: "Ensuring a safe, healthy environment with K3-certified personnel" }
+          ].map(({ icon, title, text }, i) => (
+            <div key={i} className="bg-white p-6 flex flex-col items-center">
+              <div className="mb-4 text-[var(--color-primary)]">{icon}</div>
+              <h3 className="text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-medium text-[var(--color-primary)] mb-2">{title}</h3>
+              <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{text}</p>
+            </div>
+          ))}
+        </div>
+
+      </section>
 
 
       {/* Certifications */}
-      <section id="certifications" className="my-12 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="certifications" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4 text-[40px] font-medium text-left text-[var(--color-primary)]">Certification</h2>
         <h3 className="my-4 text-[24px] font-light text-left text-[var(--color-text)]">
           Recognized Standards of Quality, Sustainability, and Compliance.
