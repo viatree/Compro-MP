@@ -37,21 +37,25 @@ export default function Careers() {
         url="https://megaputra.com"
       />
 
-      <section className="relative bg-[url('/images/banner5.png')] bg-cover flex items-end mt-20 h-[200px]">
-      </section>
+      <section
+  className="relative bg-[url('/images/banner5.png')] bg-cover bg-center sm:bg-top md:bg-center lg:bg-center 
+             flex items-end mt-20 h-[120px] sm:h-[160px] md:h-[200px] lg:h-[300px]"
+>
+</section>
+
       
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
-      <h1 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
+      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
       Building Careers Through PEAK 
       <br></br> Peduli(Care), Efesien(Efficient), Akurat(Accurate), Kerjasama(Collaborate) 
         </h1>
-        <h2 className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
+        <h2 className="text-start text-justifytext-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-[var(--color-text)]">
         At Mega Putra, we believe that strong careers are built on values. <br></br>
         Join our team and experience a workplace dedicated to care, efficiency, accuracy, and collaboration.
         </h2>
         </section>
         
-        <section className=" py-6 px-8 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 md:grid-cols-5 gap-8" >
+        <section className="px-8 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 md:grid-cols-5 gap-8" >
        
           {recruitmentSteps.map((step, index) => (
             <div 

@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 
-// Data lowongan pekerjaan
 const jobOpenings = [
   {
     title: "Quality Control Admin",
@@ -70,58 +69,68 @@ const jobOpenings = [
 
 export default function Careers() {
   return (
-    <>
-      <section className="w-full mx-auto lg:px-44 md:pl-20">
-        <h1 className="my-2 text-[40px] font-medium text-left text-[var(--color-primary)]">
-          Current Jobs Openings
-        </h1>
-        <h2 className="text-start text-[24px] text-justify text-[var(--color-text)]">
-          Join a team committed to continuous improvement and lasting success.<br></br> See our current openings below.
-        </h2>
-        <div className="text-[var(--color-text)]">
-          {jobOpenings.map((job, index) => (
-            <div key={index} className="flex justify-between items-center py-4 border-b-2 border-[var(--color-text25)]">
-              <div>
-                <h3 className="text-lg font-medium my-4">{job.title}</h3>
-                <p className="text-md text-[var(--color-text)]">
-                  <span className="font-medium">Category:</span> {job.category} |{" "}
-                  <span className="font-medium">Min Education:</span> {job.education} |{" "}
-                  <span className="font-medium">Work Experience:</span> {job.experience} |{" "}
-                  <span className="font-medium">Location:</span> {job.location}
-                </p>
-              </div>
-              <a href={job.applyLink} target="_blank" rel="noopener noreferrer">
-                <ArrowRight
-                  size={50}
-                  className="text-[var(--color-primary)] cursor-pointer hover:scale-110 transition-transform"
-                />
-              </a>
-            </div>
-          ))}
+    <section className="w-full px-6 md:px-20 lg:px-44 py-10">
+      <h1 className="text-[28px] sm:text-[32px] md:text-[40px] font-medium text-left text-[var(--color-primary)]">
+        Current Job Openings
+      </h1>
+      <h2 className="text-[16px] sm:text-[18px] md:text-[24px] text-justify text-[var(--color-text)] mt-2">
+        Join a team committed to continuous improvement and lasting success.
+        <br className="hidden sm:block" /> See our current openings below.
+      </h2>
 
-          {/* Additional CV submission section */}
-          <div className="flex justify-between items-center mt-6">
+      <div className="mt-6 text-[var(--color-text)] space-y-6">
+        {jobOpenings.map((job, index) => (
+          <div
+            key={index}
+            className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b-2 border-[var(--color-text25)] pb-4"
+          >
             <div>
-              <h3 className="text-lg font-semibold mb-2">
-                Didn&apos;t find a role that fits?
-              </h3>
-              <p className="text-md text-[var(--color-text)]">
-                Submit your CV for future opportunities.
+              <h3 className="text-md sm:text-lg font-semibold">{job.title}</h3>
+              <p className="text-sm sm:text-base mt-1">
+                <span className="font-medium">Category:</span> {job.category} |{" "}
+                <span className="font-medium">Min Education:</span>{" "}
+                {job.education} |{" "}
+                <span className="font-medium">Work Experience:</span>{" "}
+                {job.experience} | <span className="font-medium">Location:</span>{" "}
+                {job.location}
               </p>
             </div>
             <a
-              href="https://forms.gle/nKeUJ9zDHuUkokQ96"
+              href={job.applyLink}
               target="_blank"
               rel="noopener noreferrer"
+              className="self-end md:self-auto"
             >
               <ArrowRight
-                size={50}
+                size={40}
                 className="text-[var(--color-primary)] cursor-pointer hover:scale-110 transition-transform"
               />
             </a>
           </div>
+        ))}
+
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mt-8 border-b-2 border-[var(--color-text25)] pb-4">
+          <div>
+            <h3 className="text-md sm:text-lg font-semibold mb-1">
+              Didn't find a role that fits?
+            </h3>
+            <p className="text-sm sm:text-base">
+              Submit your CV for future opportunities.
+            </p>
+          </div>
+          <a
+            href="https://forms.gle/nKeUJ9zDHuUkokQ96"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-end md:self-auto"
+          >
+            <ArrowRight
+              size={40}
+              className="text-[var(--color-primary)] cursor-pointer hover:scale-110 transition-transform"
+            />
+          </a>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
