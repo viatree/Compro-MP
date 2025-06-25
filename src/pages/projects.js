@@ -104,10 +104,10 @@ export default function Projects() {
                 src={project.src}
                 alt={`Packaging project in ${project.category} industry`}
                 width={500}
-                height={500}
+                height={400}
                 className="w-full h-full object-cover"
                 loading="lazy"
-                quality={100}
+                quality={75}
               />
             </div>
           ))}
