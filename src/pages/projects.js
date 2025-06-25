@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SEO from "../components/seo";
 import Image from "next/image";
+
 export default function Projects() {
   const categories = [
     "All Industries",
@@ -34,6 +35,9 @@ export default function Projects() {
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All Industries");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const lightboxContentRef = useRef(null);
 
   const filteredProjects =
     selectedCategory === "All Industries"
@@ -45,12 +49,58 @@ export default function Projects() {
       "Explore our complete range of packaging projects across industries",
     "Cosmetics and Personal Care":
       "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
-    "Pharmaceutical ":
+    "Pharmaceutical":
       "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
-    "FMCG ":
+    "FMCG":
       "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
-    "Miscellaneous ":
+    "Miscellaneous":
       "Custom packaging solutions for specialised applications, including automotive and promotional items.",
+  };
+
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const showPrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? filteredProjects.length - 1 : prevIndex - 1
+    );
+  };
+
+  const showNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === filteredProjects.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+ useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      closeLightbox();
+    } else if (e.key === "ArrowLeft" && lightboxOpen) {
+      showPrevImage();
+    } else if (e.key === "ArrowRight" && lightboxOpen) {
+      showNextImage();
+    }
+  };
+
+  document.addEventListener("keydown", handleKeyDown);
+  return () => {
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}, [lightboxOpen, showPrevImage, showNextImage]);
+
+
+  const handleOverlayClick = (e) => {
+    // hanya tutup jika klik di luar konten (gambar dan tombol)
+    if (lightboxContentRef.current && !lightboxContentRef.current.contains(e.target)) {
+      closeLightbox();
+    }
   };
 
   return (
@@ -62,34 +112,30 @@ export default function Projects() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-      <section className="relative bg-[url('/images/banner2.png')] bg-cover flex items-end mt-20 h-[200px] w-full max-w-screen overflow-hidden">
-        {/* <p className="w-full ml-27 mx-auto text-white px-6 py-6 pl-10 md:pl-20 z-10 text-[25px] font-semibold absolute bottom-0 max-w-screen overflow-hidden">
-          Packaging Solutions for every industry
-        </p> */}
-      </section>
 
+      <section className="relative bg-[url('/images/banner2.png')] bg-cover flex items-end mt-20 h-[200px] w-full max-w-screen overflow-hidden" />
 
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="text-[40px] font-medium text-left my-2 text-[var(--color-primary)]">
           Packaging Solutions for every industry
         </h1>
         <h2 className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
-          With decades of experience in packaging, Mega Putra partners with leading brands across a wide range of industries. Our packaging solutions are designed to meet the functional, regulatory, and aesthetic needs of each market — ensuring brand consistency and high-quality execution.
+          With decades of experience in packaging, Mega Putra partners with leading brands across a wide range of industries...
         </h2>
-        {/* Filter Tabs */}
+
         <p className="text-left text-md font-semibold text-[var(--color-text)] mt-2">
           {categoryDescriptions[selectedCategory]}
         </p>
 
-
-        <div className="mt-6 flex justify-between border-b-3 border-[var(--color-lighter)]">
+        <div className="mt-6 flex justify-between border-b-3 border-[var(--color-lighter)] flex-wrap gap-2">
           {categories.map((category, index) => (
             <button
               key={index}
-              className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${selectedCategory === category
-                ? "font-bold border-[var(--color-primary)] text-[var(--color-primary)]"
-                : ""
-                }`}
+              className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${
+                selectedCategory === category
+                  ? "font-bold border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]"
+                  : ""
+              }`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
@@ -105,14 +151,73 @@ export default function Projects() {
                 alt={`Packaging project in ${project.category} industry`}
                 width={500}
                 height={400}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer"
                 loading="lazy"
                 quality={75}
+                onClick={() => openLightbox(index)}
               />
             </div>
           ))}
         </div>
+
+        {/* Lightbox */}
+        {lightboxOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-fade-in"
+            onClick={handleOverlayClick}
+          >
+            <div ref={lightboxContentRef} className="relative z-10">
+              {/* Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition"
+              >
+                &times;
+              </button>
+
+              {/* Prev Button */}
+              <button
+                onClick={showPrevImage}
+                className="absolute left-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
+              >
+                &#10094;
+              </button>
+
+              {/* Image */}
+              <Image
+                src={filteredProjects[currentImageIndex].src}
+                alt="Zoomed packaging project"
+                width={1000}
+                height={800}
+                className="max-w-[90vw] max-h-[80vh] object-contain "
+              />
+
+              {/* Next Button */}
+              <button
+                onClick={showNextImage}
+                className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
+              >
+                &#10095;
+              </button>
+            </div>
+          </div>
+        )}
       </section>
+
+      <style jsx global>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-in-out forwards;
+        }
+      `}</style>
     </>
   );
 }
