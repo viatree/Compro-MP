@@ -1,28 +1,36 @@
 import { useState } from "react";
 import SEO from "../components/seo";
-
+import Image from "next/image";
 export default function Projects() {
   const categories = [
     "All Industries",
     "Cosmetics and Personal Care",
-    "Pharmaceutical ",
-    "FMCG ",
-    "Miscellaneous ",
+    "Pharmaceutical",
+    "FMCG",
+    "Miscellaneous",
   ];
 
   const allProjects = [
-    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
-    { src: "/images/p2.png", category: "Pharmaceutical " },
-    { src: "/images/p3.png", category: "FMCG " },
-    { src: "/images/p4.png", category: "Miscellaneous " },
-    { src: "/images/p3.png", category: "FMCG " },
-    { src: "/images/p2.png", category: "Pharmaceutical " },
-    { src: "/images/p4.png", category: "Miscellaneous " },
-    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
-    { src: "/images/p2.png", category: "Pharmaceutical " },
-    { src: "/images/p1.png", category: "Cosmetics and Personal Care" },
-    { src: "/images/p3.png", category: "FMCG " },
-    { src: "/images/p4.png", category: "Miscellaneous " },
+    { src: "/images/projects/7RV03886.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04017.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV04064.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04071.jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/7RV04057.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV03947.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV03964.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV03980.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV04011.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV04087.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV03891.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04096.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/7RV03955.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV03911.jpg", category: "FMCG" },
+    { src: "/images/projects/7RV03999.jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/7RV04117.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04169.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04166.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04150.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/7RV04068.jpg", category: "Cosmetics and Personal Care" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All Industries");
@@ -79,8 +87,8 @@ export default function Projects() {
             <button
               key={index}
               className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${selectedCategory === category
-                  ? "font-bold border-[var(--color-primary)] text-[var(--color-primary)]"
-                  : ""
+                ? "font-bold border-[var(--color-primary)] text-[var(--color-primary)]"
+                : ""
                 }`}
               onClick={() => setSelectedCategory(category)}
             >
@@ -89,14 +97,17 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Grid Layout */}
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-auto h-auto">
           {filteredProjects.map((project, index) => (
             <div key={index} className="relative group">
-              <img
+              <Image
                 src={project.src}
-                alt={`Project ${index + 1}`}
-                className="w-full h-auto shadow-lg max-w-screen overflow-hidden"
+                alt={`Packaging project in ${project.category} industry`}
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                quality={100}
               />
             </div>
           ))}
