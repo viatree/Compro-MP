@@ -133,7 +133,7 @@ export default function Projects() {
               key={index}
               className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${
                 selectedCategory === category
-                  ? "font-bold border-b-2 border-[var(--color-primary)] text-[var(--color-primary)]"
+                  ? "font-bold  text-[var(--color-primary)]"
                   : ""
               }`}
               onClick={() => setSelectedCategory(category)}
@@ -142,8 +142,7 @@ export default function Projects() {
             </button>
           ))}
         </div>
-
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-auto h-auto">
+<div className="mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-4">
           {filteredProjects.map((project, index) => (
             <div key={index} className="relative group">
               <Image
