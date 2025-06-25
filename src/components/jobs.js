@@ -112,7 +112,7 @@ export default function Careers() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mt-8 border-b-2 border-[var(--color-text25)] pb-4">
           <div>
             <h3 className="text-md sm:text-lg font-semibold mb-1">
-              Didn't find a role that fits?
+              Didn&apos;t find a role that fits?
             </h3>
             <p className="text-sm sm:text-base">
               Submit your CV for future opportunities.
