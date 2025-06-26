@@ -126,7 +126,7 @@ export default function Projects() {
         </div>
 
         {/* Grid */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-6 sm:gap-4 gap-1">
           {filteredProjects.map((project, index) => (
             <div key={index} className="relative group">
               <div className="w-full aspect-square relative overflow-hidden cursor-pointer">
