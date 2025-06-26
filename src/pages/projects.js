@@ -45,16 +45,11 @@ export default function Projects() {
       : allProjects.filter((project) => project.category === selectedCategory);
 
   const categoryDescriptions = {
-    "All Industries":
-      "Explore our complete range of packaging projects across industries",
-    "Cosmetics and Personal Care":
-      "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
-    "Pharmaceutical":
-      "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
-    "FMCG":
-      "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
-    "Miscellaneous":
-      "Custom packaging solutions for specialised applications, including automotive and promotional items.",
+    "All Industries": "Explore our complete range of packaging projects across industries",
+    "Cosmetics and Personal Care": "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
+    "Pharmaceutical": "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
+    "FMCG": "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
+    "Miscellaneous": "Custom packaging solutions for specialised applications, including automotive and promotional items.",
   };
 
   const openLightbox = (index) => {
@@ -62,9 +57,7 @@ export default function Projects() {
     setLightboxOpen(true);
   };
 
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
+  const closeLightbox = () => setLightboxOpen(false);
 
   const showPrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -78,26 +71,17 @@ export default function Projects() {
     );
   };
 
- useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === "Escape") {
-      closeLightbox();
-    } else if (e.key === "ArrowLeft" && lightboxOpen) {
-      showPrevImage();
-    } else if (e.key === "ArrowRight" && lightboxOpen) {
-      showNextImage();
-    }
-  };
-
-  document.addEventListener("keydown", handleKeyDown);
-  return () => {
-    document.removeEventListener("keydown", handleKeyDown);
-  };
-}, [lightboxOpen, showPrevImage, showNextImage]);
-
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft" && lightboxOpen) showPrevImage();
+      else if (e.key === "ArrowRight" && lightboxOpen) showNextImage();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen]);
 
   const handleOverlayClick = (e) => {
-    // hanya tutup jika klik di luar konten (gambar dan tombol)
     if (lightboxContentRef.current && !lightboxContentRef.current.contains(e.target)) {
       closeLightbox();
     }
@@ -132,9 +116,7 @@ export default function Projects() {
             <button
               key={index}
               className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${
-                selectedCategory === category
-                  ? "font-bold  text-[var(--color-primary)]"
-                  : ""
+                selectedCategory === category ? "font-bold text-[var(--color-primary)]" : ""
               }`}
               onClick={() => setSelectedCategory(category)}
             >
@@ -142,19 +124,21 @@ export default function Projects() {
             </button>
           ))}
         </div>
-<div className="mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-4">
+
+        {/* Grid */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {filteredProjects.map((project, index) => (
             <div key={index} className="relative group">
-              <Image
-                src={project.src}
-                alt={`Packaging project in ${project.category} industry`}
-                width={500}
-                height={400}
-                className="w-full h-full object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer"
-                loading="lazy"
-                quality={75}
-                onClick={() => openLightbox(index)}
-              />
+              <div className="w-full aspect-square relative overflow-hidden cursor-pointer">
+                <Image
+                  src={project.src}
+                  alt={`Packaging project in ${project.category} industry`}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  onClick={() => openLightbox(index)}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -166,32 +150,25 @@ export default function Projects() {
             onClick={handleOverlayClick}
           >
             <div ref={lightboxContentRef} className="relative z-10">
-              {/* Close Button */}
               <button
                 onClick={closeLightbox}
                 className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition"
               >
                 &times;
               </button>
-
-              {/* Prev Button */}
               <button
                 onClick={showPrevImage}
                 className="absolute left-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
               >
                 &#10094;
               </button>
-
-              {/* Image */}
               <Image
                 src={filteredProjects[currentImageIndex].src}
                 alt="Zoomed packaging project"
                 width={1000}
                 height={800}
-                className="max-w-[90vw] max-h-[80vh] object-contain "
+                className="max-w-[90vw] max-h-[80vh] object-contain"
               />
-
-              {/* Next Button */}
               <button
                 onClick={showNextImage}
                 className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
