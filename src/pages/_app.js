@@ -1,9 +1,10 @@
 import "@/styles/globals.css";
 import { Montserrat } from "next/font/google";
-import whatsappButton from "@/components/whatsapp";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import WhatsappButton from "@/components/whatsapp";
+import { LanguageProvider } from "../contexts/LanguageContext";
+
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -14,10 +15,12 @@ const montserrat = Montserrat({
 export default function App({ Component, pageProps }) {
   return ( 
   <>
+      <LanguageProvider>
   <Navbar />
   <Component {...pageProps} />
   <WhatsappButton/>
   <Footer/>
+  </LanguageProvider>
   </>
 )
 }

@@ -1,15 +1,44 @@
 import { useState, useEffect, useRef } from "react";
 import SEO from "../components/seo";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Projects() {
-  const categories = [
-    "All Industries",
-    "Cosmetics and Personal Care",
-    "Pharmaceutical",
-    "FMCG",
-    "Miscellaneous",
-  ];
+  const { language } = useLanguage();
+
+  const categories = {
+    EN: [
+      "All Industries",
+      "Cosmetics and Personal Care",
+      "Pharmaceutical",
+      "FMCG",
+      "Miscellaneous",
+    ],
+    ID: [
+      "Semua Industri",
+      "Kosmetik dan Perawatan Pribadi",
+      "Farmasi",
+      "Barang Konsumsi",
+      "Lain-lain",
+    ],
+  };
+
+  const categoryDescriptions = {
+    EN: {
+      "All Industries": "Explore our complete range of packaging projects across industries",
+      "Cosmetics and Personal Care": "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
+      "Pharmaceutical": "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
+      "FMCG": "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
+      "Miscellaneous": "Custom packaging solutions for specialised applications, including automotive and promotional items.",
+    },
+    ID: {
+      "Semua Industri": "Jelajahi berbagai proyek kemasan kami di semua industri",
+      "Kosmetik dan Perawatan Pribadi": "Kemasan premium untuk kosmetik, perawatan kulit, rambut, dan produk perawatan pribadi.",
+      "Farmasi": "Solusi kemasan terpercaya untuk produk farmasi, kesehatan, dan kepatuhan regulasi.",
+      "Barang Konsumsi": "Kemasan dalam volume besar untuk makanan, minuman, dan barang konsumsi cepat lainnya.",
+      "Lain-lain": "Solusi kemasan khusus untuk aplikasi seperti otomotif dan barang promosi.",
+    },
+  };
 
   const allProjects = [
     { src: "/images/projects/7RV03886.jpg", category: "Cosmetics and Personal Care" },
@@ -34,23 +63,42 @@ export default function Projects() {
     { src: "/images/projects/7RV04068.jpg", category: "Cosmetics and Personal Care" },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState("All Industries");
+  const categoryMap = {
+    EN: {
+      "Cosmetics and Personal Care": "Cosmetics and Personal Care",
+      Pharmaceutical: "Pharmaceutical",
+      FMCG: "FMCG",
+      Miscellaneous: "Miscellaneous",
+    },
+    ID: {
+      "Cosmetics and Personal Care": "Kosmetik dan Perawatan Pribadi",
+      Pharmaceutical: "Farmasi",
+      FMCG: "Barang Konsumsi",
+      Miscellaneous: "Lain-lain",
+    },
+  };
+
+  const reverseCategoryMap = Object.fromEntries(
+    Object.entries(categoryMap[language]).map(([en, local]) => [local, en])
+  );
+
+  const [selectedCategory, setSelectedCategory] = useState(categories[language][0]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const lightboxContentRef = useRef(null);
 
-  const filteredProjects =
-    selectedCategory === "All Industries"
-      ? allProjects
-      : allProjects.filter((project) => project.category === selectedCategory);
+  useEffect(() => {
+    setSelectedCategory(categories[language][0]);
+    setCurrentImageIndex(0);
+    setLightboxOpen(false);
+  }, [language]);
 
-  const categoryDescriptions = {
-    "All Industries": "Explore our complete range of packaging projects across industries",
-    "Cosmetics and Personal Care": "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
-    "Pharmaceutical": "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
-    "FMCG": "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
-    "Miscellaneous": "Custom packaging solutions for specialised applications, including automotive and promotional items.",
-  };
+  const filteredProjects =
+    selectedCategory === categories[language][0]
+      ? allProjects
+      : allProjects.filter(
+          (project) => categoryMap[language][project.category] === selectedCategory
+        );
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
@@ -60,14 +108,14 @@ export default function Projects() {
   const closeLightbox = () => setLightboxOpen(false);
 
   const showPrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? filteredProjects.length - 1 : prevIndex - 1
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? filteredProjects.length - 1 : prev - 1
     );
   };
 
   const showNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === filteredProjects.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex((prev) =>
+      prev === filteredProjects.length - 1 ? 0 : prev + 1
     );
   };
 
@@ -101,20 +149,25 @@ export default function Projects() {
 
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="text-[40px] font-medium text-left my-2 text-[var(--color-primary)]">
-          Packaging Solutions for every industry
+          {language === "EN"
+            ? "Packaging Solutions for every industry"
+            : "Solusi Kemasan untuk Berbagai Industri"}
         </h1>
+
         <h2 className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
-          With decades of experience in packaging, Mega Putra partners with leading brands across a wide range of industries...
+          {language === "EN"
+            ? "With decades of experience in packaging, Mega Putra partners with leading brands across a wide range of industries..."
+            : "Dengan pengalaman puluhan tahun di bidang kemasan, Mega Putra bekerja sama dengan berbagai merek terkemuka di berbagai industri..."}
         </h2>
 
         <p className="text-left text-md font-semibold text-[var(--color-text)] mt-2">
-          {categoryDescriptions[selectedCategory]}
+          {categoryDescriptions[language][selectedCategory]}
         </p>
 
         <div className="mt-6 flex justify-between border-b-3 border-[var(--color-lighter)] flex-wrap gap-2">
-          {categories.map((category, index) => (
+          {categories[language].map((category) => (
             <button
-              key={index}
+              key={category}
               className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${
                 selectedCategory === category ? "font-bold text-[var(--color-primary)]" : ""
               }`}
@@ -126,17 +179,21 @@ export default function Projects() {
         </div>
 
         {/* Grid */}
-        <div className="mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-6 sm:gap-4 gap-1">
-          {filteredProjects.map((project, index) => (
-            <div key={index} className="relative group">
+        <div className="fade-grid mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-6 sm:gap-4 gap-1">
+          {filteredProjects.map((project) => (
+            <div key={project.src} className="relative group">
               <div className="w-full aspect-square relative overflow-hidden cursor-pointer">
                 <Image
                   src={project.src}
-                  alt={`Packaging project in ${project.category} industry`}
+                  alt="Project"
                   layout="fill"
                   objectFit="cover"
                   className="transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  onClick={() => openLightbox(index)}
+                  onClick={() =>
+                    openLightbox(
+                      filteredProjects.findIndex((p) => p.src === project.src)
+                    )
+                  }
                 />
               </div>
             </div>
@@ -162,13 +219,16 @@ export default function Projects() {
               >
                 &#10094;
               </button>
-              <Image
-                src={filteredProjects[currentImageIndex].src}
-                alt="Zoomed packaging project"
-                width={1000}
-                height={800}
-                className="max-w-[90vw] max-h-[80vh] object-contain"
-              />
+              {filteredProjects[currentImageIndex] && (
+                <Image
+                  key={filteredProjects[currentImageIndex].src + language}
+                  src={filteredProjects[currentImageIndex].src}
+                  alt="Zoomed project"
+                  width={1000}
+                  height={800}
+                  className="max-w-[90vw] max-h-[80vh] object-contain"
+                />
+              )}
               <button
                 onClick={showNextImage}
                 className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
@@ -192,6 +252,10 @@ export default function Projects() {
 
         .animate-fade-in {
           animation: fade-in 0.3s ease-in-out forwards;
+        }
+
+        .fade-grid {
+          animation: fade-in 0.2s ease-in-out;
         }
       `}</style>
     </>

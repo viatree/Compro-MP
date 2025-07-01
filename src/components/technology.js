@@ -2,14 +2,25 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const imageData = [
-  "/images/tech.png",
-  "/images/tech2.png",
-  "/images/tech3.png",
-];
+const imageData = ["/images/tech.png", "/images/tech2.png", "/images/tech3.png"];
+
+const translations = {
+  EN: {
+    title: "Our Technology",
+    subtitle: "We use advanced printing and packaging machines to ensure precision and quality.",
+  },
+  ID: {
+    title: "Teknologi Kami",
+    subtitle: "Kami menggunakan mesin cetak dan pengemasan canggih untuk memastikan presisi dan kualitas.",
+  },
+};
 
 export default function ImageTimeline() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const containerRef = useRef(null);
   const controls = useAnimation();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -30,7 +41,8 @@ export default function ImageTimeline() {
 
   const maxScroll = useMemo(() => (imageData.length - 1) * cardWidth, []);
   const adjustedMaxOffset = useMemo(
-    () => Math.max(0, maxScroll - (viewportWidth - cardWidth - containerPadding - extraPadding)),
+    () =>
+      Math.max(0, maxScroll - (viewportWidth - cardWidth - containerPadding - extraPadding)),
     [viewportWidth, maxScroll]
   );
 
@@ -63,13 +75,17 @@ export default function ImageTimeline() {
   };
 
   return (
-    <section className="relative w-full bg-white px-6 pl-8 md:pl-16 lg:pl-24 xl:pl-43" onWheel={handleWheelScroll}>
+    <section
+      className="relative w-full bg-white px-6 pl-8 md:pl-16 lg:pl-24 xl:pl-43"
+      onWheel={handleWheelScroll}
+    >
       <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-         Our Technology
-        </h1>
-        <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
-        We use advanced printing and packaging machines to ensure precision and quality.
-        </h2>
+        {t.title}
+      </h1>
+      <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
+        {t.subtitle}
+      </h2>
+
       <div className="overflow-hidden relative mt-6">
         <motion.div
           ref={containerRef}
@@ -86,16 +102,15 @@ export default function ImageTimeline() {
                 src={src}
                 alt="Technology"
                 className="w-auto h-auto"
-                onContextMenu={(e) => e.preventDefault()} // Blokir klik kanan
-                onDragStart={(e) => e.preventDefault()} // Blokir drag
-                onMouseDown={(e) => e.preventDefault()} // Blokir klik
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                onMouseDown={(e) => e.preventDefault()}
               />
             </motion.div>
           ))}
         </motion.div>
       </div>
-      
-      {/* Scrollbar */}
+
       <div className="mt-4 w-1/3 relative h-1 bg-[var(--color-card)]">
         <motion.div
           className="absolute top-0 left-0 h-1 bg-[var(--color-primary)]"
