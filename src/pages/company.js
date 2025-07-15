@@ -3,7 +3,7 @@
 import { useLanguage } from "../contexts/LanguageContext";
 import SEO from "../components/seo";
 import Timeline from "@/components/timeline";
-import Technology from "../components/technology";
+// import Technology from "../components/technology";
 import Image from "next/image";
 import { Clock3, Target, Handshake, HandHeart, Leaf, HardHat } from "lucide-react";
 
@@ -198,35 +198,65 @@ export default function Company() {
         <Timeline />
       </section>
 
-      {/* Vision and Mission */}
-      <section id="vision" className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start">
-        <div className="hidden md:block md:w-1/2">
-         <Image
-            src="/images/pict8.png"
-            alt="Employee working in a printing company"
-            width={500}
-            height={400}
-            className="h-[300px] lg:h-[400px] w-full object-cover-top"
-          />
-        </div>
-        <div className="md:w-1/2">
-          <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">{t.visionTitle}</h2>
-          <div className="block md:hidden my-4">
-            <Image src="/images/pict8.png" alt="Employee" width={400} height={200} className="h-[300px] w-[450px] mx-auto object-cover-top" />
-          </div>
-          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">{t.vision}</h3>
-          <p className="mb-4 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">{t.visionText}</p>
-          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">{t.mission}</h3>
-          <ul className="list-decimal list-inside text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light space-y-2">
-            {t.missionList.map((item, idx) => <li key={idx}>{item}</li>)}
-          </ul>
-        </div>
-      </section>
+     {/* Vision and Mission */}
+<section
+  id="vision"
+  className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
+>
+  {/* Left Image for Desktop */}
+  <div className="hidden md:block md:w-1/2">
+    <div className="relative w-full h-[300px] lg:h-[400px]">
+      <Image
+        src="/images/pict8.png"
+        alt="Employee working in a printing company"
+        fill
+        className="object-cover object-top rounded-xl"
+      />
+    </div>
+  </div>
+
+  {/* Text Content */}
+  <div className="md:w-1/2">
+    <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
+      {t.visionTitle}
+    </h2>
+
+    {/* Mobile Image */}
+    <div className="block md:hidden my-4">
+      <div className="relative w-full h-[300px]">
+        <Image
+          src="/images/pict8.png"
+          alt="Employee"
+          fill
+          className=" object-top"
+        />
+      </div>
+    </div>
+
+    {/* Vision Section */}
+    <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+      {t.vision}
+    </h3>
+    <p className="mb-4 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">
+      {t.visionText}
+    </p>
+
+    {/* Mission Section */}
+    <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+      {t.mission}
+    </h3>
+    <ul className="list-decimal list-inside text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light space-y-2">
+      {t.missionList.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+    </ul>
+  </div>
+</section>
 
       {/* Technology */}
-      <section className="my-10">
+      {/* <section className="my-10">
         <Technology />
-      </section>
+      </section> */}
 
       {/* Capabilities */}
       <section id="capabilities" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
