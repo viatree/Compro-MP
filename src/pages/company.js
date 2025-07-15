@@ -205,12 +205,12 @@ export default function Company() {
 >
   {/* Left Image for Desktop */}
   <div className="hidden md:block md:w-1/2">
-    <div className="relative w-full h-[300px] lg:h-[400px]">
+    <div className="relative w-full h-[400px] lg:h-[400px]">
       <Image
         src="/images/pict8.png"
         alt="Employee working in a printing company"
         fill
-        className="object-cover object-top rounded-xl"
+        className="object-fill object-top"
       />
     </div>
   </div>
@@ -228,7 +228,7 @@ export default function Company() {
           src="/images/pict8.png"
           alt="Employee"
           fill
-          className=" object-top"
+          className=" object-cover object-top"
         />
       </div>
     </div>
