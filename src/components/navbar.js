@@ -50,7 +50,7 @@ const Navbar = () => {
       : "text-[var(--color-primary)] hover:text-[var(--color-lighter)]";
 
   return (
-    <nav className="bg-white shadow-md py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-[16px] fixed top-0 w-full z-50">
+    <nav className="bg-white shadow-md py-6 px-4 md:px-16 lg:px-24 xl:px-43 text-[16px] fixed top-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center ">
 
         <div className="w-40 md:w-[225px]">
@@ -63,7 +63,7 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="hidden md:flex items-center space-x-8 mr-6">
+        <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-8 text-[var(--color-primary)] font-medium relative">
             <li><Link href="/" className={isActive("/")}>{t.home}</Link></li>
 
@@ -120,7 +120,7 @@ const Navbar = () => {
         </div>
 
         <div className="md:hidden flex items-center">
-          <div className="flex items-center bg-gray-100 rounded-md overflow-hidden mr-4">
+          <div className="flex items-center bg-gray-100 rounded-md overflow-hidden">
             <button
               className={`px-2 rounded-md text-[14px] font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
               onClick={() => changeLanguage("ID")}
@@ -140,6 +140,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      
 
       {menuOpen && (
         <div className="md:hidden fixed top-[72px] left-0 w-full z-40 transition-all duration-300 bg-white shadow-md">

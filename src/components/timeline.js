@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const translations = {
   EN: {
@@ -18,7 +19,7 @@ const translations = {
       { year: "2014", text: "Earned FSC® certification, supporting responsible forestry and sustainable packaging." },
       { year: "2025", text: "Achieved Halal certification, ensuring compliance with Indonesian Halal packaging standards." },
       { year: "Today", text: "Serving leading brands across cosmetics, pharmaceuticals, FMCG, automotive, and food industries with complete in-house capabilities." },
-    ]
+    ],
   },
   ID: {
     title: "Dari Broker Menjadi Penyedia Solusi Pengemasan Lengkap",
@@ -37,82 +38,103 @@ const translations = {
   }
 };
 
+
 export default function Timeline() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language] || translations["EN"];
+  const itemsPerPage = 3;
 
-  const cardWidth = 350;
-  const spacing = 24;
-  const shiftDistance = cardWidth + spacing;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef(null);
-  const [maxDrag, setMaxDrag] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const scrollInterval = useRef(null);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth;
-      const totalContentWidth = t.timelineData.length * shiftDistance;
-      setMaxDrag(Math.max(0, totalContentWidth - containerWidth));
+  const handleScroll = (direction) => {
+    setStartIndex((prev) => {
+      const max = t.timelineData.length - itemsPerPage;
+      if (direction === "left") return Math.max(0, prev - 1);
+      if (direction === "right") return Math.min(max, prev + 1);
+      return prev;
+    });
+  };
+
+  const startAutoScroll = (dir) => {
+    stopAutoScroll();
+    scrollInterval.current = setInterval(() => handleScroll(dir), 1000); // slow scroll
+  };
+
+  const stopAutoScroll = () => {
+    if (scrollInterval.current) {
+      clearInterval(scrollInterval.current);
+      scrollInterval.current = null;
     }
-  }, [t.timelineData.length]);
-
-  const handleDragEnd = (event, info) => {
-    const { offset, velocity } = info;
-    let newIndex = activeIndex;
-
-    if ((offset.x > 100 || velocity.x > 2) && activeIndex > 0) {
-      newIndex = activeIndex - 1;
-    } else if ((offset.x < -100 || velocity.x < -2) && activeIndex < t.timelineData.length - 1) {
-      newIndex = activeIndex + 1;
-    }
-
-    setActiveIndex(newIndex);
   };
 
   return (
-    <section className="relative w-full bg-white text-justify pl-8 md:pl-16 lg:pl-24 xl:pl-43">
-      <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+    <section className="relative w-full bg-white md:px-16 lg:px-24 xl:px-43">
+      <h1 className="text-[28px] md:text-[36px] font-bold text-[var(--color-primary)] mb-2">
         {t.title}
       </h1>
-      <h2 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)] pr-8">
+      <h2 className="text-[18px] md:text-[24px] font-light text-[var(--color-text)] mb-6">
         {t.subtitle}
       </h2>
 
-      {/* Timeline Cards */}
-      <div ref={containerRef} className="overflow-hidden relative w-full mx-auto">
-        <motion.div
-          className="flex space-x-6 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={{ left: -maxDrag, right: 0 }}
-          dragElastic={0.1}
-          onDragEnd={handleDragEnd}
-          animate={{ x: -activeIndex * shiftDistance }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {t.timelineData.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`min-w-[350px] p-6 shadow-md transition-all duration-300 
-                ${index === activeIndex
-                  ? "bg-[var(--color-primary)] text-white scale-105 text-[16px]"
-                  : "bg-[var(--color-card)] text-[var(--color-text)]"} 
-                hover:bg-[var(--color-darker)] hover:text-white`}
-            >
-              <h3 className="text-[24px] font-bold">{item.year}</h3>
-              <p className="text-[14px] font-light">{item.text}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="relative flex items-center">
+        {/* Gradient Fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white via-blue/30 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white via-blue/30 to-transparent pointer-events-none z-10" />
+
+        {/* Left Button */}
+        {startIndex > 0 && (
+          <button
+            onClick={() => handleScroll("left")}
+            onMouseEnter={() => startAutoScroll("left")}
+            onMouseLeave={stopAutoScroll}
+            className="absolute left-0 z-20 p-3 rounded-full bg-[var(--color-primary)] text-white hover:scale-110 transition -translate-x-full top-1/2 -translate-y-1/2"
+          >
+            <FaChevronLeft size={20} />
+          </button>
+        )}
+
+        {/* Timeline Cards */}
+        <div className="overflow-hidden flex-1 px-4">
+          <motion.div
+            className="flex space-x-6 transition-transform duration-500 ease-out"
+            animate={{ x: -startIndex * 360 }}
+          >
+            {t.timelineData.map((item, index) => (
+              <div
+                key={index}
+                className="min-w-[320px] max-w-[360px] bg-[var(--color-card)] p-6 shadow-md text-[var(--color-text)] hover:bg-[var(--color-darker)] hover:text-white transition-all duration-300 "
+              >
+                <h3 className="text-xl font-bold mb-2">{item.year}</h3>
+                <p className="text-sm">{item.text}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right Button */}
+        {startIndex + itemsPerPage < t.timelineData.length && (
+          <button
+            onClick={() => handleScroll("right")}
+            onMouseEnter={() => startAutoScroll("right")}
+            onMouseLeave={stopAutoScroll}
+            className="absolute right-0 z-20 p-3 rounded-full bg-[var(--color-primary)] text-white hover:scale-110 transition translate-x-full top-1/2 -translate-y-1/2"
+          >
+            <FaChevronRight size={20} />
+          </button>
+        )}
       </div>
 
-      {/* Scrollbar */}
-      <div className="mt-4 w-1/3 relative h-1 bg-[var(--color-card)] pl-43">
-        <motion.div
-          className="absolute top-0 left-0 h-1 bg-[var(--color-primary)]"
-          animate={{ width: `${((activeIndex + 1) / t.timelineData.length) * 100}%` }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        />
-      </div>
+{/* Progress bar */}
+<div className="mt-6 w-1/3  relative h-1 bg-[var(--color-card)] rounded">
+  <motion.div
+    className="absolute top-0 left-0 h-1 bg-[var(--color-primary)] rounded"
+    animate={{
+      width: `${Math.min(((startIndex + itemsPerPage) / t.timelineData.length) * 100, 100)}%`,
+    }}
+    transition={{ duration: 0.3, ease: "easeOut" }}
+  />
+</div>
     </section>
   );
 }

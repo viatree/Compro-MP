@@ -98,7 +98,6 @@ const Footer = () => {
         {/* Social Media */}
         <div className="flex justify-start space-x-4 mt-8">
           <FaFacebookF className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
-          <FaTwitter className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
           <FaInstagram className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
           <FaLinkedinIn className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
           <FaYoutube className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />

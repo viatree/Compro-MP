@@ -6,6 +6,7 @@ import Timeline from "@/components/timeline";
 // import Technology from "../components/technology";
 import Image from "next/image";
 import { Clock3, Target, Handshake, HandHeart, Leaf, HardHat } from "lucide-react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const translations = {
   EN: {
@@ -205,7 +206,7 @@ export default function Company() {
 >
   {/* Left Image for Desktop */}
   <div className="hidden md:block md:w-1/2">
-    <div className="relative w-full h-[400px] lg:h-[400px]">
+    <div className="relative w-full h-[500px] lg:h-[500px]">
       <Image
         src="/images/pict8.png"
         alt="Employee working in a printing company"

@@ -91,7 +91,7 @@ export default function Solutions() {
 
       <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
         <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
-          Packaging Solutions designed For Your Brand&apos;s Success
+          Packaging Solutions Designed For Your Brand&apos;s Success
         </h1>
         <p className="mt-6 text-left text-base text-[var(--color-text)]">
           Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.
