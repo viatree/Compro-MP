@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SEO from "../components/seo";
 import FAQS from "../components/faqs";
 import { useLanguage } from "../contexts/LanguageContext";
+import Link from "next/link";
 
 const translations = {
   EN: {
@@ -271,7 +272,6 @@ export default function Solutions() {
   const [selectedFinish, setSelectedFinish] = useState(
     Object.keys(finishes[language] || {})[0] || ""
   );
-
   useEffect(() => {
     setSelectedProduct(Object.keys(products[language] || {})[0] || "");
     setSelectedMaterials(Object.keys(materials[language] || {})[0] || "");
@@ -279,183 +279,180 @@ export default function Solutions() {
   }, [language]);
 
   return (
-    <>
-      <SEO
-        title={`Mega Putra | ${t.productsTitle}`}
-        description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging kertas dengan kualitas terbaik."
-        keywords="packaging, printing, offset printing, box packaging, Mega Putra"
-        image="/images/og-image.jpg"
-        url="https://megaputra.com"
-      />
+  <>
+    <SEO
+      title={`Mega Putra | ${t.productsTitle}`}
+      description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging kertas dengan kualitas terbaik."
+      keywords="packaging, printing, offset printing, box packaging, Mega Putra"
+      image="/images/og-image.jpg"
+      url="https://megaputra.com"
+    />
 
-      {/* Hero */}
-      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
-        <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-          {t.pageTitle}
+    {/* Hero */}
+    <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 mt-20">
+      <h1 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+        {t.pageTitle}
+      </h1>
+      <p className="my-2 text-justify text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">
+        {t.pageDesc}
+      </p>
+    </section>
+
+    <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]"></section>
+
+    {/* Products Section */}
+    <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+      <div className="my-6 text-[var(--color-text)] font-medium">
+        <h1 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+          {t.productsTitle}
         </h1>
-        <p className="my-2 text-justify text-[var(--color-text)] text-[12px] md:text-[14px] lg:text-[16px] font-light">
-          {t.pageDesc}
-        </p>
-      </section>
+        <h2 className="my-4 text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+          {t.productsSubtitle}
+        </h2>
+        <h3 className="text-justify text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] font-light">
+          {t.productsDesc}
+        </h3>
+      </div>
 
-      <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]"></section>
-
-      {/* Products Section */}
-      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
-        <div className="my-6 text-[var(--color-text)] font-medium">
-          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-            {t.productsTitle}
-          </h1>
-          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
-            {t.productsSubtitle}
-          </h2>
-          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
-            {t.productsDesc}
-          </h3>
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/3 font-medium text-[var(--color-text)]">
+          <ul>
+            {Object.keys(products[language] || {}).map((product) => (
+              <li
+                key={product}
+                className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${
+                  selectedProduct === product ? "font-bold text-[var(--color-primary)]" : ""
+                }`}
+                onClick={() => setSelectedProduct(product)}
+              >
+                {product}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+            <Link href="/contact">{t.productsNote}</Link>
+          </p>
         </div>
-
-        <div className="flex gap-8">
-          <div className="w-1/3 font-medium text-[var(--color-text)]">
-            <ul>
-              {Object.keys(products[language] || {}).map((product) => (
-                <li
-                  key={product}
-                  className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedProduct === product
-                    ? "font-bold text-[var(--color-primary)]"
-                    : ""
-                    }`}
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  {product}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-              <a href="/contact">{t.productsNote}</a>
-            </p>
-          </div>
-          <div className="w-2/3 text-[var(--color-text)]">
-            {products[language]?.[selectedProduct] && (
-              <>
-                <img
-                  src={products[language][selectedProduct].image}
-                  alt={selectedProduct}
-                  className="w-full h-auto shadow-lg"
-                />
-                <p className="mt-4 text-lg">
-                  {products[language][selectedProduct].description}
-                </p>
-              </>
-            )}
-          </div>
+        <div className="w-full md:w-2/3 text-[var(--color-text)]">
+          {products[language]?.[selectedProduct] && (
+            <>
+              <img
+                src={products[language][selectedProduct].image}
+                alt={selectedProduct}
+                className="w-full max-w-full h-auto shadow-lg"
+              />
+              <p className="mt-4 text-sm sm:text-base lg:text-lg">
+                {products[language][selectedProduct].description}
+              </p>
+            </>
+          )}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Materials Section */}
-      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
-        <div className="my-6 text-[var(--color-text)] font-medium">
-          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-            {t.materialsTitle}
-          </h1>
-          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
-            {t.materialsSubtitle}
-          </h2>
-          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
-            {t.materialsDesc}
-          </h3>
+    {/* Materials Section */}
+    <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+      <div className="my-6 text-[var(--color-text)] font-medium">
+        <h1 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+          {t.materialsTitle}
+        </h1>
+        <h2 className="my-4 text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+          {t.materialsSubtitle}
+        </h2>
+        <h3 className="text-justify text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] font-light">
+          {t.materialsDesc}
+        </h3>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/3 font-medium text-[var(--color-text)]">
+          <ul>
+            {Object.keys(materials[language] || {}).map((material) => (
+              <li
+                key={material}
+                className={`cursor-pointer p-2 border-b border-[var(--color-text25)] ${
+                  selectedMaterials === material ? "font-bold text-[var(--color-primary)]" : ""
+                }`}
+                onClick={() => setSelectedMaterials(material)}
+              >
+                {material}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+            <Link href="/contact">{t.materialsNote1}</Link>
+            <br />
+            <br />
+            <Link href="/contact">{t.materialsNote2}</Link>
+          </p>
         </div>
-
-        <div className="flex gap-8">
-          <div className="w-1/3 font-medium text-[var(--color-text)]">
-            <ul>
-              {Object.keys(materials[language] || {}).map((material) => (
-                <li
-                  key={material}
-                  className={`cursor-pointer p-2 border-b border-[var(--color-text25)] ${selectedMaterials === material
-                    ? "font-bold text-[var(--color-primary)]"
-                    : ""
-                    }`}
-                  onClick={() => setSelectedMaterials(material)}
-                >
-                  {material}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-              <a href="/contact">{t.materialsNote1}</a>
-              <br /><br />
-              <a href="/contact">{t.materialsNote2}</a>
-            </p>
-          </div>
-          <div className="w-2/3 text-[var(--color-text)]">
-            {materials[language]?.[selectedMaterials] && (
-              <>
-                <img
-                  src={materials[language][selectedMaterials].image}
-                  alt={selectedMaterials}
-                  className="w-full h-auto shadow-lg"
-                />
-                <p className="mt-4 text-lg">
-                  {materials[language][selectedMaterials].description}
-                </p>
-              </>
-            )}
-          </div>
+        <div className="w-full md:w-2/3 text-[var(--color-text)]">
+          {materials[language]?.[selectedMaterials] && (
+            <>
+              <img
+                src={materials[language][selectedMaterials].image}
+                alt={selectedMaterials}
+                className="w-full max-w-full h-auto shadow-lg"
+              />
+              <p className="mt-4 text-sm sm:text-base lg:text-lg">
+                {materials[language][selectedMaterials].description}
+              </p>
+            </>
+          )}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Finishing Section */}
-      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
-        <div className="mb-6 text-[var(--color-text)] font-bold">
-          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-            {t.finishesTitle}
-          </h1>
-          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
-            {t.finishesSubtitle}
-          </h2>
-          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
-            {t.finishesDesc}
-          </h3>
+    {/* Finishing Section */}
+    <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+      <div className="mb-6 text-[var(--color-text)] font-bold">
+        <h1 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+          {t.finishesTitle}
+        </h1>
+        <h2 className="my-4 text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+          {t.finishesSubtitle}
+        </h2>
+        <h3 className="text-justify text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] font-light">
+          {t.finishesDesc}
+        </h3>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/3 font-medium text-[var(--color-text)]">
+          <ul>
+            {Object.keys(finishes[language] || {}).map((finish) => (
+              <li
+                key={finish}
+                className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${
+                  selectedFinish === finish ? "font-bold text-[var(--color-primary)]" : ""
+                }`}
+                onClick={() => setSelectedFinish(finish)}
+              >
+                {finish}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+            <Link href="/contact">{t.finishesNote}</Link>
+          </p>
         </div>
-
-        <div className="flex gap-8">
-          <div className="w-1/3 font-medium text-[var(--color-text)]">
-            <ul>
-              {Object.keys(finishes[language] || {}).map((finish) => (
-                <li
-                  key={finish}
-                  className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedFinish === finish
-                    ? "font-bold text-[var(--color-primary)]"
-                    : ""
-                    }`}
-                  onClick={() => setSelectedFinish(finish)}
-                >
-                  {finish}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-              <a href="/contact">{t.finishesNote}</a>
-            </p>
-          </div>
-          <div className="w-2/3 text-[var(--color-text)] mt-12">
-            {finishes[language]?.[selectedFinish] && (
-              <>
-                <img
-                  src={finishes[language][selectedFinish].image}
-                  alt={selectedFinish}
-                  className="w-full h-auto shadow-lg"
-                />
-                <p className="mt-4 text-lg">
-                  {finishes[language][selectedFinish].description}
-                </p>
-              </>
-            )}
-          </div>
+        <div className="w-full md:w-2/3 text-[var(--color-text)] mt-6 md:mt-12">
+          {finishes[language]?.[selectedFinish] && (
+            <>
+              <img
+                src={finishes[language][selectedFinish].image}
+                alt={selectedFinish}
+                className="w-full max-w-full h-auto shadow-lg"
+              />
+              <p className="mt-4 text-sm sm:text-base lg:text-lg">
+                {finishes[language][selectedFinish].description}
+              </p>
+            </>
+          )}
         </div>
-      </section>
-
-      <FAQS />
-    </>
-  );
+      </div>
+    </section>
+    <FAQS />
+  </>
+);
 }
