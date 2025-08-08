@@ -6,7 +6,6 @@ import Timeline from "@/components/timeline";
 // import Technology from "../components/technology";
 import Image from "next/image";
 import { Clock3, Target, Handshake, HandHeart, Leaf, HardHat } from "lucide-react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const translations = {
   EN: {
@@ -80,77 +79,77 @@ const translations = {
     cta: "At Mega Putra, we are committed to delivering quality, precision, and innovative packaging solutions you can trust. Discover how our capabilities can help elevate your brand.",
     ctaBtn: "Explore Our Solutions",
   },
-ID: {
-  seoTitle: "Mega Putra | Perusahaan",
-  seoDesc: "Mega Putra adalah perusahaan kemasan kertas terkemuka yang menyediakan solusi berkualitas tinggi.",
-  aboutTitle: "Tentang Megaputra",
-  aboutSubtitle: "Menyediakan Solusi Kemasan Kertas Terpercaya Sejak 1997",
-  aboutDesc:
-    "Didirikan pada tahun 1997, PT Mega Putra telah berkembang menjadi penyedia solusi cetak offset dan kemasan terkemuka. Dengan pengalaman lebih dari 28 tahun, kami melayani pelanggan lokal dan internasional dari berbagai industri, termasuk kosmetik, farmasi, FMCG, otomotif, dan makanan.\n\nKomitmen kami terhadap kualitas, inovasi, dan efisiensi memastikan kami memberikan solusi yang disesuaikan untuk membantu merek meningkatkan standar kemasan mereka.",
-  storyTitle: "Kisah di Balik Mega Putra",
-  storyDesc:
-    "Mega Putra dibangun berdasarkan prinsip pengetahuan, tekad, kerja keras, dan kejujuran—nilai-nilai yang terus membentuk siapa kami hingga hari ini.\n\nSejak awal, kualitas menjadi prioritas kami. Kini, prinsip-prinsip dasar ini tercermin dalam budaya perusahaan kami: Peduli, Efisien, Akurat, dan Kerjasama—yang secara kolektif dikenal sebagai PEAK.\n\nMega Putra berusaha menjadi mitra terpercaya bagi karyawan, pemasok, dan pelanggan. Kami berkomitmen untuk menciptakan lingkungan yang mendorong perbaikan berkelanjutan bagi karyawan, membangun hubungan yang kuat dan transparan dengan pemasok, serta memberikan produk berkualitas tinggi dan layanan yang luar biasa kepada pelanggan.\n\nMelalui komitmen ini, Mega Putra terus menetapkan standar baru dalam keunggulan dan integritas di industri percetakan dan kemasan.",
-  visionTitle: "Visi dan Misi Kami",
-  vision: "Visi",
-  visionText:
-    "Menjadi pemimpin dalam pertumbuhan dan inovasi industri kemasan dengan memberikan solusi berkelanjutan dan berkualitas tinggi yang membangun kepercayaan dan mendorong kemajuan industri.",
-  mission: "Misi",
-  missionList: [
-    "Menjaga dan meningkatkan standar tertinggi dalam kualitas produk dan layanan pelanggan.",
-    "Menerapkan nilai-nilai PEAK dalam seluruh operasi kami.",
-    "Mendorong pembelajaran, pertumbuhan, dan perbaikan berkelanjutan.",
-    "Mengintegrasikan keberlanjutan ke seluruh aspek bisnis.",
-  ],
-  capabilitiesTitle: "Kemampuan Kami",
-  capabilitiesSubtitle: "Memberikan Kualitas Melalui Kemampuan Terintegrasi",
-  capabilities: [
-    {
-      src: "/images/7RV03391.jpg",
-      title: "Pra-Cetak & Prototipe Internal",
-      desc: "Pembuatan papan potong presisi dan prototipe sampel cepat untuk memastikan pengembangan kemasan yang akurat dan efisien.",
-    },
-    {
-      src: "/images/7RV03558.jpg",
-      title: "Cetak Offset & UV",
-      desc: "Teknologi cetak offset dan UV canggih yang menghasilkan warna cerah, cetak multi-warna, dan finishing khusus.",
-    },
-    {
-      src: "/images/7RV03872.jpg",
-      title: "Finishing & Embellishment",
-      desc: "Pilihan finishing pasca-cetak premium seperti hot stamping, embossing, laminasi, window patching, dan spot UV.",
-    },
-    {
-      src: "/images/7RV03354.jpg",
-      title: "Kontrol Kualitas",
-      desc: "Proses kontrol kualitas manual dan otomatis sesuai standar QC AQL untuk memastikan produksi yang konsisten dan berkualitas tinggi.",
-    },
-  ],
-  valuesTitle: "Nilai & Etika Perusahaan",
-  valuesSubtitle: "Dipandu oleh Nilai PEAK: Peduli, Efisien, Akurat, dan Kerjasama",
-  values: [
-    { icon: <HandHeart size={40} />, title: "Peduli", subtitle: "Care", desc: "Kami menciptakan lingkungan kerja yang mendukung dan saling menghormati." },
-    { icon: <Clock3 size={40} />, title: "Efisien", subtitle: "Efficient", desc: "Kami mengoptimalkan proses untuk menghemat waktu dan sumber daya." },
-    { icon: <Target size={40} />, title: "Akurat", subtitle: "Accurate", desc: "Kami memastikan ketepatan dalam semua produk dan layanan kami." },
-    { icon: <Handshake size={40} />, title: "Kerjasama", subtitle: "Collaboration", desc: "Kami bekerja sama dengan kejujuran dan transparansi." },
-  ],
-  responsibilityTitle: "Tanggung Jawab Perusahaan",
-  responsibilitySubtitle: "Berkomitmen pada Keberlanjutan, Etika, dan Keunggulan Tempat Kerja.",
-  responsibilities: [
-    { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Keberlanjutan", desc: "Kertas bersertifikat FSC, pelapisan berbahan dasar air, pengurangan limbah" },
-    { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Etika Bisnis", desc: "Membangun kemitraan yang terpercaya dan transparan" },
-    { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Keamanan Kerja", desc: "Menyediakan lingkungan kerja yang aman dan sehat dengan personel bersertifikat K3" },
-  ],
-  certificationTitle: "Sertifikasi",
-  certificationSubtitle: "Standar Kualitas, Keberlanjutan, dan Kepatuhan yang Diakui.",
-  certificationDesc: "Mega Putra bersertifikasi ISO 9001:2015, FSC®, dan Halal Indonesia. Kami juga lulus audit Disney ILS.",
-  certifications: [
-    { img: "/images/sgs.png", title: "ISO 9001:2015", desc: "Tersertifikasi untuk manajemen dan peningkatan kualitas." },
-    { img: "/images/fsc.png", title: "Sertifikasi FSC®", desc: "Mendukung kehutanan berkelanjutan dan kemasan ramah lingkungan." },
-    { img: "/images/halal.png", title: "Sertifikasi Halal", desc: "Memenuhi standar kemasan Halal." },
-  ],
-  cta: "Di Mega Putra, kami berkomitmen untuk memberikan solusi kemasan yang berkualitas, presisi, dan inovatif yang dapat Anda percaya. Temukan bagaimana kemampuan kami dapat meningkatkan merek Anda.",
-  ctaBtn: "Jelajahi Solusi Kami",
-}
+  ID: {
+    seoTitle: "Mega Putra | Perusahaan",
+    seoDesc: "Mega Putra adalah perusahaan kemasan kertas terkemuka yang menyediakan solusi berkualitas tinggi.",
+    aboutTitle: "Tentang Megaputra",
+    aboutSubtitle: "Menyediakan Solusi Kemasan Kertas Terpercaya Sejak 1997",
+    aboutDesc:
+      "Didirikan pada tahun 1997, PT Mega Putra telah berkembang menjadi penyedia solusi cetak offset dan kemasan terkemuka. Dengan pengalaman lebih dari 28 tahun, kami melayani pelanggan lokal dan internasional dari berbagai industri, termasuk kosmetik, farmasi, FMCG, otomotif, dan makanan.\n\nKomitmen kami terhadap kualitas, inovasi, dan efisiensi memastikan kami memberikan solusi yang disesuaikan untuk membantu merek meningkatkan standar kemasan mereka.",
+    storyTitle: "Kisah di Balik Mega Putra",
+    storyDesc:
+      "Mega Putra dibangun berdasarkan prinsip pengetahuan, tekad, kerja keras, dan kejujuran—nilai-nilai yang terus membentuk siapa kami hingga hari ini.\n\nSejak awal, kualitas menjadi prioritas kami. Kini, prinsip-prinsip dasar ini tercermin dalam budaya perusahaan kami: Peduli, Efisien, Akurat, dan Kerjasama—yang secara kolektif dikenal sebagai PEAK.\n\nMega Putra berusaha menjadi mitra terpercaya bagi karyawan, pemasok, dan pelanggan. Kami berkomitmen untuk menciptakan lingkungan yang mendorong perbaikan berkelanjutan bagi karyawan, membangun hubungan yang kuat dan transparan dengan pemasok, serta memberikan produk berkualitas tinggi dan layanan yang luar biasa kepada pelanggan.\n\nMelalui komitmen ini, Mega Putra terus menetapkan standar baru dalam keunggulan dan integritas di industri percetakan dan kemasan.",
+    visionTitle: "Visi dan Misi Kami",
+    vision: "Visi",
+    visionText:
+      "Menjadi pemimpin dalam pertumbuhan dan inovasi industri kemasan dengan memberikan solusi berkelanjutan dan berkualitas tinggi yang membangun kepercayaan dan mendorong kemajuan industri.",
+    mission: "Misi",
+    missionList: [
+      "Menjaga dan meningkatkan standar tertinggi dalam kualitas produk dan layanan pelanggan.",
+      "Menerapkan nilai-nilai PEAK dalam seluruh operasi kami.",
+      "Mendorong pembelajaran, pertumbuhan, dan perbaikan berkelanjutan.",
+      "Mengintegrasikan keberlanjutan ke seluruh aspek bisnis.",
+    ],
+    capabilitiesTitle: "Kemampuan Kami",
+    capabilitiesSubtitle: "Memberikan Kualitas Melalui Kemampuan Terintegrasi",
+    capabilities: [
+      {
+        src: "/images/7RV03391.jpg",
+        title: "Pra-Cetak & Prototipe Internal",
+        desc: "Pembuatan papan potong presisi dan prototipe sampel cepat untuk memastikan pengembangan kemasan yang akurat dan efisien.",
+      },
+      {
+        src: "/images/7RV03558.jpg",
+        title: "Cetak Offset & UV",
+        desc: "Teknologi cetak offset dan UV canggih yang menghasilkan warna cerah, cetak multi-warna, dan finishing khusus.",
+      },
+      {
+        src: "/images/7RV03872.jpg",
+        title: "Finishing & Embellishment",
+        desc: "Pilihan finishing pasca-cetak premium seperti hot stamping, embossing, laminasi, window patching, dan spot UV.",
+      },
+      {
+        src: "/images/7RV03354.jpg",
+        title: "Kontrol Kualitas",
+        desc: "Proses kontrol kualitas manual dan otomatis sesuai standar QC AQL untuk memastikan produksi yang konsisten dan berkualitas tinggi.",
+      },
+    ],
+    valuesTitle: "Nilai & Etika Perusahaan",
+    valuesSubtitle: "Dipandu oleh Nilai PEAK: Peduli, Efisien, Akurat, dan Kerjasama",
+    values: [
+      { icon: <HandHeart size={40} />, title: "Peduli", subtitle: "Care", desc: "Kami menciptakan lingkungan kerja yang mendukung dan saling menghormati." },
+      { icon: <Clock3 size={40} />, title: "Efisien", subtitle: "Efficient", desc: "Kami mengoptimalkan proses untuk menghemat waktu dan sumber daya." },
+      { icon: <Target size={40} />, title: "Akurat", subtitle: "Accurate", desc: "Kami memastikan ketepatan dalam semua produk dan layanan kami." },
+      { icon: <Handshake size={40} />, title: "Kerjasama", subtitle: "Collaboration", desc: "Kami bekerja sama dengan kejujuran dan transparansi." },
+    ],
+    responsibilityTitle: "Tanggung Jawab Perusahaan",
+    responsibilitySubtitle: "Berkomitmen pada Keberlanjutan, Etika, dan Keunggulan Tempat Kerja.",
+    responsibilities: [
+      { icon: <Leaf size={64} strokeWidth={1.5} />, title: "Keberlanjutan", desc: "Kertas bersertifikat FSC, pelapisan berbahan dasar air, pengurangan limbah" },
+      { icon: <Handshake size={64} strokeWidth={1.5} />, title: "Etika Bisnis", desc: "Membangun kemitraan yang terpercaya dan transparan" },
+      { icon: <HardHat size={64} strokeWidth={1.5} />, title: "Keamanan Kerja", desc: "Menyediakan lingkungan kerja yang aman dan sehat dengan personel bersertifikat K3" },
+    ],
+    certificationTitle: "Sertifikasi",
+    certificationSubtitle: "Standar Kualitas, Keberlanjutan, dan Kepatuhan yang Diakui.",
+    certificationDesc: "Mega Putra bersertifikasi ISO 9001:2015, FSC®, dan Halal Indonesia. Kami juga lulus audit Disney ILS.",
+    certifications: [
+      { img: "/images/sgs.png", title: "ISO 9001:2015", desc: "Tersertifikasi untuk manajemen dan peningkatan kualitas." },
+      { img: "/images/fsc.png", title: "Sertifikasi FSC®", desc: "Mendukung kehutanan berkelanjutan dan kemasan ramah lingkungan." },
+      { img: "/images/halal.png", title: "Sertifikasi Halal", desc: "Memenuhi standar kemasan Halal." },
+    ],
+    cta: "Di Mega Putra, kami berkomitmen untuk memberikan solusi kemasan yang berkualitas, presisi, dan inovatif yang dapat Anda percaya. Temukan bagaimana kemampuan kami dapat meningkatkan merek Anda.",
+    ctaBtn: "Jelajahi Solusi Kami",
+  }
 
 };
 
@@ -164,7 +163,7 @@ export default function Company() {
 
       {/* About Section */}
       <section id="about" className="mt-30 my-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.aboutTitle}</h1> 
+        <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.aboutTitle}</h1>
         <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.aboutSubtitle}</h2>
         <p className="text-justify text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{t.aboutDesc}</p>
       </section>
@@ -186,73 +185,82 @@ export default function Company() {
   px-4 sm:px-8 md:px-12" />
 
       {/* The Story */}
-      <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify ">
-          <div className="w-full">
-        <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.storyTitle}</h2>
-        
-        <p className="text-justify text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light  text-[var(--color-text)]">{t.storyDesc}</p>
-        </div>
-      </section>
+    <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
+  <div className="w-full">
+    <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+      {t.storyTitle}
+    </h2>
+
+    <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
+      Mega Putra was built on the principles of knowledge, determination, effort, and honesty—values that continue to shape who we are today. From the very beginning, quality has been our priority. Today, these founding principles are reflected in our corporate culture: <strong>Peduli</strong> (Care), <strong>Efisien</strong> (Efficient), <strong>Akurat</strong> (Accurate), and <strong>Kerjasama</strong> (Collaborate)—collectively known as PEAK. Mega Putra strives to be a trusted partner for employees, suppliers, and customers alike.
+    </p>
+
+    <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
+      We are committed to fostering an environment that encourages continuous improvement for our employees, building strong, transparent relationships with suppliers, and delivering high-quality products with exceptional service to our customers.Through these commitments, Mega Putra continues to set new standards of excellence and integrity in the printing and packaging industry.
+    </p>
+  </div>
+</section>
+
 
       {/* Timeline */}
       <section className="my-10">
         <Timeline />
       </section>
 
-     {/* Vision and Mission */}
-<section
-  id="vision"
-  className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
->
-  {/* Left Image for Desktop */}
-  <div className="hidden md:block md:w-1/2">
-    <div className="relative w-full h-[500px] lg:h-[500px]">
-      <Image
-        src="/images/pict8.png"
-        alt="Employee working in a printing company"
-        fill
-        className="object-fill object-top"
-      />
-    </div>
-  </div>
+      {/* Vision and Mission */}
+      <section
+        id="vision"
+        className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
+      >
+        {/* Left Image for Desktop */}
+        <div className="hidden md:block md:w-1/2">
+          <div className="relative w-full h-[500px] lg:h-[500px]">
+            <Image
+              src="/images/pict8.png"
+              alt="Employee working in a printing company"
+              fill
+              className="object-fill object-top"
+            />
+          </div>
+        </div>
 
-  {/* Text Content */}
-  <div className="md:w-1/2">
-    <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
-      {t.visionTitle}
-    </h2>
+        {/* Text Content */}
+        <div className="md:w-1/2">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
+            {t.visionTitle}
+          </h2>
 
-    {/* Mobile Image */}
-    <div className="block md:hidden my-4">
-      <div className="relative w-full h-[300px]">
-        <Image
-          src="/images/pict8.png"
-          alt="Employee"
-          fill
-          className=" object-cover object-top"
-        />
-      </div>
-    </div>
+          {/* Mobile Image */}
+          <div className="block md:hidden my-4">
+            <div className="relative w-full h-[300px]">
+              <Image
+                src="/images/pict8.png"
+                alt="Employee"
+                fill
+                className=" object-cover object-top"
+              />
+            </div>
+          </div>
 
-    {/* Vision Section */}
-    <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
-      {t.vision}
-    </h3>
-    <p className="mb-4 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">
-      {t.visionText}
-    </p>
+          {/* Vision Section */}
+          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+            {t.vision}
+          </h3>
+          <p className="mb-4 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light">
+            {t.visionText}
+          </p>
 
-    {/* Mission Section */}
-    <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
-      {t.mission}
-    </h3>
-    <ul className="list-decimal list-inside text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light space-y-2">
-      {t.missionList.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </ul>
-  </div>
-</section>
+          {/* Mission Section */}
+          <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-bold text-left text-[var(--color-text)]">
+            {t.mission}
+          </h3>
+          <ul className="list-decimal list-inside text-[var(--color-text)] text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light space-y-2">
+            {t.missionList.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Technology */}
       {/* <section className="my-10">

@@ -1,49 +1,127 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SEO from "../components/seo";
-import Image from "next/image";
-import ProductSection from "@/components/product";
 import FAQS from "../components/faqs";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-export default function Solutions() {
-  const [selectedFinish, setSelectedFinish] = useState("HOT STAMPING");
+import { useLanguage } from "../contexts/LanguageContext";
 
-  const finishes = {
-    "HOT STAMPING": {
+const translations = {
+  EN: {
+    pageTitle: "Packaging Solutions Designed For Your Brand's Success",
+    pageDesc:
+      "Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.",
+    productsTitle: "Products",
+    productsSubtitle:
+      "Discover our range of paper-based packaging solutions, crafted to support your brand's growth and visibility",
+    productsDesc:
+      "At Mega Putra, we offer high-quality paper-based products designed to meet the diverse needs of brands across industries. Our product range includes:",
+    productsNote:
+      "Customised solutions are available based on project requirements and production capabilities.",
+    materialsTitle: "Materials",
+    materialsSubtitle:
+      "Choose from a variety of high-quality materials tailored to your packaging and branding needs",
+    materialsDesc:
+      "Mega Putra offers a selection of high-quality materials to suit diverse product requirements, brand positioning, and sustainability goals. Our available options include:",
+    materialsNote1:
+      "Selected materials are available with FSC certification upon request.",
+    materialsNote2:
+      "Don’t see the material you’re looking for? Talk to us — we are happy to explore sourcing options to meet your project needs.",
+    finishesTitle: "Finishing",
+    finishesSubtitle:
+      "Enhance your packaging with premium finishing techniques designed to elevate brand impact and customer experience.",
+    finishesDesc:
+      "Mega Putra offers a range of finishing options to add premium appeal, protection, and visual impact to your packaging designs. Our capabilities include:",
+    finishesNote:
+      "Let us help you select the right finishing techniques to enhance your packaging and brand appeal",
+  },
+  ID: {
+    pageTitle: "Solusi Kemasan yang Dirancang untuk Kesuksesan Merek Anda",
+    pageDesc:
+      "Jelajahi berbagai produk, material, opsi finishing, dan layanan prototipe kami — semua dibuat dengan presisi, kreativitas, dan dedikasi pada kualitas.",
+    productsTitle: "Produk",
+    productsSubtitle:
+      "Temukan berbagai solusi kemasan berbahan kertas yang dirancang untuk mendukung pertumbuhan dan visibilitas merek Anda",
+    productsDesc:
+      "Di Mega Putra, kami menawarkan produk berbahan kertas berkualitas tinggi yang dirancang untuk memenuhi beragam kebutuhan merek di berbagai industri. Produk kami mencakup:",
+    productsNote:
+      "Solusi kustom tersedia berdasarkan kebutuhan proyek dan kemampuan produksi.",
+    materialsTitle: "Material",
+    materialsSubtitle:
+      "Pilih dari berbagai material berkualitas tinggi yang disesuaikan dengan kebutuhan kemasan dan branding Anda",
+    materialsDesc:
+      "Mega Putra menyediakan berbagai pilihan material berkualitas tinggi untuk memenuhi kebutuhan produk, posisi merek, dan tujuan keberlanjutan. Pilihan yang tersedia meliputi:",
+    materialsNote1:
+      "Material tertentu tersedia dengan sertifikasi FSC sesuai permintaan.",
+    materialsNote2:
+      "Tidak menemukan material yang Anda cari? Hubungi kami — kami siap mencari opsi sumber daya yang sesuai dengan kebutuhan proyek Anda.",
+    finishesTitle: "Finishing",
+    finishesSubtitle:
+      "Tingkatkan kemasan Anda dengan teknik finishing premium untuk meningkatkan dampak merek dan pengalaman pelanggan.",
+    finishesDesc:
+      "Mega Putra menawarkan berbagai opsi finishing untuk menambah daya tarik premium, perlindungan, dan dampak visual pada desain kemasan Anda. Kapabilitas kami meliputi:",
+    finishesNote:
+      "Biarkan kami membantu memilih teknik finishing yang tepat untuk meningkatkan kemasan dan daya tarik merek Anda",
+  },
+};
+
+const products = {
+  EN: {
+    "FOLDING CARTON BOXES": {
       image: "/images/finishing.png",
-      description: "Metallic foil accents to highlight logos, brand names, or key design elements with a luxurious finish.",
+      description:
+        "Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.",
     },
-    "SPOT UV": {
+    "HANGTAGS": {
       image: "/images/finishing.png",
-      description: "Glossy coating applied selectively to create contrast and visual interest.",
+      description:
+        "Enhance product presentation and brand storytelling with customised hangtags.",
     },
-    "LAMINATION": {
+    "LEAFLETS": {
       image: "/images/finishing.png",
-      description: "Matte, gloss, or soft touch finishes that protect packaging while enhancing the surface quality.",
+      description:
+        "Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.",
     },
-    "VARNISHING COATING": {
+    "PROMOTIONAL ITEMS": {
       image: "/images/finishing.png",
-      description: "Protective finishes available in gloss, matte, or textured options, using either water-based or UV varnish technologies to enhance durability and surface quality.",
+      description:
+        "Specially designed paper-based promotional materials to support marketing and brand campaigns.",
     },
-    "DEBOSSING & EMBOSSING": {
+    "LABELS": {
       image: "/images/finishing.png",
-      description: "Raised or indented designs that add texture and a premium feel to packaging.",
+      description:
+        "High-quality labels for brand recognition, compliance, and product differentiation.",
     },
-    "PVC WINDOW PATCHING": {
+  },
+
+  ID: {
+    "FOLDING CARTON BOXES": {
       image: "/images/finishing.png",
-      description: "Clear windows integrated into packaging to showcase the product inside while maintaining structural integrity.",
+      description:
+        "Ideal untuk kosmetik, farmasi, FMCG, dan industri lainnya, menggabungkan ketahanan dan citra merek premium.",
     },
-    "BLISTER COATING": {
+    "HANGTAGS": {
       image: "/images/finishing.png",
-      description: "Specialised coatings that securely hold products in blister packaging applications.",
+      description:
+        "Tingkatkan tampilan produk dan cerita merek dengan hangtag yang disesuaikan.",
     },
-    "Unsure which option best suits your needs?": {
+    "LEAFLETS": {
       image: "/images/finishing.png",
-      description: " Let us help you select the right finishing techniques to enhance your packaging and brand appeal.",
+      description:
+        "Informasi yang fleksibel, dengan berbagai opsi lipatan untuk berbagai jenis produk dan kebutuhan regulasi.",
     },
-  };
-  const [selectedMaterials, setSelectedMaterials] = useState("HVS PAPER");
-  const materials = {
+    "PROMOTIONAL ITEMS": {
+      image: "/images/finishing.png",
+      description:
+        "Bahan promosi berbasis kertas yang dirancang khusus untuk mendukung kampanye pemasaran dan merek.",
+    },
+    "LABELS": {
+      image: "/images/finishing.png",
+      description:
+        "Label berkualitas tinggi untuk pengenalan merek, kepatuhan, dan diferensiasi produk.",
+    },
+
+  },
+};
+const materials = {
+  EN: {
     "HVS PAPER": {
       image: "/images/finishing.png",
       description: "Lightweight and reliable, ideal for leaflets, inserts, and manuals.",
@@ -60,153 +138,324 @@ export default function Solutions() {
       image: "/images/finishing.png",
       description: "Natural, recycled appearance to support eco-conscious branding.",
     },
-    "IVORY Board": {
+    "IVORY BOARD": {
       image: "/images/finishing.png",
-      description: "Durable and premium, suitable for cosmetics, pharmaceuticals, and FMCG products.",
+      description:
+        "Durable and premium, suitable for cosmetics, pharmaceuticals, and FMCG products.",
     },
     "FANCY PAPER": {
       image: "/images/finishing.png",
-      description: "Specialty textures and colours to create unique, premium brand experiences.",
+      description:
+        "Specialty textures and colours to create unique, premium brand experiences.",
     },
-    "Selected materials are available with FSC certification upon request.": {
-      image: "/images/finishing.png",
-      description: "Don't see the material you're looking for? Talk to us — we are happy to explore sourcing options to meet your project needs.",
-    },
-  };
+  },
 
-  const itemVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-  
+  ID: {
+    "HVS PAPER": {
+      image: "/images/finishing.png",
+      description: "Ringan dan andal, ideal untuk leaflet, sisipan, dan buku panduan.",
+    },
+    "METTALIZED PAPER": {
+      image: "/images/finishing.png",
+      description: "Memberikan tampilan metalik mewah untuk desain kemasan yang mencolok.",
+    },
+    "ART PAPER": {
+      image: "/images/finishing.png",
+      description: "Halus dan serbaguna, ideal untuk kemasan cetak berkualitas tinggi.",
+    },
+    "KRAFT PAPER": {
+      image: "/images/finishing.png",
+      description: "Tampilan alami dan daur ulang untuk mendukung citra merek ramah lingkungan.",
+    },
+    "IVORY BOARD": {
+      image: "/images/finishing.png",
+      description: "Tahan lama dan premium, cocok untuk produk kosmetik, farmasi, dan FMCG.",
+    },
+    "FANCY PAPER": {
+      image: "/images/finishing.png",
+      description: "Tekstur dan warna khusus untuk menciptakan pengalaman merek yang unik dan premium.",
+    },
+
+  },
+
+};
+const finishes = {
+  EN: {
+    "HOT STAMPING": {
+      image: "/images/finishing.png",
+      description:
+        "Metallic foil accents to highlight logos, brand names, or key design elements with a luxurious finish.",
+    },
+    "SPOT UV": {
+      image: "/images/finishing.png",
+      description:
+        "Glossy coating applied selectively to create contrast and visual interest.",
+    },
+    "LAMINATION": {
+      image: "/images/finishing.png",
+      description:
+        "Matte, gloss, or soft touch finishes that protect packaging while enhancing the surface quality.",
+    },
+    "VARNISHING COATING": {
+      image: "/images/finishing.png",
+      description:
+        "Protective finishes available in gloss, matte, or textured options, using either water-based or UV varnish technologies to enhance durability and surface quality.",
+    },
+    "DEBOSSING & EMBOSSING": {
+      image: "/images/finishing.png",
+      description:
+        "Raised or indented designs that add texture and a premium feel to packaging.",
+    },
+    "PVC WINDOW PATCHING": {
+      image: "/images/finishing.png",
+      description:
+        "Clear windows integrated into packaging to showcase the product inside while maintaining structural integrity.",
+    },
+    "BLISTER COATING": {
+      image: "/images/finishing.png",
+      description:
+        "Specialised coatings that securely hold products in blister packaging applications.",
+    },
+  },
+
+  ID: {
+
+    "HOT STAMPING": {
+      image: "/images/finishing.png",
+      description:
+        "Aksen foil metalik untuk menonjolkan logo, nama merek, atau elemen desain penting dengan tampilan mewah.",
+    },
+    "SPOT UV": {
+      image: "/images/finishing.png",
+      description:
+        "Lapisan mengilap yang diaplikasikan secara selektif untuk menciptakan kontras dan daya tarik visual.",
+    },
+    "LAMINATION": {
+      image: "/images/finishing.png",
+      description:
+        "Finishing matte, gloss, atau soft touch yang melindungi kemasan sekaligus meningkatkan kualitas permukaan.",
+    },
+    "VARNISHING COATING": {
+      image: "/images/finishing.png",
+      description:
+        "Lapisan pelindung dalam pilihan gloss, matte, atau bertekstur, menggunakan teknologi varnish berbasis air atau UV untuk meningkatkan daya tahan dan kualitas permukaan.",
+    },
+    "DEBOSSING & EMBOSSING": {
+      image: "/images/finishing.png",
+      description:
+        "Desain timbul atau cekung yang menambahkan tekstur dan kesan premium pada kemasan.",
+    },
+    "PVC WINDOW PATCHING": {
+      image: "/images/finishing.png",
+      description:
+        "Jendela transparan yang terintegrasi dalam kemasan untuk menampilkan produk di dalamnya tanpa mengurangi kekuatan struktur.",
+    },
+    "BLISTER COATING": {
+      image: "/images/finishing.png",
+      description:
+        "Lapisan khusus yang menjaga produk tetap aman dalam aplikasi kemasan blister.",
+    },
+
+  },
+};
+export default function Solutions() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const [selectedProduct, setSelectedProduct] = useState(
+    Object.keys(products[language] || {})[0] || ""
+  );
+  const [selectedMaterials, setSelectedMaterials] = useState(
+    Object.keys(materials[language] || {})[0] || ""
+  );
+  const [selectedFinish, setSelectedFinish] = useState(
+    Object.keys(finishes[language] || {})[0] || ""
+  );
+
+  useEffect(() => {
+    setSelectedProduct(Object.keys(products[language] || {})[0] || "");
+    setSelectedMaterials(Object.keys(materials[language] || {})[0] || "");
+    setSelectedFinish(Object.keys(finishes[language] || {})[0] || "");
+  }, [language]);
+
   return (
     <>
       <SEO
-        title="Mega Putra | Solutions"
+        title={`Mega Putra | ${t.productsTitle}`}
         description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging kertas dengan kualitas terbaik."
         keywords="packaging, printing, offset printing, box packaging, Mega Putra"
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
 
-      <section className="py-12 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
-        <h1 className="text-3xl font-bold text-left text-[var(--color-primary)]">
-          Packaging Solutions Designed For Your Brand&apos;s Success
+      {/* Hero */}
+      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43 mt-20">
+        <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+          {t.pageTitle}
         </h1>
-        <p className="mt-6 text-left text-base text-[var(--color-text)]">
-          Explore our range of products, materials, finishing options, and prototyping services — all crafted with precision, creativity, and dedication to quality.
+        <p className="my-2 text-justify text-[var(--color-text)] text-[12px] md:text-[14px] lg:text-[16px] font-light">
+          {t.pageDesc}
         </p>
       </section>
-      <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]">
-      </section>
 
-      {/* Finishing Options */}
-      <section className="flex gap-8 p-8 py-6 px-8 md:px-16 lg:px-24 xl:px-43" >
-        <div className="w-1/3  text-bold text-[var(--color-text)]">
-          <h1 className="text-3xl font-bold mb-4 text-[var(--color-primary)]">Finishing</h1>
-          <ul>
-            {Object.keys(finishes).map((finish) => (
-              <li
-                key={finish}
-                className={`cursor-pointer p-2 border-b-3   border-[var(--color-text25)] ${selectedFinish === finish ? "font-bold text-[var(--color-primary)]" : ""
-                  }`}
-                onClick={() => setSelectedFinish(finish)}
-              >
-                {finish}
-              </li>
-            ))}
-          </ul>
+      <section className="relative bg-[url('/images/banner3.png')] bg-cover flex items-end h-[310px]"></section>
+
+      {/* Products Section */}
+      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
+        <div className="my-6 text-[var(--color-text)] font-medium">
+          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+            {t.productsTitle}
+          </h1>
+          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+            {t.productsSubtitle}
+          </h2>
+          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
+            {t.productsDesc}
+          </h3>
         </div>
 
-        {/* Display Image and Description */}
-        <div className="w-2/3 text-[var(--color-text)] mt-12">
-          <img
-            src={finishes[selectedFinish].image}
-            alt={selectedFinish}
-            className="w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-lg">{finishes[selectedFinish].description}</p>
-        </div>
-      </section>
-
-      {/* materials Options */}
-      <section className="flex gap-8 p-8 py-12 px-8 md:px-16 lg:px-24 xl:px-43" >
-        <div className="w-1/3  text-bold text-[var(--color-text)]">
-          <h1 className="text-3xl font-bold mb-4 text-[var(--color-primary)]">Materials</h1>
-          <ul>
-            {Object.keys(materials).map((materials) => (
-              <li
-                key={materials}
-                className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedMaterials === materials ? "font-bold text-[var(--color-primary)]" : ""
-                  }`}
-                onClick={() => setSelectedMaterials(materials)}
-              >
-                {materials}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="w-2/3 mt-12 text-[var(--color-text)]">
-          <img
-            src={materials[selectedMaterials]?.image}
-            alt={selectedMaterials}
-            className="w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-lg">{materials[selectedMaterials]?.description}</p>
+        <div className="flex gap-8">
+          <div className="w-1/3 font-medium text-[var(--color-text)]">
+            <ul>
+              {Object.keys(products[language] || {}).map((product) => (
+                <li
+                  key={product}
+                  className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedProduct === product
+                    ? "font-bold text-[var(--color-primary)]"
+                    : ""
+                    }`}
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  {product}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+              <a href="/contact">{t.productsNote}</a>
+            </p>
+          </div>
+          <div className="w-2/3 text-[var(--color-text)]">
+            {products[language]?.[selectedProduct] && (
+              <>
+                <img
+                  src={products[language][selectedProduct].image}
+                  alt={selectedProduct}
+                  className="w-full h-auto shadow-lg"
+                />
+                <p className="mt-4 text-lg">
+                  {products[language][selectedProduct].description}
+                </p>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
+      {/* Materials Section */}
+      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
+        <div className="my-6 text-[var(--color-text)] font-medium">
+          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+            {t.materialsTitle}
+          </h1>
+          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+            {t.materialsSubtitle}
+          </h2>
+          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
+            {t.materialsDesc}
+          </h3>
+        </div>
 
-      {/* <ProductSection /> */}
-      {/* Product List Section */}
-      <section className="py-2 px-8 md:px-16 lg:px-24 xl:px-43">
-  <motion.div
-    className="grid md:grid-cols-2 gap-10"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ staggerChildren: 0.2 }}
-  >
-    {[
-      {
-        title: "Folding Carton Boxes",
-        desc: "Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.",
-      },
-      {
-        title: "Hangtags",
-        desc: "Enhance product presentation and brand storytelling with customised hangtags.",
-      },
-      {
-        title: "Leaflets",
-        desc: "Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.",
-      },
-      {
-        title: "Promotional Items",
-        desc: "Specially designed paper-based promotional materials to support marketing and brand campaigns.",
-      },
-      {
-        title: "Labels",
-        desc: "High-quality labels for brand recognition, compliance, and product differentiation.",
-      },
-    ].map((item, idx) => (
-      <motion.div
-        key={idx}
-        variants={itemVariant}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <h3 className="text-2xl font-bold text-[var(--color-text)] flex items-start gap-2">
-          <ArrowRight className="text-[var(--color-primary)] w-5 h-5 mt-1" />
-          {item.title}
-        </h3>
-        <p className="text-[var(--color-text)] mt-2">{item.desc}</p>
-      </motion.div>
-    ))}
-  </motion.div>
-</section>
+        <div className="flex gap-8">
+          <div className="w-1/3 font-medium text-[var(--color-text)]">
+            <ul>
+              {Object.keys(materials[language] || {}).map((material) => (
+                <li
+                  key={material}
+                  className={`cursor-pointer p-2 border-b border-[var(--color-text25)] ${selectedMaterials === material
+                    ? "font-bold text-[var(--color-primary)]"
+                    : ""
+                    }`}
+                  onClick={() => setSelectedMaterials(material)}
+                >
+                  {material}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+              <a href="/contact">{t.materialsNote1}</a>
+              <br /><br />
+              <a href="/contact">{t.materialsNote2}</a>
+            </p>
+          </div>
+          <div className="w-2/3 text-[var(--color-text)]">
+            {materials[language]?.[selectedMaterials] && (
+              <>
+                <img
+                  src={materials[language][selectedMaterials].image}
+                  alt={selectedMaterials}
+                  className="w-full h-auto shadow-lg"
+                />
+                <p className="mt-4 text-lg">
+                  {materials[language][selectedMaterials].description}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
 
-<FAQS/>
+      {/* Finishing Section */}
+      <section className="p-8 py-6 md:px-16 lg:px-24 xl:px-43">
+        <div className="mb-6 text-[var(--color-text)] font-bold">
+          <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+            {t.finishesTitle}
+          </h1>
+          <h2 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left">
+            {t.finishesSubtitle}
+          </h2>
+          <h3 className="text-justify text-[12px] md:text-[14px] lg:text-[16px] font-light">
+            {t.finishesDesc}
+          </h3>
+        </div>
 
+        <div className="flex gap-8">
+          <div className="w-1/3 font-medium text-[var(--color-text)]">
+            <ul>
+              {Object.keys(finishes[language] || {}).map((finish) => (
+                <li
+                  key={finish}
+                  className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${selectedFinish === finish
+                    ? "font-bold text-[var(--color-primary)]"
+                    : ""
+                    }`}
+                  onClick={() => setSelectedFinish(finish)}
+                >
+                  {finish}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-md text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+              <a href="/contact">{t.finishesNote}</a>
+            </p>
+          </div>
+          <div className="w-2/3 text-[var(--color-text)] mt-12">
+            {finishes[language]?.[selectedFinish] && (
+              <>
+                <img
+                  src={finishes[language][selectedFinish].image}
+                  alt={selectedFinish}
+                  className="w-full h-auto shadow-lg"
+                />
+                <p className="mt-4 text-lg">
+                  {finishes[language][selectedFinish].description}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <FAQS />
     </>
   );
 }

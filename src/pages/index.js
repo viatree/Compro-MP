@@ -2,6 +2,7 @@ import SEO from "../components/seo";
 import Progress from "../components/progress";
 import Link from "next/link";
 import Image from "next/image";
+import { FiArrowRight } from "react-icons/fi"
 import { useLanguage } from "../contexts/LanguageContext"; // ✅ Tambah ini
 
 const translations = {
@@ -123,16 +124,16 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 flex flex-col justify-center items-center text-center text-white h-full px-4 sm:px-6 md:px-12">
-          <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider">
+          <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold drop-shadow-[0_3px_6px_rgba(0,0,0,18)] tracking-wider">
             {t.heroTitle1}
           </h1>
-          <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold mt-2 sm:mt-4 drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] tracking-wider">
+          <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-semibold mt-2 sm:mt-4 drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)] tracking-wider">
             {t.heroTitle2}
           </h2>
-          <p className="mt-4 sm:mt-6 text-[clamp(0.9rem,2.5vw,1.25rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
+          <p className="mt-4 sm:mt-6 text-[clamp(0.9rem,2.5vw,1.25rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)]">
             {t.heroSubtitle}
           </p>
-          <p className="mt-2 mb-4 text-[clamp(0.75rem,2vw,1rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
+          <p className="mt-2 mb-4 text-[clamp(0.75rem,2vw,1rem)] font-medium drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)]">
             {t.certifications}
           </p>
           <Link href="/solutions">
@@ -183,97 +184,84 @@ export default function Home() {
       <Progress />
 
       {/* Quality Section */}
-      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
-        <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
-          {t.qualityTitle}
-        </h2>
+<section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+  <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
+    {t.qualityTitle}
+  </h2>
 
-        <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
-          {[
-            {
-              img: "/images/sgs.png",
-              title: "ISO 9001:2015",
-              since: "Since 2010",
-            },
-            {
-              img: "/images/fsc.png",
-              title: "Certificate number: C151498",
-              since: "Since 2019",
-            },
-            {
-              img: "/images/halal.png",
-              title: "ID36410020910631224",
-              since: "Since 2024",
-            },
-          ].map(({ img, title, since }, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-              <p className="text-[12px] md:text-[14px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
-                <span className="font-medium block">{title}</span>
-                <span className="font-light block mt-1">{since}</span>
+  <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
+    {[
+      {
+        img: "/images/sgs.png",
+        title: "ISO 9001:2015",
+        since: "Since 2010",
+      },
+      {
+        img: "/images/fsc.png",
+        title: "Certificate number: C151498",
+        since: "Since 2019",
+      },
+      {
+        img: "/images/halal.png",
+        title: "ID36410020910631224",
+        since: "Since 2024",
+      },
+    ].map(({ img, title, since }, i) => (
+      <div key={i} className="flex flex-col items-center">
+        <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
+        <p className="text-[12px] md:text-[14px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+          <span className="font-medium block">{title}</span>
+          <span className="font-light block mt-1">{since}</span>
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {[
+      {
+        image: "/images/7RV03608.jpg",
+        title: t.box1Title,
+        desc: t.box1Desc,
+        linkText: t.box1Link,
+        href: "/solutions",
+      },
+      {
+        image: "/images/7RV04057.jpg",
+        title: t.box2Title,
+        desc: t.box2Desc,
+        linkText: t.box2Link,
+        href: "/company",
+      },
+    ].map(({ image, title, desc, linkText, href }, i) => (
+      <Link key={i} href={href} className="block h-full group">
+        <div className="relative flex flex-col h-full transition duration-300 hover:brightness-100">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-[150px] sm:h-[200px] md:h-[200px] object-cover"
+          />
+          <div className="flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300">
+            <div>
+              <h4 className="text-[14px] md:text-[16px] lg:text-[20px] font-reguler">
+                {title}
+              </h4>
+              <p className="text-[12px] md:text-[14px] lg:text-[16px] font-light mt-1">
+                {desc}
               </p>
             </div>
-          ))}
+            <div className="mt-4 flex items-center justify-end gap-2">
+              <span className="inline-block font-light text-[16px] group-hover:underline">
+                {linkText}
+              </span>
+              <FiArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
         </div>
-
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              image: "/images/7RV03608.jpg",
-              title: t.box1Title,
-              desc: t.box1Desc,
-              linkText: t.box1Link,
-              href: "/solutions",
-            },
-            {
-              image: "/images/7RV04057.jpg",
-              title: t.box2Title,
-              desc: t.box2Desc,
-              linkText: t.box2Link,
-              href: "/company",
-            },
-          ].map(({ image, title, desc, linkText, href }, i) => (
-            <Link key={i} href={href} className="block h-full group">
-              <div className="relative flex flex-col h-full transition duration-300 hover:brightness-100">
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full h-[150px] sm:h-[200px] md:h-[200px]"
-                />
-                <div className="flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300">
-                  <div>
-                    <h4 className="text-[14px] md:text-[16px] lg:text-[20px] font-reguler">
-                      {title}
-                    </h4>
-                    <p className="text-[12px] md:text-[14px] lg:text-[16px] font-light mt-1">
-                      {desc}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex justify-end">
-                    <span className="inline-block font-light text-[16px] group-hover:underline">
-                      {linkText}
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      </Link>
+    ))}
+  </div>
+</section>
     </>
   );
 }
