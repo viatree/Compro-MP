@@ -311,8 +311,7 @@ export default function Solutions() {
   "
 ></section>
 
-
-   {/* Products Section */}
+ {/* Products Section */}
 <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
   <div className="my-6 text-[var(--color-text)] font-medium">
     <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
@@ -327,24 +326,8 @@ export default function Solutions() {
   </div>
 
   <div className="flex flex-col md:flex-row gap-8">
-    {/* Gambar + Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
-      {products[language]?.[selectedProduct] && (
-        <>
-          <img
-            src={products[language][selectedProduct].image}
-            alt={selectedProduct}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {products[language][selectedProduct].description}
-          </p>
-        </>
-      )}
-    </div>
-
-    {/* List + Link */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-1">
+    {/* List */}
+    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
       <ul>
         {Object.keys(products[language] || {}).map((product) => (
           <li
@@ -358,7 +341,28 @@ export default function Solutions() {
           </li>
         ))}
       </ul>
-      <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+      {/* Link Note versi desktop */}
+      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+        <Link href="/contact">{t.productsNote}</Link>
+      </p>
+    </div>
+
+    {/* Gambar & Deskripsi */}
+    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
+      {products[language]?.[selectedProduct] && (
+        <>
+          <img
+            src={products[language][selectedProduct].image}
+            alt={selectedProduct}
+            className="w-full max-w-full h-auto shadow-lg"
+          />
+          <p className="mt-4 text-sm sm:text-base lg:text-lg">
+            {products[language][selectedProduct].description}
+          </p>
+        </>
+      )}
+      {/* Link Note versi mobile */}
+      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
         <Link href="/contact">{t.productsNote}</Link>
       </p>
     </div>
@@ -380,24 +384,8 @@ export default function Solutions() {
   </div>
 
   <div className="flex flex-col md:flex-row gap-8">
-    {/* Gambar + Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
-      {materials[language]?.[selectedMaterials] && (
-        <>
-          <img
-            src={materials[language][selectedMaterials].image}
-            alt={selectedMaterials}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {materials[language][selectedMaterials].description}
-          </p>
-        </>
-      )}
-    </div>
-
-    {/* List + Link */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-1">
+    {/* List */}
+    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
       <ul>
         {Object.keys(materials[language] || {}).map((material) => (
           <li
@@ -411,7 +399,31 @@ export default function Solutions() {
           </li>
         ))}
       </ul>
-      <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+      {/* Link Note versi desktop */}
+      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+        <Link href="/contact">{t.materialsNote1}</Link>
+        <br />
+        <br />
+        <Link href="/contact">{t.materialsNote2}</Link>
+      </p>
+    </div>
+
+    {/* Gambar & Deskripsi */}
+    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
+      {materials[language]?.[selectedMaterials] && (
+        <>
+          <img
+            src={materials[language][selectedMaterials].image}
+            alt={selectedMaterials}
+            className="w-full max-w-full h-auto shadow-lg"
+          />
+          <p className="mt-4 text-sm sm:text-base lg:text-lg">
+            {materials[language][selectedMaterials].description}
+          </p>
+        </>
+      )}
+      {/* Link Note versi mobile */}
+      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
         <Link href="/contact">{t.materialsNote1}</Link>
         <br />
         <br />
@@ -436,24 +448,8 @@ export default function Solutions() {
   </div>
 
   <div className="flex flex-col md:flex-row gap-8">
-    {/* Gambar + Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2 mt-6 md:mt-12">
-      {finishes[language]?.[selectedFinish] && (
-        <>
-          <img
-            src={finishes[language][selectedFinish].image}
-            alt={selectedFinish}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {finishes[language][selectedFinish].description}
-          </p>
-        </>
-      )}
-    </div>
-
-    {/* List + Link */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-1">
+    {/* List */}
+    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
       <ul>
         {Object.keys(finishes[language] || {}).map((finish) => (
           <li
@@ -467,12 +463,34 @@ export default function Solutions() {
           </li>
         ))}
       </ul>
-      <p className="mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+      {/* Link Note versi desktop */}
+      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
+        <Link href="/contact">{t.finishesNote}</Link>
+      </p>
+    </div>
+
+    {/* Gambar & Deskripsi */}
+    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
+      {finishes[language]?.[selectedFinish] && (
+        <>
+          <img
+            src={finishes[language][selectedFinish].image}
+            alt={selectedFinish}
+            className="w-full max-w-full h-auto shadow-lg"
+          />
+          <p className="mt-4 text-sm sm:text-base lg:text-lg">
+            {finishes[language][selectedFinish].description}
+          </p>
+        </>
+      )}
+      {/* Link Note versi mobile */}
+      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
         <Link href="/contact">{t.finishesNote}</Link>
       </p>
     </div>
   </div>
 </section>
+
 
     <FAQS />
   </>
