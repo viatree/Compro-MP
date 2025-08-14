@@ -81,12 +81,22 @@ export default function Careers() {
         url="https://megaputra.com"
       />
 
-      <section
-        className="relative bg-[url('/images/banner5.png')] bg-cover bg-center sm:bg-top md:bg-center lg:bg-center 
-                 flex items-end mt-20 h-[120px] sm:h-[160px] md:h-[200px] lg:h-[300px]"
-      ></section>
+  <section
+  className="
+    relative 
+    bg-[url('/images/banner5.png')] 
+    bg-cover 
+    bg-center
+    flex items-end 
+    mt-18
+    min-h-[120px] sm:min-h-[160px] md:min-h-[200px] lg:min-h-[300px]
+    sm:bg-top md:bg-center
+  "
+>
+</section>
 
-      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+
+      <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           {t.bannerTitle}
           <br />
@@ -97,7 +107,7 @@ export default function Careers() {
         </h2>
       </section>
 
-      <section className="px-8 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 md:grid-cols-5 gap-8">
+      <section className="px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 md:grid-cols-5 gap-8">
         {t.steps.map((step, index) => (
           <div
             key={index}

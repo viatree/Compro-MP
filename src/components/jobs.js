@@ -98,7 +98,7 @@ export default function Jobs() {
   const t = translations[language];
 
   return (
-    <section className="w-full px-6 md:px-20 lg:px-44 py-10">
+    <section className="w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
       <h1 className="text-[28px] sm:text-[32px] md:text-[40px] font-medium text-left text-[var(--color-primary)]">
         {t.title}
       </h1>
