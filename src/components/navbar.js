@@ -50,18 +50,23 @@ const Navbar = () => {
       : "text-[var(--color-primary)] hover:text-[var(--color-lighter)]";
 
   return (
-    <nav className="bg-white shadow-md py-6 px-4 md:px-16 lg:px-24 xl:px-43 text-[16px] fixed top-0 w-full z-50">
-      <div className="container mx-auto flex justify-between items-center ">
+  <nav className="bg-white shadow-md py-6 px-4 md:px-16 lg:px-24 xl:px-43 text-[16px] fixed top-0 w-full z-50">
+  <div className="container mx-auto flex justify-between items-center ">
 
-        <div className="w-40 md:w-[225px]">
-          <Image
-            src="/images/logo.png"
-            alt="Mega Putra Logo"
-            width={225}
-            height={40}
-            priority
-          />
-        </div>
+    {/* Logo */}
+    <div className="w-40 md:w-[225px]">
+      <Link href="/" aria-label="Go to homepage">
+        <Image
+          src="/images/logo.png"
+          alt="Mega Putra Logo"
+          width={225}
+          height={40}
+          priority
+          className="cursor-pointer w-auto h-auto"
+        />
+      </Link>
+    </div>
+
 
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-8 text-[var(--color-primary)] font-medium relative">
@@ -103,7 +108,7 @@ const Navbar = () => {
           </ul>
 
           {/* Tombol Bahasa */}
-          <div className="flex items-center bg-gray-100 rounded-sm">
+          <div className="flex items-center bg-gray-100 rounded-sm ">
             <button
               className={`px-2 rounded-md text-[14px] font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
               onClick={() => changeLanguage("ID")}
@@ -120,7 +125,7 @@ const Navbar = () => {
         </div>
 
         <div className="md:hidden flex items-center">
-          <div className="flex items-center bg-gray-100 rounded-md overflow-hidden">
+          <div className="flex items-center bg-gray-100 rounded-md overflow-hidden mr-3">
             <button
               className={`px-2 rounded-md text-[14px] font-medium ${language === "ID" ? "bg-[var(--color-primary)] text-white" : "text-[var(--color-text)]"}`}
               onClick={() => changeLanguage("ID")}
@@ -142,19 +147,77 @@ const Navbar = () => {
       </div>
       
 
-      {menuOpen && (
-        <div className="md:hidden fixed top-[72px] left-0 w-full z-40 transition-all duration-300 bg-white shadow-md">
-          <ul className="flex flex-col gap-4 px-6 py-6 text-[var(--color-primary)] font-medium text-lg">
-            <li><Link href="/" onClick={() => setMenuOpen(false)}>{t.home.toUpperCase()}</Link></li>
-            <li><Link href="/company" onClick={() => setMenuOpen(false)}>{t.aboutUs.toUpperCase()}</Link></li>
-            <li><Link href="/projects" onClick={() => setMenuOpen(false)}>{t.portfolio.toUpperCase()}</Link></li>
-            <li><Link href="/solutions" onClick={() => setMenuOpen(false)}>{t.solutions.toUpperCase()}</Link></li>
-            <li><Link href="/resources" onClick={() => setMenuOpen(false)}>{t.resources.toUpperCase()}</Link></li>
-            <li><Link href="/careers" onClick={() => setMenuOpen(false)}>{t.careers.toUpperCase()}</Link></li>
-            <li><Link href="/contact" onClick={() => setMenuOpen(false)}>{t.contact.toUpperCase()}</Link></li>
-          </ul>
-        </div>
-      )}
+    {menuOpen && (
+  <div className="md:hidden fixed top-[72px] left-0 w-full z-40 transition-all duration-300 bg-white shadow-md">
+    <ul className="flex flex-col gap-4 px-6 py-6 text-lg font-medium">
+      <li>
+        <Link
+          href="/"
+          className={isActive("/")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.home.toUpperCase()}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/company"
+          className={isActive("/company")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.aboutUs.toUpperCase()}
+        </Link>
+      </li>
+      {/* Solutions dipindah sebelum Portfolio */}
+      <li>
+        <Link
+          href="/solutions"
+          className={isActive("/solutions")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.solutions.toUpperCase()}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/projects"
+          className={isActive("/projects")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.portfolio.toUpperCase()}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/resources"
+          className={isActive("/resources")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.resources.toUpperCase()}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/careers"
+          className={isActive("/careers")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.careers.toUpperCase()}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/contact"
+          className={isActive("/contact")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {t.contact.toUpperCase()}
+        </Link>
+      </li>
+    </ul>
+  </div>
+)}
+
     </nav>
   );
 };
