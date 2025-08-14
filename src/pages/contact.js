@@ -94,7 +94,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info and Form */}
-      <section className="text-white py-12 px-6 md:px-16 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="text-white py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <h2 className="text-[30px] sm:text-[40px] font-medium text-[var(--color-primary)]">{t.subtitle}</h2>
           <p className="my-2 text-[var(--color-text)] sm:text-[20px]">{t.description}</p>
