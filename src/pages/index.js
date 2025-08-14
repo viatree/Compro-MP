@@ -137,7 +137,7 @@ export default function Home() {
             {t.certifications}
           </p>
           <Link href="/solutions">
-            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded-md">
+            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded-md cursor-pointer">
               {t.cta}
             </button>
           </Link>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* What We Offer */}
-      <section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-2 text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           {t.offerTitle}
         </h2>
@@ -184,7 +184,7 @@ export default function Home() {
       <Progress />
 
       {/* Quality Section */}
-<section className="py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+<section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
   <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
     {t.qualityTitle}
   </h2>
