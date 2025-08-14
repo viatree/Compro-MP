@@ -182,7 +182,7 @@ export default function Home() {
 
       {/* Progress Section */}
       <Progress />
-
+      
       {/* Quality Section */}
 <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
   <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
