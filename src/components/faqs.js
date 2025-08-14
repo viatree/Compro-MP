@@ -94,7 +94,7 @@ export default function FAQ() {
       : "Pertanyaan yang Sering Diajukan (FAQs)";
 
   return (
-    <section className="w-full py-10 px-8 md:px-16 lg:px-24 xl:px-43">
+    <section className="w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
       <h2 className="text-[34px] font-semibold text-[var(--color-primary)] mb-6 border-b-4 border-[var(--color-primary)] pb-2">
         {sectionTitle}
       </h2>
@@ -111,9 +111,9 @@ export default function FAQ() {
             >
               <span>{faq.question}</span>
               {openIndex === index ? (
-                <Minus size={28} className="text-[var(--color-primary)]" />
+                <Minus size={28} className="text-[var(--color-primary)] shrink-0" />
               ) : (
-                <Plus size={28} className="text-[var(--color-primary)]" />
+                <Plus size={28} className="text-[var(--color-primary)] shrink-0"  />
               )}
             </button>
             {openIndex === index && (

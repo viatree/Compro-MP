@@ -4,7 +4,7 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import WhatsappButton from "@/components/whatsapp";
 import { LanguageProvider } from "../contexts/LanguageContext";
-
+import Image from "next/image";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

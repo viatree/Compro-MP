@@ -2,6 +2,7 @@ import SEO from "../components/seo";
 import Jobs from "@/components/jobs";
 import Faq from "@/components/faq";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const translations = {
   EN: {
@@ -80,24 +81,18 @@ export default function Careers() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-
-  <section
+<section
   className="
     relative 
     bg-[url('/images/banner5.png')] 
-    bg-cover 
-    bg-center
-    flex items-end 
-    mt-18
-    min-h-[120px] sm:min-h-[160px] md:min-h-[200px] lg:min-h-[300px]
-    sm:bg-top md:bg-center
-  "
->
-</section>
+    bg-contain bg-no-repeat bg-center
+    min-h-[210px] sm:min-h-[220px] md:min-h-[220px] lg:min-h-[355px]
+     "
+></section>
 
 
-      <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-        <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+      <section className="pb-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+        <h1 className=" text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           {t.bannerTitle}
           <br />
           {t.bannerSubtitle}
