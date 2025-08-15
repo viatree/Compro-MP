@@ -54,6 +54,9 @@ export default function Timeline() {
   // Mode: buttons only on desktop (>=1024px), swipe on tablet & mobile
   const [isTouchMode, setIsTouchMode] = useState(false);
 
+  // Batas drag agar tidak terlihat area kosong
+  const [dragBounds, setDragBounds] = useState({ left: 0, right: 0 });
+
   const clampIndex = useCallback(
     (idx, ipp = itemsPerPage) => {
       const max = Math.max(t.timelineData.length - ipp, 0);
@@ -89,7 +92,16 @@ export default function Timeline() {
       }
     }
 
+    // Clamp index jika ipp berubah
     setStartIndex((prev) => clampIndex(prev, ipp));
+
+    // Hitung batas drag supaya tidak muncul area kosong
+    if (trackRef.current && containerRef.current) {
+      const contentWidth = trackRef.current.scrollWidth; // total width konten
+      const containerWidth = containerRef.current.clientWidth;
+      const maxLeft = Math.min(0, containerWidth - contentWidth); // negatif atau 0
+      setDragBounds({ left: Math.round(maxLeft), right: 0 });
+    }
   }, [clampIndex]);
 
   useEffect(() => {
@@ -121,12 +133,12 @@ export default function Timeline() {
     }
   };
 
-  // === Swipe handlers (aktif hanya saat touch mode) ===
+  // Swipe handlers (aktif hanya saat touch mode)
   const onDragEnd = (_e, info) => {
     if (!isTouchMode) return;
     const threshold = Math.min(120, Math.max(40, stride * 0.25));
-    const vx = info.velocity.x || 0;
-    const dx = info.offset.x || 0; // negatif jika geser ke kiri
+    const vx = (info.velocity && info.velocity.x) || 0;
+    const dx = (info.offset && info.offset.x) || 0; // negatif jika geser ke kiri
 
     if (dx <= -threshold || vx < -300) {
       handleScroll("right"); // geser kartu ke kiri => pindah index ke kanan
@@ -135,6 +147,8 @@ export default function Timeline() {
     }
     // jika tidak melewati ambang, akan snap kembali via animate ke startIndex
   };
+
+  const canDrag = isTouchMode && t.timelineData.length > itemsPerPage;
 
   return (
     <section
@@ -165,7 +179,7 @@ export default function Timeline() {
           </button>
         )}
 
-        {/* Timeline Cards: tambah drag di mobile/tablet, tampilan kartu tetap sama */}
+        {/* Timeline Cards: drag di mobile/tablet, tampilan kartu tetap sama */}
         <div className="overflow-hidden flex-1 px-4">
           <motion.div
             ref={trackRef}
@@ -173,8 +187,9 @@ export default function Timeline() {
               isTouchMode ? "cursor-grab active:cursor-grabbing select-none" : ""
             }`}
             animate={{ x: -startIndex * stride }}
-            drag={isTouchMode ? "x" : false}
-            dragElastic={0.05}
+            drag={canDrag ? "x" : false}
+            dragConstraints={canDrag ? dragBounds : { left: 0, right: 0 }}
+            dragElastic={0} // tanpa overscroll biar tidak bocor putih
             dragMomentum={false}
             onDragEnd={onDragEnd}
           >
