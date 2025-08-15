@@ -61,6 +61,23 @@ export default function Projects() {
     { src: "/images/projects/7RV04166.jpg", category: "Cosmetics and Personal Care" },
     { src: "/images/projects/7RV04150.jpg", category: "Cosmetics and Personal Care" },
     { src: "/images/projects/7RV04068.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/MISCELLANEOUS.jpg", category: "Miscellaneous" },
+    { src: "/images/projects/PERSONAL CARE.jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(1).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(2).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(3).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(4).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(5).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(6).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(7).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(8).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(9).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PERSONAL CARE(10).jpg", category: "Cosmetics and Personal Care" },
+    { src: "/images/projects/PHARMACEUTICALS.jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/PHARMACEUTICALS(1).jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/PHARMACEUTICALS(2).jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/PHARMACEUTICALS(3).jpg", category: "Pharmaceutical" },
+    { src: "/images/projects/PHARMACEUTICALS(4).jpg", category: "Pharmaceutical" },
   ];
 
   const categoryMap = {
@@ -150,8 +167,8 @@ export default function Projects() {
       <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
         <h1 className="text-[40px] font-medium text-left my-2 text-[var(--color-primary)]">
           {language === "EN"
-            ? "Packaging Solutions for every industry"
-            : "Solusi Kemasan untuk Berbagai Industri"}
+            ? "Packaging Solutions For Every Industry"
+            : "Solusi Kemasan Untuk Berbagai Industri"}
         </h1>
 
         <h2 className="text-start text-justify text-[16px] font-light text-[var(--color-text)]">
