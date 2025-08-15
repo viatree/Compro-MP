@@ -81,17 +81,9 @@ export default function Careers() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-<section
-  className="
-    relative 
-    bg-[url('/images/banner5.png')] 
-    bg-contain bg-no-repeat bg-center
-    min-h-[210px] sm:min-h-[220px] md:min-h-[220px] lg:min-h-[355px]
-     "
-></section>
+      <section className="relative bg-[url('/images/banner5.png')] bg-cover bg-center flex items-end h-[100px] sm:h-[210px] md:h-[260px] lg:h-[310px] mt-18" />
 
-
-      <section className="pb-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+      <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className=" text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           {t.bannerTitle}
           <br />
@@ -106,11 +98,10 @@ export default function Careers() {
         {t.steps.map((step, index) => (
           <div
             key={index}
-            className={`p-6 ${
-              step.highlight
+            className={`p-6 ${step.highlight
                 ? "bg-[var(--color-primary)] text-white"
                 : "bg-[var(--color-card)] text-[var(--color-text)]"
-            }`}
+              }`}
           >
             <h3 className="font-semibold text-[16px]">{step.step}</h3>
             <p className="mt-2 font-light text-[14px]">{step.description}</p>

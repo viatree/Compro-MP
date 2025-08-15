@@ -317,7 +317,7 @@ export default function Projects() {
             >
               <button
                 onClick={closeLightbox}
-                className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition cursor-pointer"
+                className="absolute top-[-40px] right-[-10px] text-white text-4xl font-bold hover:text-red-500 transition cursor-pointer"
               >
                 &times;
               </button>
