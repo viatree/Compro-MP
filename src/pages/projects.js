@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function Projects() {
   const { language } = useLanguage();
 
-    const categories = {
+  const categories = {
     EN: [
       "All Industries",
       "Cosmetics and Personal Care",
@@ -25,18 +25,28 @@ export default function Projects() {
 
   const categoryDescriptions = {
     EN: {
-      "All Industries": "Explore our complete range of packaging projects across industries",
-      "Cosmetics and Personal Care": "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
-      "Pharmaceutical": "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
-      "FMCG": "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
-      "Miscellaneous": "Custom packaging solutions for specialised applications, including automotive and promotional items.",
+      "All Industries":
+        "Explore our complete range of packaging projects across industries",
+      "Cosmetics and Personal Care":
+        "Premium packaging for cosmetics, skincare, haircare, and personal care brands.",
+      Pharmaceutical:
+        "Trusted packaging solutions for pharmaceutical products, healthcare, and compliance needs.",
+      FMCG:
+        "High-volume packaging for food, beverages, and other fast-moving consumer goods, including retail and restaurant brands.",
+      Miscellaneous:
+        "Custom packaging solutions for specialised applications, including automotive and promotional items.",
     },
     ID: {
-      "Semua Industri": "Jelajahi berbagai proyek kemasan kami di semua industri",
-      "Kosmetik dan Perawatan Pribadi": "Kemasan premium untuk kosmetik, perawatan kulit, rambut, dan produk perawatan pribadi.",
-      "Farmasi": "Solusi kemasan terpercaya untuk produk farmasi, kesehatan, dan kepatuhan regulasi.",
-      "Barang Konsumsi": "Kemasan dalam volume besar untuk makanan, minuman, dan barang konsumsi cepat lainnya.",
-      "Lain-lain": "Solusi kemasan khusus untuk aplikasi seperti otomotif dan barang promosi.",
+      "Semua Industri":
+        "Jelajahi berbagai proyek kemasan kami di semua industri",
+      "Kosmetik dan Perawatan Pribadi":
+        "Kemasan premium untuk kosmetik, perawatan kulit, rambut, dan produk perawatan pribadi.",
+      Farmasi:
+        "Solusi kemasan terpercaya untuk produk farmasi, kesehatan, dan kepatuhan regulasi.",
+      "Barang Konsumsi":
+        "Kemasan dalam volume besar untuk makanan, minuman, dan barang konsumsi cepat lainnya.",
+      "Lain-lain":
+        "Solusi kemasan khusus untuk aplikasi seperti otomotif dan barang promosi.",
     },
   };
 
@@ -95,7 +105,6 @@ export default function Projects() {
     },
   };
 
-
   const reverseCategoryMap = Object.fromEntries(
     Object.entries(categoryMap[language]).map(([en, local]) => [local, en])
   );
@@ -106,6 +115,44 @@ export default function Projects() {
   const [visibleCount, setVisibleCount] = useState(20);
   const lightboxContentRef = useRef(null);
   const loadMoreRef = useRef(null);
+
+  // === Swipe state & helpers ===
+  const [swipeX, setSwipeX] = useState(0);
+  const touchRef = useRef({ startX: 0, startY: 0, active: false });
+  const SWIPE_THRESHOLD = 50; // px
+
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchRef.current.startX = t.clientX;
+    touchRef.current.startY = t.clientY;
+    touchRef.current.active = true;
+    setSwipeX(0);
+  };
+
+  const onTouchMove = (e) => {
+    if (!touchRef.current.active) return;
+    const t = e.touches[0];
+    const dx = t.clientX - touchRef.current.startX;
+    const dy = t.clientY - touchRef.current.startY;
+
+    // dominan horizontal => kita handle swipe & cegah scroll
+    if (Math.abs(dx) > Math.abs(dy)) {
+      e.preventDefault();
+      setSwipeX(dx);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!touchRef.current.active) return;
+    const dx = swipeX;
+
+    if (Math.abs(dx) > SWIPE_THRESHOLD) {
+      if (dx < 0) showNextImage();
+      else showPrevImage();
+    }
+    touchRef.current.active = false;
+    setSwipeX(0);
+  };
 
   useEffect(() => {
     setSelectedCategory(categories[language][0]);
@@ -187,7 +234,7 @@ export default function Projects() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-<section className="relative bg-[url('/images/banner2.png')] bg-cover bg-center flex items-end h-[180px] sm:h-[220px] md:h-[260px] lg:h-[310px]" />
+      <section className="relative bg-[url('/images/banner2.png')] bg-cover bg-center flex items-end h-[180px] sm:h-[220px] md:h-[260px] lg:h-[310px]" />
 
       <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className="text-[40px] font-medium text-left my-2 text-[var(--color-primary)]">
@@ -258,10 +305,16 @@ export default function Projects() {
         {/* Lightbox */}
         {lightboxOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-fade-in "
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-fade-in"
             onClick={handleOverlayClick}
           >
-            <div ref={lightboxContentRef} className="relative z-10">
+            <div
+              ref={lightboxContentRef}
+              className="relative z-10 touch-pan-y"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <button
                 onClick={closeLightbox}
                 className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition cursor-pointer"
@@ -281,7 +334,8 @@ export default function Projects() {
                   alt="Zoomed project"
                   width={1000}
                   height={800}
-                  className="max-w-[90vw] max-h-[80vh] object-contain"
+                  className="max-w-[90vw] max-h-[80vh] object-contain transition-transform duration-200 ease-out"
+                  style={{ transform: `translateX(${swipeX}px)` }}
                 />
               )}
               <button
