@@ -162,7 +162,7 @@ export default function Company() {
       <SEO title={t.seoTitle} description={t.seoDesc} />
 
       {/* About Section */}
-      <section id="about" className="mt-30 my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="about" className="mt-30 my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.aboutTitle}</h1>
         <h2 className="my-2 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.aboutSubtitle}</h2>
         <p className="text-justify text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)]">{t.aboutDesc}</p>
@@ -178,14 +178,14 @@ export default function Company() {
   lg:bg-center 
   flex 
   items-end 
-  h-[150px]     // default mobile
-  sm:h-[240px]  // tablet
-  md:h-[280px]  // small desktop
-  lg:h-[310px]  // original desktop
+  h-[150px]    
+  sm:h-[240px] 
+  md:h-[280px]  
+  lg:h-[310px]  
   px-4 sm:px-8 md:px-12" />
 
       {/* The Story */}
-    <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
+    <section className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
   <div className="w-full">
     <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
       {t.storyTitle}
@@ -210,7 +210,7 @@ export default function Company() {
       {/* Vision and Mission */}
       <section
         id="vision"
-        className="my-14 px-8 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
+        className="my-14 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
       >
         {/* Left Image for Desktop */}
         <div className="hidden md:block md:w-1/2">
@@ -268,7 +268,7 @@ export default function Company() {
       </section> */}
 
       {/* Capabilities */}
-      <section id="capabilities" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="capabilities" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4  text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.capabilitiesTitle}</h2>
         <h3 className="my-4  text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.capabilitiesSubtitle}</h3>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 gap-x-2 md:grid-cols-4 sm:gap-x-4 gap-y-6">
@@ -285,7 +285,7 @@ export default function Company() {
       </section>
 
       {/* Values */}
-      <section id="values" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="values" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.valuesTitle}</h2>
         <h3 className="text-start text-justify text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-[var(--color-text)]">{t.valuesSubtitle}</h3>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 text-justify">
@@ -301,7 +301,7 @@ export default function Company() {
       </section>
 
       {/* Corporate Responsibilities */}
-      <section className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)] text-left">{t.responsibilityTitle}</h2>
         <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.responsibilitySubtitle}</h3>
         <div className="grid grid-cols-3 gap-6 text-center">
@@ -316,7 +316,7 @@ export default function Company() {
       </section>
 
       {/* Certifications */}
-      <section id="certifications" className="my-10 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section id="certifications" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.certificationTitle}</h2>
         <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.certificationSubtitle}</h3>
         <p className="text-left text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] my-4">{t.certificationDesc}</p>
@@ -332,7 +332,7 @@ export default function Company() {
       </section>
 
       {/* CTA */}
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43 text-center bg-[#E6F6FC]">
+      <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 text-center bg-[#E6F6FC]">
         <div className="max-w-3xl mx-auto">
           <p className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-[var(--color-text)] py-6 px-8 md:px-4 lg:px-4">{t.cta}</p>
           <button className="bg-[var(--color-primary)] text-white font-medium lg:px-6 md:px-4 sm:px-2 px-2 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px]">
