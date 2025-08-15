@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function Projects() {
   const { language } = useLanguage();
 
-  const categories = {
+    const categories = {
     EN: [
       "All Industries",
       "Cosmetics and Personal Care",
@@ -95,6 +95,7 @@ export default function Projects() {
     },
   };
 
+
   const reverseCategoryMap = Object.fromEntries(
     Object.entries(categoryMap[language]).map(([en, local]) => [local, en])
   );
@@ -102,12 +103,15 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState(categories[language][0]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(20);
   const lightboxContentRef = useRef(null);
+  const loadMoreRef = useRef(null);
 
   useEffect(() => {
     setSelectedCategory(categories[language][0]);
     setCurrentImageIndex(0);
     setLightboxOpen(false);
+    setVisibleCount(20);
   }, [language]);
 
   const filteredProjects =
@@ -116,6 +120,8 @@ export default function Projects() {
       : allProjects.filter(
           (project) => categoryMap[language][project.category] === selectedCategory
         );
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
@@ -152,6 +158,26 @@ export default function Projects() {
     }
   };
 
+  // Intersection Observer
+  useEffect(() => {
+    if (!loadMoreRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < filteredProjects.length) {
+          setVisibleCount((prev) => prev + 20);
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(loadMoreRef.current);
+
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, [filteredProjects.length, visibleCount]);
+
   return (
     <>
       <SEO
@@ -161,10 +187,9 @@ export default function Projects() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
+<section className="relative bg-[url('/images/banner2.png')] bg-cover bg-center flex items-end h-[180px] sm:h-[220px] md:h-[260px] lg:h-[310px]" />
 
-      <section className="relative bg-[url('/images/banner2.png')] bg-cover flex items-end mt-20 h-[200px] w-full max-w-screen overflow-hidden" />
-
-      <section className="py-6 px-8 md:px-16 lg:px-24 xl:px-43">
+      <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className="text-[40px] font-medium text-left my-2 text-[var(--color-primary)]">
           {language === "EN"
             ? "Packaging Solutions For Every Industry"
@@ -188,7 +213,10 @@ export default function Projects() {
               className={`pb-2 text-[var(--color-text)] hover:text-[var(--color-primary)] ${
                 selectedCategory === category ? "font-bold text-[var(--color-primary)]" : ""
               }`}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category);
+                setVisibleCount(20);
+              }}
             >
               {category}
             </button>
@@ -197,7 +225,7 @@ export default function Projects() {
 
         {/* Grid */}
         <div className="fade-grid mt-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-6 sm:gap-4 gap-1">
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <div key={project.src} className="relative group">
               <div className="w-full aspect-square relative overflow-hidden cursor-pointer">
                 <Image
@@ -208,7 +236,7 @@ export default function Projects() {
                   className="transition-transform duration-300 ease-in-out group-hover:scale-105"
                   onClick={() =>
                     openLightbox(
-                      filteredProjects.findIndex((p) => p.src === project.src)
+                      displayedProjects.findIndex((p) => p.src === project.src)
                     )
                   }
                 />
@@ -217,22 +245,32 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* Sentinel */}
+        {visibleCount < filteredProjects.length && (
+          <div
+            ref={loadMoreRef}
+            className="h-10 flex justify-center items-center text-sm text-gray-500"
+          >
+            {language === "EN" ? "Loading more..." : "Memuat lagi..."}
+          </div>
+        )}
+
         {/* Lightbox */}
         {lightboxOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-fade-in"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm animate-fade-in "
             onClick={handleOverlayClick}
           >
             <div ref={lightboxContentRef} className="relative z-10">
               <button
                 onClick={closeLightbox}
-                className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition"
+                className="absolute top-[-40px] right-[-20px] text-white text-4xl font-bold hover:text-red-500 transition cursor-pointer"
               >
                 &times;
               </button>
               <button
                 onClick={showPrevImage}
-                className="absolute left-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
+                className="absolute left-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition cursor-pointer"
               >
                 &#10094;
               </button>
@@ -248,7 +286,7 @@ export default function Projects() {
               )}
               <button
                 onClick={showNextImage}
-                className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition"
+                className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-[var(--color-primary)] transition cursor-pointer"
               >
                 &#10095;
               </button>
