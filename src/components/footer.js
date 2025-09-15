@@ -25,7 +25,7 @@ const translations = {
     resources: "Resources",
     careers: "Careers",
     contact: "Contact",
-    copyright: "Copyright © MegaPutra",
+    copyright: "Copyright",
     rights: "All Rights Reserved",
   },
   ID: {
@@ -42,7 +42,7 @@ const translations = {
     resources: "Sumber Daya",
     careers: "Karier",
     contact: "Kontak",
-    copyright: "Hak Cipta © MegaPutra",
+    copyright: "Hak Cipta",
     rights: "Seluruh Hak Dilindungi",
   },
 };
@@ -50,117 +50,149 @@ const translations = {
 const Footer = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--color-primary)] text-white py-10 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <footer className="bg-[var(--color-primary)] text-white">
+      <div className="mx-auto py-10 px-4 md:px-16 lg:px-24 xl:px-43 ">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-4 lg:grid-cols-4">
           {/* Logo */}
           <div>
-            <Link href="/" aria-label="Go to homepage">
+            <Link href="/" aria-label="Go to homepage" className="inline-block">
               <Image
                 src="/images/footer.png"
                 alt="Mega Putra Logo"
-                width={180}
-                height={40}
-                className="w-auto h-auto cursor-pointer"
+                width={220}
+                height={48}
+                className="h-6 w-auto sm:h-8 lg:h-8"
               />
             </Link>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold">{t.contactUs.toUpperCase()}</h3>
-            <div className="flex items-center mt-3 space-x-2">
-              <FaPhone className="text-sm mt-[2px]" />
-              <p className="text-xs">{t.phone}</p>
-            </div>
-            <div className="flex items-center mt-2 space-x-2">
-              <FaEnvelope className="text-sm mt-[2px]" />
-              <p className="text-xs">{t.email}</p>
+            <h3 className="text-sm font-semibold tracking-wide">
+              {t.contactUs.toUpperCase()}
+            </h3>
+
+            <div className="mt-3 space-y-2 text-xs">
+              <a
+                href={`tel:${t.phone.replace(/\\D/g, "")}`}
+                className="flex items-center gap-2 hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60 rounded"
+              >
+                <FaPhone className="text-sm mt-[2px]" />
+                <span>{t.phone}</span>
+              </a>
+              <a
+                href={`mailto:${t.email}`}
+                className="flex items-center gap-2 hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60 rounded break-all"
+              >
+                <FaEnvelope className="text-sm mt-[2px]" />
+                <span>{t.email}</span>
+              </a>
             </div>
           </div>
 
           {/* Address */}
           <div>
-            <h3 className="text-sm font-semibold">{t.addressTitle.toUpperCase()}</h3>
-            <p className="mt-3 text-xs leading-snug">{t.address}</p>
+            <h3 className="text-sm font-semibold tracking-wide">
+              {t.addressTitle.toUpperCase()}
+            </h3>
+            <p className="mt-3 text-xs leading-relaxed max-w-prose">
+              {t.address}
+            </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-semibold">{t.quickLinks.toUpperCase()}</h3>
-            <ul className="mt-3 grid sm:grid-cols-2 md:grid-cols-3 grid-cols-3 gap-y-1 text-xs ">
+          <nav aria-label={t.quickLinks} className="min-w-0">
+            <h3 className="text-sm font-semibold tracking-wide">
+              {t.quickLinks.toUpperCase()}
+            </h3>
+            <ul className="mt-3 grid grid-cols-2 md:grid-cols-3 gap-y-1 gap-x-4 text-xs">
               <li>
-                <Link
-                  href="/company"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/company" className="hover:text-[var(--color-lighter)]">
                   {t.company}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/solutions"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/solutions" className="hover:text-[var(--color-lighter)]">
                   {t.solutions}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/projects"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/projects" className="hover:text-[var(--color-lighter)]">
                   {t.portfolio}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/resources"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/resources" className="hover:text-[var(--color-lighter)]">
                   {t.resources}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/careers"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/careers" className="hover:text-[var(--color-lighter)]">
                   {t.careers}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-[var(--color-lighter)]"
-                >
+                <Link href="/contact" className="hover:text-[var(--color-lighter)]">
                   {t.contact}
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
-        {/* Social Media */}
-        <div className="flex flex-wrap gap-4 mt-8">
-          <FaFacebookF className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
-          <FaInstagram className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
-          <FaLinkedinIn className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
-          <FaYoutube className="text-xl cursor-pointer hover:text-[var(--color-lighter)]" />
+        {/* Social */}
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#"
+            aria-label="Facebook"
+            className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
+            rel="noopener"
+          >
+            <FaFacebookF className="text-xl sm:text-2xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="Instagram"
+            className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
+            rel="noopener"
+          >
+            <FaInstagram className="text-xl sm:text-2xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
+            rel="noopener"
+          >
+            <FaLinkedinIn className="text-xl sm:text-2xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="YouTube"
+            className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
+            rel="noopener"
+          >
+            <FaYoutube className="text-xl sm:text-2xl" />
+          </a>
         </div>
 
-        <div className="border-t border-white w-full my-4"></div>
+        {/* Divider */}
+        <hr className="my-6 border-white/40" />
 
-        {/* Bottom Info */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs">
-          <p>{t.copyright}</p>
-          <p>{t.rights}</p>
-        </div>
+        {/* Bottom */}
+      <div className="flex flex-row items-center justify-between text-[11px] sm:text-xs">
+  <p>
+    {t.copyright} © MegaPutra 2024
+  </p>
+  <p>{t.rights}</p>
+</div>
+
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer;                                                                                                                                                                                                              

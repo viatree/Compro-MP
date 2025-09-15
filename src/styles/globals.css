@@ -47,7 +47,7 @@ body {
   
 }
 [id] {
-  scroll-margin-top: 100px; /* atau setara tinggi navbar kamu */
+  scroll-margin-top: 100px;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -60,7 +60,7 @@ body {
 
 .circle-container {
   position: relative;
-  width: 200px; /* Ukuran lebih besar agar teks melingkar rapi */
+  width: 200px;
   height: 200px;
   display: flex;
   align-items: center;
