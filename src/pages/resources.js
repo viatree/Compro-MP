@@ -6,7 +6,7 @@ const i18n = {
   EN: {
     seoTitle: "Mega Putra | Solutions",
     seoDesc: "Mega Putra is a leading company in high-quality packaging solutions.",
-    ucTitle: "Solutions Page Under Construction",
+    ucTitle: "Resources Page Under Construction",
     ucSubtitle: "Our team is polishing the best details for you. Stay tuned.",
     primary: "Back to Home",
     secondary: "Need Help?",
@@ -14,7 +14,7 @@ const i18n = {
   ID: {
     seoTitle: "Mega Putra | Solusi",
     seoDesc: "Mega Putra adalah perusahaan terkemuka dalam solusi packaging dengan kualitas terbaik.",
-    ucTitle: "Halaman Solutions Sedang Disiapkan",
+    ucTitle: "Halaman Resources Sedang Disiapkan",
     ucSubtitle: "Tim kami sedang merapikan detail solusi terbaik untuk Anda. Nantikan pembaruan segera.",
     primary: "Kembali ke Beranda",
     secondary: "Butuh Bantuan?",
