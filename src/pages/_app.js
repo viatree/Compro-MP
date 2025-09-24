@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 export default function App({ Component, pageProps }) {
   return ( 
   <>
-      <LanguageProvider>
+  <LanguageProvider>
   <Navbar />
   <Component {...pageProps} />
   <WhatsappButton/>

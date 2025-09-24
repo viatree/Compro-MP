@@ -185,30 +185,28 @@ export default function Company() {
   px-4 sm:px-8 md:px-12" />
 
       {/* The Story */}
-    <section className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
-  <div className="w-full">
-    <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
-      {t.storyTitle}
-    </h2>
+      <section className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row items-start text-justify">
+        <div className="w-full">
+          <h2 className="my-2 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
+            {t.storyTitle}
+          </h2>
 
-    <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
-      Mega Putra was built on the principles of knowledge, determination, effort, and honesty—values that continue to shape who we are today. From the very beginning, quality has been our priority. Today, these founding principles are reflected in our corporate culture: <strong>Peduli</strong> (Care), <strong>Efisien</strong> (Efficient), <strong>Akurat</strong> (Accurate), and <strong>Kerjasama</strong> (Collaborate)—collectively known as PEAK. Mega Putra strives to be a trusted partner for employees, suppliers, and customers alike.
-    </p>
+          <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
+            Mega Putra was built on the principles of knowledge, determination, effort, and honesty—values that continue to shape who we are today. From the very beginning, quality has been our priority. Today, these founding principles are reflected in our corporate culture: <strong>Peduli</strong> (Care), <strong>Efisien</strong> (Efficient), <strong>Akurat</strong> (Accurate), and <strong>Kerjasama</strong> (Collaborate)—collectively known as PEAK. Mega Putra strives to be a trusted partner for employees, suppliers, and customers alike.
+          </p>
 
-    <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
-      We are committed to fostering an environment that encourages continuous improvement for our employees, building strong, transparent relationships with suppliers, and delivering high-quality products with exceptional service to our customers.Through these commitments, Mega Putra continues to set new standards of excellence and integrity in the printing and packaging industry.
-    </p>
-  </div>
-</section>
-
+          <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-light text-[var(--color-text)] mb-4">
+            We are committed to fostering an environment that encourages continuous improvement for our employees, building strong, transparent relationships with suppliers, and delivering high-quality products with exceptional service to our customers.Through these commitments, Mega Putra continues to set new standards of excellence and integrity in the printing and packaging industry.
+          </p>
+        </div>
+      </section>
 
       {/* Timeline */}
       <section className="my-10">
         <Timeline />
       </section>
 
-      {/* Vision and Mission */}
-      <section
+  <section
         id="vision"
         className="my-14 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
       >
@@ -262,10 +260,6 @@ export default function Company() {
         </div>
       </section>
 
-      {/* Technology */}
-      {/* <section className="my-10">
-        <Technology />
-      </section> */}
 
       {/* Capabilities */}
       <section id="capabilities" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">

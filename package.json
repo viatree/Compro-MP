@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint",
     "sitemap": "next-sitemap"
   },
@@ -19,7 +20,8 @@
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
