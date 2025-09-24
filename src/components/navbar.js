@@ -61,22 +61,35 @@ export default function Navbar() {
       ? "text-[var(--color-text)] font-regular"
       : "text-[var(--color-primary)] hover:text-[var(--color-lighter)]";
 
-  // Auto close on route change
+  // Tutup menu saat user klik item navigasi (mobile & desktop)
+  const handleNavigate = () => {
+    setMenuOpen(false);
+    setAboutOpen(false);
+    setDesktopAboutOpen(false);
+  };
+
+  // Auto close on route/hash change
   useEffect(() => {
-    const handleRoute = () => {
+    const handleRouteOrHash = () => {
       setMenuOpen(false);
       setAboutOpen(false);
       setDesktopAboutOpen(false);
     };
-    router.events?.on("routeChangeComplete", handleRoute);
-    return () => router.events?.off("routeChangeComplete", handleRoute);
+    router.events?.on("routeChangeComplete", handleRouteOrHash);
+    router.events?.on("hashChangeComplete", handleRouteOrHash);
+    return () => {
+      router.events?.off("routeChangeComplete", handleRouteOrHash);
+      router.events?.off("hashChangeComplete", handleRouteOrHash);
+    };
   }, [router.events]);
 
   // Click outside to close (mobile)
   useEffect(() => {
     const onClickOutside = (e) => {
       if (!menuRef.current) return;
-      if (menuOpen && !menuRef.current.contains(e.target)) setMenuOpen(false);
+      if (menuOpen && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
     };
     document.addEventListener("mousedown", onClickOutside);
     return () => document.removeEventListener("mousedown", onClickOutside);
@@ -100,7 +113,7 @@ export default function Navbar() {
       <div className="mx-auto flex items-center justify-between py-3">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Link href="/" aria-label="Go to homepage" className="block">
+          <Link href="/" aria-label="Go to homepage" className="block" onClick={handleNavigate}>
             <Image
               src="/images/logo.png"
               alt="Mega Putra Logo"
@@ -154,7 +167,7 @@ export default function Navbar() {
         <div className="hidden xl:flex items-center xl:gap-6 2xl:gap-8">
           <ul className="flex items-center xl:gap-6 2xl:gap-8 xl:text-[15px] 2xl:text-[16px] font-medium text-[var(--color-primary)]">
             <li>
-              <Link href="/" className={isActive("/")}>
+              <Link href="/" className={isActive("/")} onClick={handleNavigate}>
                 {t.home}
               </Link>
             </li>
@@ -169,6 +182,7 @@ export default function Navbar() {
                   href="/company"
                   className={`${isActive("/company")} flex items-center`}
                   aria-label="Go to Company page"
+                  onClick={handleNavigate}
                 >
                   {t.aboutUs}
                 </Link>
@@ -206,6 +220,7 @@ export default function Navbar() {
                     <Link
                       href="/company#about"
                       className="block px-4 py-2 hover:bg-[var(--color-text25)]"
+                      onClick={handleNavigate}
                     >
                       {t.aboutMegaPutra}
                     </Link>
@@ -214,6 +229,7 @@ export default function Navbar() {
                     <Link
                       href="/company#vision"
                       className="block px-4 py-2 hover:bg-[var(--color-text25)]"
+                      onClick={handleNavigate}
                     >
                       {t.vision}
                     </Link>
@@ -222,6 +238,7 @@ export default function Navbar() {
                     <Link
                       href="/company#capabilities"
                       className="block px-4 py-2 hover:bg-[var(--color-text25)]"
+                      onClick={handleNavigate}
                     >
                       {t.capabilities}
                     </Link>
@@ -230,6 +247,7 @@ export default function Navbar() {
                     <Link
                       href="/company#values"
                       className="block px-4 py-2 hover:bg-[var(--color-text25)]"
+                      onClick={handleNavigate}
                     >
                       {t.values}
                     </Link>
@@ -238,6 +256,7 @@ export default function Navbar() {
                     <Link
                       href="/company#certifications"
                       className="block px-4 py-2 hover:bg-[var(--color-text25)]"
+                      onClick={handleNavigate}
                     >
                       {t.certifications}
                     </Link>
@@ -247,27 +266,27 @@ export default function Navbar() {
             </li>
 
             <li>
-              <Link href="/solutions" className={isActive("/solutions")}>
+              <Link href="/solutions" className={isActive("/solutions")} onClick={handleNavigate}>
                 {t.solutions}
               </Link>
             </li>
             <li>
-              <Link href="/projects" className={isActive("/projects")}>
+              <Link href="/projects" className={isActive("/projects")} onClick={handleNavigate}>
                 {t.portfolio}
               </Link>
             </li>
             <li>
-              <Link href="/resources" className={isActive("/resources")}>
+              <Link href="/resources" className={isActive("/resources")} onClick={handleNavigate}>
                 {t.resources}
               </Link>
             </li>
             <li>
-              <Link href="/careers" className={isActive("/careers")}>
+              <Link href="/careers" className={isActive("/careers")} onClick={handleNavigate}>
                 {t.careers}
               </Link>
             </li>
             <li>
-              <Link href="/contact" className={isActive("/contact")}>
+              <Link href="/contact" className={isActive("/contact")} onClick={handleNavigate}>
                 {t.contact}
               </Link>
             </li>
@@ -309,7 +328,7 @@ export default function Navbar() {
       >
         <ul className="flex flex-col gap-4 px-6 py-6 text-md font-medium ">
           <li>
-            <Link href="/" className={isActive("/")}>
+            <Link href="/" className={isActive("/")} onClick={handleNavigate}>
               {t.home.toUpperCase()}
             </Link>
           </li>
@@ -321,6 +340,7 @@ export default function Navbar() {
                 href="/company"
                 className={isActive("/company")}
                 aria-label="Go to Company page"
+                onClick={handleNavigate}
               >
                 {t.aboutUs.toUpperCase()}
               </Link>
@@ -332,9 +352,7 @@ export default function Navbar() {
                 onClick={() => setAboutOpen((s) => !s)}
               >
                 <FiChevronDown
-                  className={`transition-transform ${
-                    aboutOpen ? "rotate-180" : "rotate-0"
-                  }`}
+                  className={`transition-transform ${aboutOpen ? "rotate-180" : "rotate-0"}`}
                 />
               </button>
             </div>
@@ -342,35 +360,33 @@ export default function Navbar() {
             <div
               id="about-accordion"
               className={`grid transition-all duration-300 ${
-                aboutOpen
-                  ? "grid-rows-[1fr] opacity-100"
-                  : "grid-rows-[0fr] opacity-0"
+                aboutOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               }`}
             >
               <div className="overflow-hidden">
                 <ul className="pl-3 text-[15px] text-[var(--color-primary)]">
                   <li>
-                    <Link href="/company#about" className="block py-2">
+                    <Link href="/company#about" className="block py-2" onClick={handleNavigate}>
                       {t.aboutMegaPutra}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/company#vision" className="block py-2">
+                    <Link href="/company#vision" className="block py-2" onClick={handleNavigate}>
                       {t.vision}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/company#capabilities" className="block py-2">
+                    <Link href="/company#capabilities" className="block py-2" onClick={handleNavigate}>
                       {t.capabilities}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/company#values" className="block py-2">
+                    <Link href="/company#values" className="block py-2" onClick={handleNavigate}>
                       {t.values}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/company#certifications" className="block py-2">
+                    <Link href="/company#certifications" className="block py-2" onClick={handleNavigate}>
                       {t.certifications}
                     </Link>
                   </li>
@@ -380,27 +396,27 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/solutions" className={isActive("/solutions")}>
+            <Link href="/solutions" className={isActive("/solutions")} onClick={handleNavigate}>
               {t.solutions.toUpperCase()}
             </Link>
           </li>
           <li>
-            <Link href="/projects" className={isActive("/projects")}>
+            <Link href="/projects" className={isActive("/projects")} onClick={handleNavigate}>
               {t.portfolio.toUpperCase()}
             </Link>
           </li>
           <li>
-            <Link href="/resources" className={isActive("/resources")}>
+            <Link href="/resources" className={isActive("/resources")} onClick={handleNavigate}>
               {t.resources.toUpperCase()}
             </Link>
           </li>
           <li>
-            <Link href="/careers" className={isActive("/careers")}>
+            <Link href="/careers" className={isActive("/careers")} onClick={handleNavigate}>
               {t.careers.toUpperCase()}
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={isActive("/contact")}>
+            <Link href="/contact" className={isActive("/contact")} onClick={handleNavigate}>
               {t.contact.toUpperCase()}
             </Link>
           </li>

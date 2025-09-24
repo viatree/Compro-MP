@@ -21,8 +21,6 @@ const translations = {
       "Choose from a variety of high-quality materials tailored to your packaging and branding needs",
     materialsDesc:
       "Mega Putra offers a selection of high-quality materials to suit diverse product requirements, brand positioning, and sustainability goals. Our available options include:",
-    materialsNote1:
-      "Selected materials are available with FSC certification upon request.",
     materialsNote2:
       "Don’t see the material you’re looking for? Talk to us — we are happy to explore sourcing options to meet your project needs.",
     finishesTitle: "Finishing",
@@ -149,6 +147,11 @@ const materials = {
       description:
         "Specialty textures and colours to create unique, premium brand experiences.",
     },
+           "Selected materials are available with FSC certification upon request.": {
+      image: "/images/finishing.png",
+      description: "",
+    },
+
   },
 
   ID: {
@@ -175,6 +178,10 @@ const materials = {
     "FANCY PAPER": {
       image: "/images/finishing.png",
       description: "Tekstur dan warna khusus untuk menciptakan pengalaman merek yang unik dan premium.",
+    },
+       "Selected materials are available with FSC certification upon request.": {
+      image: "/images/finishing.png",
+      description: "",
     },
 
   },
@@ -401,9 +408,6 @@ export default function Solutions() {
       </ul>
       {/* Link Note versi desktop */}
       <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.materialsNote1}</Link>
-        <br />
-        <br />
         <Link href="/contact">{t.materialsNote2}</Link>
       </p>
     </div>

@@ -57,18 +57,19 @@ const Footer = () => {
       <div className="mx-auto py-10 px-4 md:px-16 lg:px-24 xl:px-43 ">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-4 lg:grid-cols-4">
           {/* Logo */}
-          <div>
-            <Link href="/" aria-label="Go to homepage" className="inline-block">
-              <Image
-                src="/images/footer.png"
-                alt="Mega Putra Logo"
-                width={220}
-                height={48}
-                className="h-6 w-auto sm:h-8 lg:h-8"
-              />
-            </Link>
-          </div>
-
+         <div>
+  <Link href="/" aria-label="Go to homepage" className="inline-block">
+    <Image
+      src="/images/footer.png"
+      alt="Mega Putra Logo"
+      width={220}          // intrinsic untuk perhitungan ratio
+      height={48}
+      className="w-[140px] sm:w-[180px] lg:w-[220px] h-auto"
+      priority
+      sizes="(min-width:1024px) 220px, (min-width:640px) 180px, 140px"
+    />
+  </Link>
+</div>
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold tracking-wide">

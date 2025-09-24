@@ -205,8 +205,9 @@ export default function Company() {
       <section className="my-10">
         <Timeline />
       </section>
-
-  <section
+      
+      {/* Vision & Mission */}
+      <section
         id="vision"
         className="my-14 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col md:flex-row gap-8 items-start"
       >
@@ -217,7 +218,9 @@ export default function Company() {
               src="/images/pict8.png"
               alt="Employee working in a printing company"
               fill
-              className="object-fill object-top"
+              // className="object-fill object-top"
+               className="object-fill object-top" 
+               sizes="(min-width:1024px) 50vw, (min-width:768px) 50vw, 100vw"
             />
           </div>
         </div>
@@ -236,6 +239,7 @@ export default function Company() {
                 alt="Employee"
                 fill
                 className=" object-cover object-top"
+                sizes="100vw"
               />
             </div>
           </div>

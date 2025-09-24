@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const faqsData = {
   EN: [
     {
-      question: "What is the recruitment process like?",
+      question: "What's the recruitment process like?",
       answer:
         "Our recruitment process involves five key steps: apply online, interview with HR or the hiring manager, complete an assessment test, attend a final interview, and receive an offer if selected. We aim to make the process transparent and supportive at every stage.",
     },
