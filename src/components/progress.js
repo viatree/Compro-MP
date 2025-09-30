@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Briefcase, Calculator, PackageOpen, CheckCircle, Truck } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext"; // ✅ tambahkan
-
+import { useLanguage } from "../contexts/LanguageContext";
 export default function Progress() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { language } = useLanguage(); // ✅ gunakan context
+  const { language } = useLanguage(); 
 
   const translations = {
     EN: {
@@ -66,7 +65,7 @@ export default function Progress() {
   return (
     <section className="relative w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 bg-white">
       {/* Heading */}
-      <div className="text-left mb-10">
+      <div className="text-left mb-4">
         <h1 className="text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-[var(--color-primary)]">
           {t.heading}
         </h1>
@@ -75,7 +74,7 @@ export default function Progress() {
       {/* Steps + Content */}
       <div className="flex flex-col md:flex-row items-start">
         {/* Step list */}
-        <div className="flex flex-col space-y-6 md:w-1/3">
+        <div className="flex flex-col space-y-3 md:w-1/3">
           {t.steps.map((step, index) => {
             const isActive = activeIndex === index;
             return (
@@ -105,7 +104,7 @@ export default function Progress() {
 
         {/* Dynamic Content */}
         <div className="w-full md:w-2/3 mt-6 md:mt-0">
-          <div className="bg-[#E6F6FC] p-4 sm:p-6 md:p-8 flex items-start gap-4 sm:gap-5 shadow-md rounded">
+          <div className="bg-[#E6F6FC] p-4 sm:p-6 md:p-8 flex items-start gap-4 sm:gap-5 shadow-md ">
             <div className="shrink-0">{stepContents[activeIndex].icon}</div>
             <div>
               <h2 className="text-gray-900 font-medium mb-2 text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px]">

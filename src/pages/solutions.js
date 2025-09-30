@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import SEO from "../components/seo";
 import FAQS from "../components/faqs";
 import { useLanguage } from "../contexts/LanguageContext";
-import Link from "next/link";
+import UltraCallout from "../components/CleanCallout";
+import ImageWithSideList from "../components/imageWithSideList";
 
 const translations = {
   EN: {
@@ -60,7 +61,6 @@ const translations = {
       "Biarkan kami membantu memilih teknik finishing yang tepat untuk meningkatkan kemasan dan daya tarik merek Anda",
   },
 };
-
 const products = {
   EN: {
     "FOLDING CARTON BOXES": {
@@ -125,7 +125,7 @@ const materials = {
       image: "/images/finishing.png",
       description: "Lightweight and reliable, ideal for leaflets, inserts, and manuals.",
     },
-    "METTALIZED PAPER": {
+    "METALIZED PAPER": {
       image: "/images/finishing.png",
       description: "Adds a luxurious metallic finish for high-impact packaging designs.",
     },
@@ -147,9 +147,10 @@ const materials = {
       description:
         "Specialty textures and colours to create unique, premium brand experiences.",
     },
-           "Selected materials are available with FSC certification upon request.": {
+           "FSC PAPER": {
       image: "/images/finishing.png",
-      description: "",
+     description:
+        "                                                                               ",
     },
 
   },
@@ -159,7 +160,7 @@ const materials = {
       image: "/images/finishing.png",
       description: "Ringan dan andal, ideal untuk leaflet, sisipan, dan buku panduan.",
     },
-    "METTALIZED PAPER": {
+    "METALIZED PAPER": {
       image: "/images/finishing.png",
       description: "Memberikan tampilan metalik mewah untuk desain kemasan yang mencolok.",
     },
@@ -266,6 +267,7 @@ const finishes = {
 
   },
 };
+
 export default function Solutions() {
   const { language } = useLanguage();
   const t = translations[language];
@@ -296,7 +298,7 @@ export default function Solutions() {
     />
 
     {/* Hero */}
-    <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 mt-20">
+    <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 mt-20">
       <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
         {t.pageTitle}
       </h1>
@@ -318,9 +320,9 @@ export default function Solutions() {
   "
 ></section>
 
- {/* Products Section */}
-<section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-  <div className="my-6 text-[var(--color-text)] font-medium">
+{/* Products Section */}
+ <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+  <div className="my-4 text-[var(--color-text)] font-medium">
     <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
       {t.productsTitle}
     </h1>
@@ -332,53 +334,23 @@ export default function Solutions() {
     </h3>
   </div>
 
-  <div className="flex flex-col md:flex-row gap-8">
-    {/* List */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
-      <ul>
-        {Object.keys(products[language] || {}).map((product) => (
-          <li
-            key={product}
-            className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${
-              selectedProduct === product ? "font-bold text-[var(--color-primary)]" : ""
-            }`}
-            onClick={() => setSelectedProduct(product)}
-          >
-            {product}
-          </li>
-        ))}
-      </ul>
-      {/* Link Note versi desktop */}
-      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.productsNote}</Link>
-      </p>
-    </div>
+  <ImageWithSideList
+    items={Object.keys(products[language] || {}).map(k => ({
+      key: k,
+      image: products[language][k].image,
+      description: products[language][k].description,
+    }))}
+    selectedKey={selectedProduct}
+    onSelect={(k) => setSelectedProduct(k)}
+    titleRender={(k) => k}    
+    minH={380}/>
 
-    {/* Gambar & Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
-      {products[language]?.[selectedProduct] && (
-        <>
-          <img
-            src={products[language][selectedProduct].image}
-            alt={selectedProduct}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {products[language][selectedProduct].description}
-          </p>
-        </>
-      )}
-      {/* Link Note versi mobile */}
-      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.productsNote}</Link>
-      </p>
-    </div>
-  </div>
+  <UltraCallout href="/contact">{t.productsNote}</UltraCallout>
 </section>
 
 {/* Materials Section */}
-<section className="py-4 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-  <div className="text-[var(--color-text)] font-medium">
+<section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+  <div className="mb-6 text-[var(--color-text)] font-medium">
     <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
       {t.materialsTitle}
     </h1>
@@ -390,56 +362,27 @@ export default function Solutions() {
     </h3>
   </div>
 
-  <div className="flex flex-col md:flex-row gap-8">
-    {/* List */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
-      <ul>
-        {Object.keys(materials[language] || {}).map((material) => (
-          <li
-            key={material}
-            className={`cursor-pointer p-2 border-b border-[var(--color-text25)] ${
-              selectedMaterials === material ? "font-bold text-[var(--color-primary)]" : ""
-            }`}
-            onClick={() => setSelectedMaterials(material)}
-          >
-            {material}
-          </li>
-        ))}
-      </ul>
-      {/* Link Note versi desktop */}
-      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.materialsNote2}</Link>
-      </p>
-    </div>
+  <ImageWithSideList
+    items={Object.keys(materials[language] || {})
+      .filter(k => k !== "Selected materials are available with FSC certification upon request.")
+      .map(k => ({
+        key: k,
+        image: materials[language][k].image,
+        description: materials[language][k].description,
+      }))
+    }
+     selectedKey={selectedMaterials}
+    onSelect={(k) => setSelectedMaterials(k)}
+    titleRender={(k) => k}
+    minH={480}
+  />
 
-    {/* Gambar & Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
-      {materials[language]?.[selectedMaterials] && (
-        <>
-          <img
-            src={materials[language][selectedMaterials].image}
-            alt={selectedMaterials}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {materials[language][selectedMaterials].description}
-          </p>
-        </>
-      )}
-      {/* Link Note versi mobile */}
-      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.materialsNote1}</Link>
-        <br />
-        <br />
-        <Link href="/contact">{t.materialsNote2}</Link>
-      </p>
-    </div>
-  </div>
+  <UltraCallout href="/contact">{t.materialsNote2}</UltraCallout>
 </section>
 
 {/* Finishing Section */}
 <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-  <div className="mb-6 text-[var(--color-text)] font-bold">
+  <div className="mb-6 text-[var(--color-text)] font-medium">
     <h1 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
       {t.finishesTitle}
     </h1>
@@ -451,51 +394,20 @@ export default function Solutions() {
     </h3>
   </div>
 
-  <div className="flex flex-col md:flex-row gap-8">
-    {/* List */}
-    <div className="w-full md:w-1/3 font-medium text-[var(--color-text)] order-1 md:order-2">
-      <ul>
-        {Object.keys(finishes[language] || {}).map((finish) => (
-          <li
-            key={finish}
-            className={`cursor-pointer p-2 border-b-2 border-[var(--color-text25)] ${
-              selectedFinish === finish ? "font-bold text-[var(--color-primary)]" : ""
-            }`}
-            onClick={() => setSelectedFinish(finish)}
-          >
-            {finish}
-          </li>
-        ))}
-      </ul>
-      {/* Link Note versi desktop */}
-      <p className="hidden md:block mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.finishesNote}</Link>
-      </p>
-    </div>
+  <ImageWithSideList
+    items={Object.keys(finishes[language] || {}).map(k => ({
+      key: k,
+      image: finishes[language][k].image,
+      description: finishes[language][k].description,
+    }))}
+    selectedKey={selectedFinish}
+    onSelect={(k) => setSelectedFinish(k)}
+    titleRender={(k) => k}
+    minH={480}
+  />
 
-    {/* Gambar & Deskripsi */}
-    <div className="w-full md:w-2/3 text-[var(--color-text)] order-2 md:order-2">
-      {finishes[language]?.[selectedFinish] && (
-        <>
-          <img
-            src={finishes[language][selectedFinish].image}
-            alt={selectedFinish}
-            className="w-full max-w-full h-auto shadow-lg"
-          />
-          <p className="mt-4 text-sm sm:text-base lg:text-lg">
-            {finishes[language][selectedFinish].description}
-          </p>
-        </>
-      )}
-      {/* Link Note versi mobile */}
-      <p className="block md:hidden mt-6 text-sm text-[var(--color-primary)] underline cursor-pointer text-justify hover:text-[var(--color-darker)]">
-        <Link href="/contact">{t.finishesNote}</Link>
-      </p>
-    </div>
-  </div>
+  <UltraCallout href="/contact">{t.finishesNote}</UltraCallout>
 </section>
-
-
     <FAQS />
   </>
 );

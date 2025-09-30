@@ -54,10 +54,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_nxj4w1l",     // Ganti dengan ID EmailJS kamu
-        "template_n1o1dlt",    // Ganti dengan Template ID
+        "service_nxj4w1l",
+        "template_n1o1dlt",
         form.current,
-        "aX6rt1D7R3Ox4irfc"    // Ganti dengan Public Key
+        "aX6rt1D7R3Ox4irfc" 
       )
       .then(
         () => {
@@ -86,9 +86,12 @@ export default function Contact() {
         <img
           src="/images/backg.png"
           alt="Contact Banner"
-          className="w-full h-[350px] object-cover"
+          className="w-full h-[350px] object-cover bg-cover bg-center flex items-end h-[100px] sm:h-[210px] md:h-[260px] lg:h-[310px] mt-18 "
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 flex items-center justify-center">
+        <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 flex items-center justify-center  h-[150px]    
+  sm:h-[240px] 
+  md:h-[280px]  
+  lg:h-[310px]  ">
           <h1 className="text-white text-5xl font-bold">{t.title}</h1>
         </div>
       </section>
@@ -96,7 +99,7 @@ export default function Contact() {
       {/* Contact Info and Form */}
       <section className="text-white py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-[30px] sm:text-[40px] font-medium text-[var(--color-primary)]">{t.subtitle}</h2>
+          <h2 className="text-[30px] sm:text-[40px] font-medium text-[var(--color-primary)] mt-8">{t.subtitle}</h2>
           <p className="my-2 text-[var(--color-text)] sm:text-[20px]">{t.description}</p>
 
           <div className="my-6 text-[var(--color-text)]">
@@ -115,7 +118,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="bg-white text-[var(--color-text)] rounded-3xl shadow-xl p-6 text-[var(--color-text)]">
+        <div className="bg-white text-[var(--color-text)] border border-[var(--color-primary)] rounded-3xl p-6 text-[var(--color-text)]">
           <h2 className="text-[40px] font-medium my-2">{t.formTitle.split(" ")[0]} <span className="text-[var(--color-primary)]">{t.formTitle.split(" ")[1]}</span></h2>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">

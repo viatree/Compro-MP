@@ -96,7 +96,7 @@ const cards = {
 };
 
 export default function Home() {
-  const { language } = useLanguage(); // ✅ Gunakan context
+  const { language } = useLanguage();
   const t = translations[language];
   const cardContent = cards[language];
 
@@ -137,7 +137,7 @@ export default function Home() {
             {t.certifications}
           </p>
           <Link href="/solutions">
-            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded-md cursor-pointer">
+            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-darker)] transition-all duration-300 text-white font-semibold text-[clamp(0.9rem,2vw,1.125rem)] px-6 py-2 rounded cursor-pointer">
               {t.cta}
             </button>
           </Link>
@@ -149,7 +149,7 @@ export default function Home() {
         <h2 className="my-2 text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">
           {t.offerTitle}
         </h2>
-        <h3 className="my-4 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
+        <h3 className="my-2 text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">
           {t.offerSubtitle}
         </h3>
         <p className="text-justify text-[var(--color-text)] text-[12px] md:text-[14px] lg:text-[16px] font-light">

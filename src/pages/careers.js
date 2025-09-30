@@ -81,7 +81,7 @@ export default function Careers() {
         image="/images/og-image.jpg"
         url="https://megaputra.com"
       />
-      <section className="relative bg-[url('/images/banner5.png')] bg-cover bg-center flex items-end h-[100px] sm:h-[210px] md:h-[260px] lg:h-[310px] mt-18" />
+      <section className="relative bg-[url('/images/banner5.png')] bg-cover bg-center flex items-end h-[100px] sm:h-[210px] md:h-[260px] lg:h-[300px] mt-18" />
 
       <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h1 className=" text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">

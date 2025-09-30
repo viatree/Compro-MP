@@ -331,9 +331,9 @@ export default function Company() {
 
       {/* CTA */}
       <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 text-center bg-[#E6F6FC]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-[14px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-[var(--color-text)] py-6 px-8 md:px-4 lg:px-4">{t.cta}</p>
-          <button className="bg-[var(--color-primary)] text-white font-medium lg:px-6 md:px-4 sm:px-2 px-2 py-3 rounded-md hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px]">
+          <button className="bg-[var(--color-primary)] text-white font-medium lg:px-6 md:px-4 sm:px-2 px-2 py-3 hover:bg-[var(--color-lighter)] transition inline-flex items-center gap-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] cursor-pointer ">
             {t.ctaBtn}
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
