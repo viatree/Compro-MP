@@ -43,12 +43,12 @@ const translations = {
         desc: "Advanced offset and UV printing technology delivering vibrant colours, multi-colour printing, and specialised finishes.",
       },
       {
-        src: "/images/7RV03872.jpg",
+        src: "/images/7RV04106.jpg",
         title: "Finishing & Embellishments",
         desc: "Premium post-press finishing options including hot stamping, embossing, laminating, window patching, and spot UV.",
       },
       {
-        src: "/images/7RV03354.jpg",
+        src: "/images/7RV03671.jpg",
         title: "Quality Control",
         desc: "Automated and manual quality control processes following QC AQL standards to ensure consistent, high-quality production.",
       },
@@ -264,7 +264,6 @@ export default function Company() {
         </div>
       </section>
 
-
       {/* Capabilities */}
       <section id="capabilities" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4  text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.capabilitiesTitle}</h2>
@@ -317,7 +316,7 @@ export default function Company() {
       <section id="certifications" className="my-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
         <h2 className="my-4 text-[28px] sm:text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)]">{t.certificationTitle}</h2>
         <h3 className="my-4 text-[16px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-left text-[var(--color-text)]">{t.certificationSubtitle}</h3>
-        <p className="text-left text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] my-4">{t.certificationDesc}</p>
+        <p className="text-left text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-[var(--color-text)] font-light my-4">{t.certificationDesc}</p>
         <div className="grid grid-cols-3 md:grid-cols-3 text-center">
           {t.certifications.map(({ img, title, desc }, i) => (
             <div key={i} className="bg-white flex flex-col items-center">

@@ -71,7 +71,6 @@ const translations = {
 export default function Careers() {
   const { language } = useLanguage();
   const t = translations[language];
-
   return (
     <>
       <SEO

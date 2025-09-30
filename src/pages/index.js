@@ -220,7 +220,7 @@ export default function Home() {
   <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
     {[
       {
-        image: "/images/7RV03608.jpg",
+        image: "/images/7RV03409.jpg",
         title: t.box1Title,
         desc: t.box1Desc,
         linkText: t.box1Link,
