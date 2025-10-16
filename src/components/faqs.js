@@ -95,7 +95,7 @@ export default function FAQ() {
 
   return (
     <section className="w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-      <h2 className="text-[34px] font-semibold text-[var(--color-primary)] mb-6 border-b-4 border-[var(--color-primary)] pb-2">
+      <h2 className="text-[34px] font-semibold text-[var(--color-primary)] mb-6 border-b-4 border-[var(--color-primary)] pb-2 ">
         {sectionTitle}
       </h2>
 
@@ -107,7 +107,7 @@ export default function FAQ() {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between items-center py-4 text-left text-lg font-medium text-[var(--color-text)] focus:outline-none"
+              className="w-full flex justify-between items-center py-4 text-left text-lg font-medium text-[var(--color-text)] focus:outline-none cursor-pointer"
             >
               <span>{faq.question}</span>
               {openIndex === index ? (

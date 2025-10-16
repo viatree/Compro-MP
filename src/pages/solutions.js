@@ -76,7 +76,7 @@ const products = {
         "Enhance product presentation and brand storytelling with customised hangtags.",
     },
     "LEAFLETS": {
-      image: "/images/finishing.png",
+      image: "/images/ANDALAN LEAFLET.jpg",
       description:
         "Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.",
     },
@@ -104,7 +104,7 @@ const products = {
         "Tingkatkan tampilan produk dan cerita merek dengan hangtag yang disesuaikan.",
     },
     "LEAFLETS": {
-      image: "/images/finishing.png",
+      image: "/images/ANDALAN LEAFLET.jpg",
       description:
         "Informasi yang fleksibel, dengan berbagai opsi lipatan untuk berbagai jenis produk dan kebutuhan regulasi.",
     },

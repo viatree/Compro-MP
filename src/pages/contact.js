@@ -97,7 +97,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info and Form */}
-      <section className="text-white py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="text-white py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 grid grid-cols-1 lg:grid-cols-2 gap-12 ">
         <div>
           <h2 className="text-[30px] sm:text-[40px] font-medium text-[var(--color-primary)] mt-8">{t.subtitle}</h2>
           <p className="my-2 text-[var(--color-text)] sm:text-[20px]">{t.description}</p>
@@ -165,7 +165,7 @@ export default function Contact() {
             ></textarea>
             <button
               type="submit"
-              className="bg-[var(--color-primary)] text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition"
+              className="bg-[var(--color-primary)] text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition cursor-pointer"
             >
               {t.button}
             </button>

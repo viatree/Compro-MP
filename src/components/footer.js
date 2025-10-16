@@ -57,19 +57,19 @@ const Footer = () => {
       <div className="mx-auto py-10 px-4 md:px-16 lg:px-24 xl:px-43 ">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-4 lg:grid-cols-4">
           {/* Logo */}
-         <div>
-  <Link href="/" aria-label="Go to homepage" className="inline-block">
-    <Image
-      src="/images/footer.png"
-      alt="Mega Putra Logo"
-      width={220}          // intrinsic untuk perhitungan ratio
-      height={48}
-      className="w-[140px] sm:w-[180px] lg:w-[220px] h-auto"
-      priority
-      sizes="(min-width:1024px) 220px, (min-width:640px) 180px, 140px"
-    />
-  </Link>
-</div>
+          <div>
+            <Link href="/" aria-label="Go to homepage" className="inline-block">
+              <Image
+                src="/images/footer.png"
+                alt="Mega Putra Logo"
+                width={220}          // intrinsic untuk perhitungan ratio
+                height={48}
+                className="w-[140px] sm:w-[180px] lg:w-[220px] h-auto"
+                priority
+                sizes="(min-width:1024px) 220px, (min-width:640px) 180px, 140px"
+              />
+            </Link>
+          </div>
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold tracking-wide">
@@ -147,7 +147,7 @@ const Footer = () => {
         {/* Social */}
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="#"
+            href="https://www.facebook.com/share/14F7rtRxeJv/?mibextid=wwXIfr"
             aria-label="Facebook"
             className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
             rel="noopener"
@@ -155,7 +155,7 @@ const Footer = () => {
             <FaFacebookF className="text-xl sm:text-2xl" />
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/megaputra.id/?igsh=djhnejgydGFyZGx6#"
             aria-label="Instagram"
             className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
             rel="noopener"
@@ -163,7 +163,7 @@ const Footer = () => {
             <FaInstagram className="text-xl sm:text-2xl" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/megaputra/posts/?feedView=all"
             aria-label="LinkedIn"
             className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
             rel="noopener"
@@ -171,7 +171,7 @@ const Footer = () => {
             <FaLinkedinIn className="text-xl sm:text-2xl" />
           </a>
           <a
-            href="#"
+            href="https://www.youtube.com/@megaputra5719"
             aria-label="YouTube"
             className="inline-flex p-2 rounded hover:text-[var(--color-lighter)] focus:outline-none focus:ring-2 focus:ring-white/60"
             rel="noopener"
@@ -184,12 +184,12 @@ const Footer = () => {
         <hr className="my-6 border-white/40" />
 
         {/* Bottom */}
-      <div className="flex flex-row items-center justify-between text-[11px] sm:text-xs">
-  <p>
-    {t.copyright} © MegaPutra 2024
-  </p>
-  <p>{t.rights}</p>
-</div>
+        <div className="flex flex-row items-center justify-between text-[11px] sm:text-xs">
+          <p>
+            {t.copyright} © MegaPutra 2024
+          </p>
+          <p>{t.rights}</p>
+        </div>
 
       </div>
     </footer>

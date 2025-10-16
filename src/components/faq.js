@@ -64,10 +64,10 @@ export default function FAQ() {
       : "Pertanyaan yang Sering Diajukan (FAQ)";
 
   return (
-    <section className="w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col lg:flex-row items-start gap-8">
+    <section className="w-full py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43 flex flex-col lg:flex-row items-start gap-8 ">
       {/* FAQ Content */}
       <div className="w-full lg:w-1/2">
-        <h2 className="text-[var(--color-primary)] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium border-b-4 border-[var(--color-primary)] pb-2">
+        <h2 className="text-[var(--color-primary)] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium border-b-4 border-[var(--color-primary)] pb-2 ">
           {sectionTitle}
         </h2>
         <div className="w-full mt-4">
@@ -77,7 +77,7 @@ export default function FAQ() {
               className="border-b border-[var(--color-text25)] py-3"
             >
               <button
-                className="w-full text-left flex justify-between items-center text-[16px] font-medium focus:outline-none text-[var(--color-text)]"
+                className="w-full text-left flex justify-between items-center text-[16px] font-medium focus:outline-none text-[var(--color-text)] cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
