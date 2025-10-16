@@ -2,8 +2,9 @@ import SEO from "../components/seo";
 import Progress from "../components/progress";
 import Link from "next/link";
 import Image from "next/image";
-import { FiArrowRight } from "react-icons/fi"
-import { useLanguage } from "../contexts/LanguageContext"; // ✅ Tambah ini
+import { FiArrowRight } from "react-icons/fi";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useEffect, useState } from "react";
 
 const translations = {
   EN: {
@@ -50,48 +51,16 @@ const translations = {
 
 const cards = {
   EN: [
-    {
-      img: "/images/7RV03391.jpg",
-      title: "Packaging Development & Prototyping",
-      desc: "Sample creation with advanced flatbed cutting",
-    },
-    {
-      img: "/images/7RV03558.jpg",
-      title: "High-Quality Offset & UV Printing",
-      desc: "Versatile printing with in-line coating and embossing",
-    },
-    {
-      img: "/images/7RV03872.jpg",
-      title: "Customised Colour Development",
-      desc: "In-house colour lab for precise brand matching",
-    },
-    {
-      img: "/images/7RV03354.jpg",
-      title: "Comprehensive In-House Production",
-      desc: "End-to-end service for seamless project execution",
-    },
+    { img: "/images/7RV03391.jpg", title: "Packaging Development & Prototyping", desc: "Sample creation with advanced flatbed cutting" },
+    { img: "/images/7RV03558.jpg", title: "High-Quality Offset & UV Printing", desc: "Versatile printing with in-line coating and embossing" },
+    { img: "/images/7RV03872.jpg", title: "Customised Colour Development", desc: "In-house colour lab for precise brand matching" },
+    { img: "/images/7RV03354.jpg", title: "Comprehensive In-House Production", desc: "End-to-end service for seamless project execution" },
   ],
   ID: [
-    {
-      img: "/images/7RV03391.jpg",
-      title: "Pengembangan & Prototipe Kemasan",
-      desc: "Pembuatan sampel dengan pemotongan flatbed canggih",
-    },
-    {
-      img: "/images/7RV03558.jpg",
-      title: "Offset & UV Printing Berkualitas Tinggi",
-      desc: "Pencetakan fleksibel dengan pelapisan dan embossing in-line",
-    },
-    {
-      img: "/images/7RV03872.jpg",
-      title: "Pengembangan Warna Khusus",
-      desc: "Lab warna internal untuk pencocokan warna merek yang presisi",
-    },
-    {
-      img: "/images/7RV03354.jpg",
-      title: "Produksi Lengkap di Dalam Perusahaan",
-      desc: "Layanan menyeluruh untuk pelaksanaan proyek yang lancar",
-    },
+    { img: "/images/7RV03391.jpg", title: "Pengembangan & Prototipe Kemasan", desc: "Pembuatan sampel dengan pemotongan flatbed canggih" },
+    { img: "/images/7RV03558.jpg", title: "Offset & UV Printing Berkualitas Tinggi", desc: "Pencetakan fleksibel dengan pelapisan dan embossing in-line" },
+    { img: "/images/7RV03872.jpg", title: "Pengembangan Warna Khusus", desc: "Lab warna internal untuk pencocokan warna merek yang presisi" },
+    { img: "/images/7RV03354.jpg", title: "Produksi Lengkap di Dalam Perusahaan", desc: "Layanan menyeluruh untuk pelaksanaan proyek yang lancar" },
   ],
 };
 
@@ -100,8 +69,67 @@ export default function Home() {
   const t = translations[language];
   const cardContent = cards[language];
 
+  const [pageLoading, setPageLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const afterHydration = new Promise((resolve) => {
+      if (typeof window === "undefined") return resolve();
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    });
+
+    const fontsReady =
+      typeof document !== "undefined" && document.fonts && document.fonts.ready
+        ? document.fonts.ready.catch(() => {})
+        : Promise.resolve();
+
+    const imagesReady = new Promise((resolve) => {
+      if (typeof document === "undefined") return resolve();
+      const imgs = Array.from(document.images || []);
+      if (imgs.length === 0) return resolve();
+
+      let done = 0;
+      const check = () => (++done >= imgs.length) && resolve();
+
+      imgs.forEach((img) => {
+        if (img.complete) return check();
+        img.addEventListener("load", check, { once: true });
+        img.addEventListener("error", check, { once: true });
+      });
+    });
+
+    const fallback = new Promise((resolve) => setTimeout(resolve, 8000));
+
+    Promise.race([
+      Promise.all([afterHydration, fontsReady, imagesReady]),
+      fallback,
+    ]).then(() => {
+      if (!cancelled) setPageLoading(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [language]);
+
+  useEffect(() => {
+    if (!pageLoading) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [pageLoading]);
+
   return (
     <>
+      {/* Overlay Loader */}
+      {pageLoading && (
+        <div className="fixed inset-0 z-[9999] bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center">
+          <div className="w-12 h-12 rounded-full border-4 border-[var(--color-primary)] border-t-transparent animate-spin" />
+          <p className="mt-4 text-sm text-[var(--color-text)]">Loading…</p>
+        </div>
+      )}
+
       <SEO
         title="Mega Putra | Quality is Priority"
         description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging dengan kualitas terbaik."
@@ -182,86 +210,74 @@ export default function Home() {
 
       {/* Progress Section */}
       <Progress />
-      
+
       {/* Quality Section */}
-<section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
-  <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
-    {t.qualityTitle}
-  </h2>
+      <section className="py-10 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
+        <h2 className="text-[28px] md:text-[30px] lg:text-[40px] font-medium text-left text-[var(--color-primary)] mb-10">
+          {t.qualityTitle}
+        </h2>
 
-  <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
-    {[
-      {
-        img: "/images/sgs.png",
-        title: "ISO 9001:2015",
-        since: "Since 2010",
-      },
-      {
-        img: "/images/fsc.png",
-        title: "Certificate number: C151498",
-        since: "Since 2019",
-      },
-      {
-        img: "/images/halal.png",
-        title: "ID36410020910631224",
-        since: "Since 2024",
-      },
-    ].map(({ img, title, since }, i) => (
-      <div key={i} className="flex flex-col items-center">
-        <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
-        <p className="text-[12px] md:text-[14px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
-          <span className="font-medium block">{title}</span>
-          <span className="font-light block mt-1">{since}</span>
-        </p>
-      </div>
-    ))}
-  </div>
-
-  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-    {[
-      {
-        image: "/images/7RV03409.jpg",
-        title: t.box1Title,
-        desc: t.box1Desc,
-        linkText: t.box1Link,
-        href: "/solutions",
-      },
-      {
-        image: "/images/7RV04057.jpg",
-        title: t.box2Title,
-        desc: t.box2Desc,
-        linkText: t.box2Link,
-        href: "/company",
-      },
-    ].map(({ image, title, desc, linkText, href }, i) => (
-      <Link key={i} href={href} className="block h-full group">
-        <div className="relative flex flex-col h-full transition duration-300 hover:brightness-100">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-[150px] sm:h-[200px] md:h-[200px] object-cover"
-          />
-          <div className="flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300">
-            <div>
-              <h4 className="text-[14px] md:text-[16px] lg:text-[20px] font-reguler">
-                {title}
-              </h4>
-              <p className="text-[12px] md:text-[14px] lg:text-[16px] font-light mt-1">
-                {desc}
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8 text-center">
+          {[
+            { img: "/images/sgs.png", title: "ISO 9001:2015", since: "Since 2010" },
+            { img: "/images/fsc.png", title: "Certificate number: C151498", since: "Since 2019" },
+            { img: "/images/halal.png", title: "ID36410020910631224", since: "Since 2024" },
+          ].map(({ img, title, since }, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <img src={img} alt={title} className="h-20 sm:h-24 mb-4" />
+              <p className="text-[12px] md:text-[14px] lg:text-[16px] mt-2 text-[var(--color-text)] max-w-xs">
+                <span className="font-medium block">{title}</span>
+                <span className="font-light block mt-1">{since}</span>
               </p>
             </div>
-            <div className="mt-4 flex items-center justify-end gap-2">
-              <span className="inline-block font-light text-[16px] group-hover:underline">
-                {linkText}
-              </span>
-              <FiArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
+          ))}
         </div>
-      </Link>
-    ))}
-  </div>
-</section>
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              image: "/images/7RV03409.jpg",
+              title: t.box1Title,
+              desc: t.box1Desc,
+              linkText: t.box1Link,
+              href: "/solutions",
+            },
+            {
+              image: "/images/7RV04057.jpg",
+              title: t.box2Title,
+              desc: t.box2Desc,
+              linkText: t.box2Link,
+              href: "/company",
+            },
+          ].map(({ image, title, desc, linkText, href }, i) => (
+            <Link key={i} href={href} className="block h-full group">
+              <div className="relative flex flex-col h-full transition duration-300 hover:brightness-100">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-[150px] sm:h-[200px] md:h-[200px] object-cover"
+                />
+                <div className="flex flex-col justify-between flex-grow bg-[#E6F6FC] text-[var(--color-text)] group-hover:bg-primary group-hover:text-white p-6 transition-colors duration-300">
+                  <div>
+                    <h4 className="text-[14px] md:text-[16px] lg:text-[20px] font-reguler">
+                      {title}
+                    </h4>
+                    <p className="text-[12px] md:text-[14px] lg:text-[16px] font-light mt-1">
+                      {desc}
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-end gap-2">
+                    <span className="inline-block font-light text-[16px] group-hover:underline">
+                      {linkText}
+                    </span>
+                    <FiArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

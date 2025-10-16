@@ -41,15 +41,12 @@ const translations = {
 export default function Timeline() {
   const { language } = useLanguage();
   const t = translations[language] || translations["EN"];
-
-  // ===== Responsiveness (tanpa ubah tampilan/animasi) =====
   const trackRef = useRef(null);
   const containerRef = useRef(null);
   const [itemsPerPage, setItemsPerPage] = useState(3); // default sama seperti sebelumnya
   const [stride, setStride] = useState(360); // default 360px seperti animasi awal
 
   const [startIndex, setStartIndex] = useState(0);
-  const scrollInterval = useRef(null);
 
   // Mode: buttons only on desktop (>=1024px), swipe on tablet & mobile
   const [isTouchMode, setIsTouchMode] = useState(false);
@@ -121,18 +118,6 @@ export default function Timeline() {
     });
   };
 
-  const startAutoScroll = (dir) => {
-    stopAutoScroll();
-    scrollInterval.current = setInterval(() => handleScroll(dir), 1000);
-  };
-
-  const stopAutoScroll = () => {
-    if (scrollInterval.current) {
-      clearInterval(scrollInterval.current);
-      scrollInterval.current = null;
-    }
-  };
-
   // Swipe handlers (aktif hanya saat touch mode)
   const onDragEnd = (_e, info) => {
     if (!isTouchMode) return;
@@ -141,11 +126,10 @@ export default function Timeline() {
     const dx = (info.offset && info.offset.x) || 0; // negatif jika geser ke kiri
 
     if (dx <= -threshold || vx < -300) {
-      handleScroll("right"); // geser kartu ke kiri => pindah index ke kanan
+      handleScroll("right");
     } else if (dx >= threshold || vx > 300) {
-      handleScroll("left"); // geser kartu ke kanan => pindah index ke kiri
+      handleScroll("left"); 
     }
-    // jika tidak melewati ambang, akan snap kembali via animate ke startIndex
   };
 
   const canDrag = isTouchMode && t.timelineData.length > itemsPerPage;
@@ -163,33 +147,31 @@ export default function Timeline() {
       </h2>
 
       <div className="relative flex items-center">
-        {/* Gradient Fades (tetap sama) */}
+       
         <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white via-blue/30 to-transparent pointer-events-none z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white via-blue/30 to-transparent pointer-events-none z-10" />
 
-        {/* Left Button: tampilkan hanya di desktop */}
+       
         {!isTouchMode && startIndex > 0 && (
           <button
             onClick={() => handleScroll("left")}
-            onMouseEnter={() => startAutoScroll("left")}
-            onMouseLeave={stopAutoScroll}
-            className="absolute left- sm:left-0 z-20 p-2 md:p-3 rounded-full bg-[var(--color-primary)] text-white hover:scale-110 transition sm:-translate-x-1/2 md:-translate-x-full top-1/2 -translate-y-1/2"
+            className="absolute left- sm:left-0 z-20 p-2 md:p-3 rounded-full bg-[var(--color-primary)] text-white transition sm:-translate-x-1/2 md:-translate-x-full top-1/2 -translate-y-1/2 cursor-pointer"
           >
             <FaChevronLeft className="text-[16px] md:text-[20px]" />
           </button>
         )}
 
-        {/* Timeline Cards: drag di mobile/tablet, tampilan kartu tetap sama */}
+        {/* Timeline Cards */}
         <div className="overflow-hidden flex-1 px-4">
           <motion.div
             ref={trackRef}
-            className={`flex space-x-6 transition-transform duration-500 ease-out ${
+            className={`flex space-x-6 transition-transform duration-500 ease-out cursor-pointer ${
               isTouchMode ? "cursor-grab active:cursor-grabbing select-none" : ""
             }`}
             animate={{ x: -startIndex * stride }}
             drag={canDrag ? "x" : false}
             dragConstraints={canDrag ? dragBounds : { left: 0, right: 0 }}
-            dragElastic={0} // tanpa overscroll biar tidak bocor putih
+            dragElastic={0}
             dragMomentum={false}
             onDragEnd={onDragEnd}
           >
@@ -206,20 +188,18 @@ export default function Timeline() {
           </motion.div>
         </div>
 
-        {/* Right Button: tampilkan hanya di desktop */}
+        
         {!isTouchMode && startIndex + itemsPerPage < t.timelineData.length && (
           <button
             onClick={() => handleScroll("right")}
-            onMouseEnter={() => startAutoScroll("right")}
-            onMouseLeave={stopAutoScroll}
-            className="absolute right-2 sm:right-0 z-20 p-2 md:p-3 rounded-full bg-[var(--color-primary)] text-white hover:scale-110 transition sm:translate-x-1/2 md:translate-x-full top-1/2 -translate-y-1/2 "
+            className="absolute right-2 sm:right-0 z-20 p-2 md:p-3 rounded-full bg-[var(--color-primary)] text-white transition sm:translate-x-1/2 md:translate-x-full top-1/2 -translate-y-1/2 cursor-pointer"
           >
             <FaChevronRight className="text-[16px] md:text-[20px]" />
           </button>
         )}
       </div>
 
-      {/* Progress bar (tetap sama, tetapi berdasarkan itemsPerPage responsif) */}
+      {/* Progress bar */}
       <div className="mt-6 w-1/3  relative h-1 bg-[var(--color-card)] rounded">
         <motion.div
           className="absolute top-0 left-0 h-1 bg-[var(--color-primary)] rounded"

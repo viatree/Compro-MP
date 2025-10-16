@@ -22,6 +22,8 @@ const translations = {
       "Choose from a variety of high-quality materials tailored to your packaging and branding needs",
     materialsDesc:
       "Mega Putra offers a selection of high-quality materials to suit diverse product requirements, brand positioning, and sustainability goals. Our available options include:",
+      materialsFSCNote:
+      "Selected materials are available with FSC certification upon request.",
     materialsNote2:
       "Don’t see the material you’re looking for? Talk to us — we are happy to explore sourcing options to meet your project needs.",
     finishesTitle: "Finishing",
@@ -48,7 +50,7 @@ const translations = {
       "Pilih dari berbagai material berkualitas tinggi yang disesuaikan dengan kebutuhan kemasan dan branding Anda",
     materialsDesc:
       "Mega Putra menyediakan berbagai pilihan material berkualitas tinggi untuk memenuhi kebutuhan produk, posisi merek, dan tujuan keberlanjutan. Pilihan yang tersedia meliputi:",
-    materialsNote1:
+    materialsFSCNote:
       "Material tertentu tersedia dengan sertifikasi FSC sesuai permintaan.",
     materialsNote2:
       "Tidak menemukan material yang Anda cari? Hubungi kami — kami siap mencari opsi sumber daya yang sesuai dengan kebutuhan proyek Anda.",
@@ -64,12 +66,12 @@ const translations = {
 const products = {
   EN: {
     "FOLDING CARTON BOXES": {
-      image: "/images/finishing.png",
+      image: "/images/7RV03886.jpg",
       description:
         "Ideal for cosmetics, pharmaceuticals, FMCG, and other industries, combining durability and premium branding.",
     },
     "HANGTAGS": {
-      image: "/images/finishing.png",
+      image: "/images/Hangtag 1.jpg",
       description:
         "Enhance product presentation and brand storytelling with customised hangtags.",
     },
@@ -79,12 +81,12 @@ const products = {
         "Informative and versatile, with multiple folding options available to suit different product types and regulatory needs.",
     },
     "PROMOTIONAL ITEMS": {
-      image: "/images/finishing.png",
+      image: "/images/7RV03891(1).jpg",
       description:
         "Specially designed paper-based promotional materials to support marketing and brand campaigns.",
     },
     "LABELS": {
-      image: "/images/finishing.png",
+      image: "/images/sidomuncul.jpg",
       description:
         "High-quality labels for brand recognition, compliance, and product differentiation.",
     },
@@ -92,12 +94,12 @@ const products = {
 
   ID: {
     "FOLDING CARTON BOXES": {
-      image: "/images/finishing.png",
+      image: "/images/7RV03886.jpg",
       description:
         "Ideal untuk kosmetik, farmasi, FMCG, dan industri lainnya, menggabungkan ketahanan dan citra merek premium.",
     },
     "HANGTAGS": {
-      image: "/images/finishing.png",
+      image: "/images/Hangtag 1.jpg",
       description:
         "Tingkatkan tampilan produk dan cerita merek dengan hangtag yang disesuaikan.",
     },
@@ -107,12 +109,12 @@ const products = {
         "Informasi yang fleksibel, dengan berbagai opsi lipatan untuk berbagai jenis produk dan kebutuhan regulasi.",
     },
     "PROMOTIONAL ITEMS": {
-      image: "/images/finishing.png",
+      image: "/images/7RV03891(1).jpg",
       description:
         "Bahan promosi berbasis kertas yang dirancang khusus untuk mendukung kampanye pemasaran dan merek.",
     },
     "LABELS": {
-      image: "/images/finishing.png",
+      image: "/images/sidomuncul.jpg",
       description:
         "Label berkualitas tinggi untuk pengenalan merek, kepatuhan, dan diferensiasi produk.",
     },
@@ -126,11 +128,11 @@ const materials = {
       description: "Lightweight and reliable, ideal for leaflets, inserts, and manuals.",
     },
     "METALIZED PAPER": {
-      image: "/images/finishing.png",
+      image: "/images/Ultima.jpg",
       description: "Adds a luxurious metallic finish for high-impact packaging designs.",
     },
     "ART PAPER": {
-      image: "/images/finishing.png",
+      image: "/images/Pharmacy Packaging 6.jpg",
       description: "Smooth and versatile, ideal for high-quality printed packaging.",
     },
     "KRAFT PAPER": {
@@ -147,11 +149,6 @@ const materials = {
       description:
         "Specialty textures and colours to create unique, premium brand experiences.",
     },
-           "FSC PAPER": {
-      image: "/images/finishing.png",
-     description:
-        "                                                                               ",
-    },
 
   },
 
@@ -161,11 +158,11 @@ const materials = {
       description: "Ringan dan andal, ideal untuk leaflet, sisipan, dan buku panduan.",
     },
     "METALIZED PAPER": {
-      image: "/images/finishing.png",
+      image: "/images/Ultima.jpg",
       description: "Memberikan tampilan metalik mewah untuk desain kemasan yang mencolok.",
     },
     "ART PAPER": {
-      image: "/images/finishing.png",
+      image: "/images/Pharmacy Packaging 6.jpg",
       description: "Halus dan serbaguna, ideal untuk kemasan cetak berkualitas tinggi.",
     },
     "KRAFT PAPER": {
@@ -293,7 +290,7 @@ export default function Solutions() {
       title={`Mega Putra | ${t.productsTitle}`}
       description="Mega Putra adalah perusahaan terkemuka dalam solusi packaging kertas dengan kualitas terbaik."
       keywords="packaging, printing, offset printing, box packaging, Mega Putra"
-      image="/images/og-image.jpg"
+      image="/images/7RV04057.jpg"
       url="https://megaputra.com"
     />
 
@@ -310,7 +307,7 @@ export default function Solutions() {
   <section
   className="
     relative
-    bg-[url('/images/banner3.png')]
+    bg-[url('/images/bluebox.jpg')]
     bg-cover bg-center
     flex items-end
     h-[180px] 
@@ -377,8 +374,10 @@ export default function Solutions() {
     minH={480}
   />
 
-  <UltraCallout href="/contact">{t.materialsNote2}</UltraCallout>
-</section>
+   <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <UltraCallout href="/contact">{t.materialsFSCNote}</UltraCallout>
+          <UltraCallout href="/contact">{t.materialsNote2}</UltraCallout>
+        </div></section>
 
 {/* Finishing Section */}
 <section className="py-6 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-43">
